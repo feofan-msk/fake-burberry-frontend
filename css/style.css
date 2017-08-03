@@ -292,3 +292,56 @@ body {
   text-decoration: none;
   color: #000000;
 }
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: #f3f3f3;
+}
+
+.button_country {
+  font-family: Raleway;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #999999;
+
+  padding: 0;
+  margin-bottom: 1rem;
+  background: inherit;
+  border: none;
+}
+
+.button_language {
+  font-family: Raleway;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #999999;
+
+  padding: 0;
+  margin-bottom: 1.5rem;
+  background: inherit;
+  border: none;
+}
+
+.need-help {
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.link_find-out {
+  font-size: 0.875rem;
+  line-height: 1.21;
+  font-family: Lora;
+  font-style: italic;
+
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #171717;
+}
