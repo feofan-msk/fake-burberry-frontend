@@ -1,7 +1,150 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 .header {
+  font-size: 0;
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   border-bottom: 1px solid #c6c6c6;
 }
 
+.header-logo {
+  width: 138px;
+  height: 10px;
+  margin: 1rem auto;
+  object-fit: contain;
+}
+
+.card {
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.card-title {
+  margin: 1rem;
+  font-family: 'Lora';
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #171717;
+}
+
+.card-slider {
+  display: flex;
+  overflow-x: auto;
+}
+
+.card-info {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-price {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.19;
+  color: #171717;
+} 
+
+.card-id {
+  margin: 0;
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #171717;
+  padding-top: 0.125rem;
+}
+
+.card-colour {
+  margin: 0 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.colour-current {
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #171717;
+  margin-bottom: 1rem;
+}
+
+.colour-selection {
+  display: flex;
+}
+
+.colour-icon-black, .colour-icon-brown {
+  margin-right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 0;
+  border: solid 1px #232122;
+}
+
+.colour-icon-black {
+  background-color: #000000;
+}
+  
+.colour-icon-brown {
+  background-color: #cfa880;
+}
+
+.button_select-a-size {
+  width: calc(100% - 2rem);
+  margin: 2rem 1rem 1rem;
+  padding: 1rem 0;
+
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  text-align: center;
+  color: #ffffff;
+
+  border-radius: 2px;
+  background-color: #171717;
+  border: solid 1px #171717;
+}
+
+.button_find-in-store {
+  width: calc(100% - 2rem);
+  margin: 0 1rem 1.5rem;
+  padding: 1rem 0;
+
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-align: center;
+  color: #171717; 
+
+  background-color: #ffffff;
+  border: solid 1px #999999;
+  border-radius: 2px;
+}
+
+.button_need-size-help {
+  margin: 0 1rem 3rem;
+  padding: 0;
+
+  background-color: #ffffff;
+  border: none;
+}
+
+.button_need-size-help-title {
+  margin: 0;
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: #171717;
+}
