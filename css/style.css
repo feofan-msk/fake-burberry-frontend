@@ -81,7 +81,8 @@ body {
   display: flex;
 }
 
-.colour-icon-black, .colour-icon-brown {
+.button_colour-black,
+.button_colour-brown {
   margin-right: 1rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -90,16 +91,18 @@ body {
   border: solid 1px #232122;
 }
 
-.colour-icon-black {
-  background-color: #000000;
+.button_colour-black {
+  background-color: #000;
 }
   
-.colour-icon-brown {
+.button_colour-brown {
   background-color: #cfa880;
 }
 
 .button_select-a-size {
+  box-sizing: border-box;
   width: calc(100% - 2rem);
+  height: 3rem;
   margin: 2rem 1rem 1rem;
   padding: 1rem 0;
 
@@ -108,7 +111,7 @@ body {
   font-size: 0.75rem;
   line-height: 1.33;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 
   border-radius: 2px;
   background-color: #171717;
@@ -116,7 +119,9 @@ body {
 }
 
 .button_find-in-store {
+  box-sizing: border-box;
   width: calc(100% - 2rem);
+  height: 3rem;
   margin: 0 1rem 1.5rem;
   padding: 1rem 0;
 
@@ -127,16 +132,17 @@ body {
   text-align: center;
   color: #171717; 
 
-  background-color: #ffffff;
+  background-color: #fff;
   border: solid 1px #999999;
   border-radius: 2px;
 }
 
 .button_need-size-help {
+  display: block;
   margin: 0 1rem 3rem;
   padding: 0;
 
-  background-color: #ffffff;
+  background-color: #fff;
   border: none;
 }
 
@@ -288,9 +294,9 @@ body {
   font-family: Lora;
   font-size: 0.875rem;
   font-style: italic;
-  line-height: 1.21;
+  line-height: 1.065rem;
   text-decoration: none;
-  color: #000000;
+  color: #000;
 }
 
 .footer {
@@ -304,6 +310,7 @@ body {
   line-height: 1rem;
   color: #999999;
 
+  display: block;
   padding: 0;
   margin-bottom: 1rem;
   background: inherit;
@@ -316,6 +323,7 @@ body {
   line-height: 1rem;
   color: #999999;
 
+  display: block;
   padding: 0;
   margin-bottom: 1.5rem;
   background: inherit;
@@ -336,7 +344,7 @@ body {
 
 .link_find-out {
   font-size: 0.875rem;
-  line-height: 1.21;
+  line-height: 1.0625rem;
   font-family: Lora;
   font-style: italic;
 
