@@ -71,7 +71,7 @@ body {
 .colour-current {
   font-family: Raleway;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.33;
   color: #171717;
   margin-bottom: 1rem;
@@ -168,9 +168,6 @@ body {
   content:  url(../img/triangle.svg);
   position: absolute;
   right: 0;
-}
-
-.descr--active .descr-header::after {
   transform: rotate(-180deg);
 }
 
@@ -189,4 +186,109 @@ body {
 
 .descr-text-break {
   line-height: 1.5rem;
+}
+
+.shipping-returns {
+  margin: 0;
+  padding: 2rem 1rem;
+  border-bottom: solid 1px #c6c6c6;
+
+  font-family: Raleway;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #171717;
+}
+
+.shipping-returns::after {
+  content: url(../img/triangle.svg);
+  position: absolute;
+  right: 1rem;
+}
+
+.we-recommend {
+  padding: 3rem 1rem 1rem;
+}
+
+.we-recommend-header {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: solid 1px #171717;
+
+  font-family: Raleway;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.19;
+  color: #171717;
+}
+
+.recommend-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recommend-card {
+  flex-basis: 8.125rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+.recommend-card-image {
+  display: block;
+  width: 130px;
+  height: 174px;
+}
+
+.recommend-card-title {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+  font-family: Lora;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.19;
+  color: #171717;
+}
+
+.recommend-card-price {
+  margin: 0;
+  padding-left: 1px;
+
+  font-family: Raleway;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  color: #999999;
+}
+
+.more-for-you {
+  margin-left: 1rem;
+  margin-bottom: 4rem;
+}
+
+.more-for-you-header {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: solid 1px #171717;
+
+  font-family: Raleway;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.19;
+  color: #171717;
+}
+
+.more-for-you-text {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: Lora;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.21;
+  text-decoration: none;
+  color: #000000;
 }
