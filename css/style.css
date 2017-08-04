@@ -9,21 +9,11 @@ body {
 .header {
   font-size: 0;
   text-align: center;
+  padding: 1rem 0;
   border-bottom: 1px solid #c6c6c6;
 }
 
-.header-logo {
-  width: 138px;
-  height: 10px;
-  margin: 1rem auto;
-  object-fit: contain;
-}
-
-.card {
-  border-bottom: 1px solid #c6c6c6;
-}
-
-.card-title {
+.product__title {
   margin: 1rem;
   font-family: 'Lora';
   font-weight: 400;
@@ -32,19 +22,30 @@ body {
   color: #171717;
 }
 
-.card-slider {
+.product__gallery {
   display: flex;
   overflow-x: auto;
 }
 
-.card-info {
-  margin: 1rem;
+.product__image {
+  width: 300px;
+  height: 400px;
+}
+
+.product__info {
+  box-sizing: border-box;
+  margin: 1rem 1rem 2rem;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.product__info-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
-.card-price {
+.product__price {
   margin: 0;
   font-weight: 400;
   font-size: 1rem;
@@ -52,7 +53,7 @@ body {
   color: #171717;
 } 
 
-.card-id {
+.product__id {
   margin: 0;
   font-family: 'Raleway';
   font-weight: 400;
@@ -62,13 +63,8 @@ body {
   padding-top: 0.125rem;
 }
 
-.card-colour {
-  margin: 0 1rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #c6c6c6;
-}
-
-.colour-current {
+.product__colour {
+  margin: 0;
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -77,77 +73,76 @@ body {
   margin-bottom: 1rem;
 }
 
-.colour-selection {
+.product__colour-btns {
   display: flex;
+  padding-bottom: 2rem;
 }
 
-.button_colour-black,
-.button_colour-brown {
+.colour-btn {
   margin-right: 1rem;
   width: 2.5rem;
-  height: 2.5rem;
+  height: 2.5rem; 
+  border: none;
   border-radius: 50%;
   font-size: 0;
-  border: solid 1px #232122;
 }
 
-.button_colour-black {
+.colour-btn_black {
   background-color: #000;
 }
-  
-.button_colour-brown {
+
+.colour-btn_brown {
   background-color: #cfa880;
 }
 
-.button_select-a-size {
-  box-sizing: border-box;
-  width: calc(100% - 2rem);
-  height: 3rem;
-  margin: 2rem 1rem 1rem;
-  padding: 1rem 0;
-
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.33;
-  text-align: center;
-  color: #fff;
-
-  border-radius: 2px;
-  background-color: #171717;
-  border: solid 1px #171717;
+.colour-btn_active {
+  border: solid 1px #232122;
 }
 
-.button_find-in-store {
-  box-sizing: border-box;
-  width: calc(100% - 2rem);
-  height: 3rem;
-  margin: 0 1rem 1.5rem;
-  padding: 1rem 0;
+.product__actions {
+  padding: 0 1rem 3rem;
+  border-bottom: solid 1px #c6c6c6;
+}
 
+.product__action-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-btn {
+  height: 3rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border: solid 1px #171717;
+
+  border-radius: 2px;
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1;
-  text-align: center;
-  color: #171717; 
+}
 
+.action-btn_black {
+  color: #fff;
+  background-color: #171717;
+  border: solid 1px #171717;
+}
+
+.action-btn_white {
+  color: #171717; 
   background-color: #fff;
   border: solid 1px #999999;
-  border-radius: 2px;
 }
 
-.button_need-size-help {
+.product__help-btn {
   display: block;
-  margin: 0 1rem 3rem;
+  margin: 0;
+  margin-top: 0.5rem;
   padding: 0;
-
   background-color: #fff;
   border: none;
-}
 
-.button_need-size-help-title {
-  margin: 0;
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -155,13 +150,23 @@ body {
   color: #171717;
 }
 
-.descr {
+.product__descr,
+.product__delivery {
   padding: 2rem 1rem;
   border-bottom: solid 1px #c6c6c6;
 }
 
-.descr-header {
+.product__btn-expand {
   position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.product__btn-expand-name {
   margin: 0;
   font-family: Raleway;
   font-size: 1rem;
@@ -170,14 +175,20 @@ body {
   color: #171717;
 }
 
-.descr-header::after {
+.product__btn-expand_open::after {
   content:  url(../img/triangle.svg);
   position: absolute;
   right: 0;
   transform: rotate(-180deg);
 }
 
-.descr-text {
+.product__btn-expand_closed::after {
+  content:  url(../img/triangle.svg);
+  position: absolute;
+  right: 0;
+}
+
+.product__descr-text {
   margin-top: 2rem;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -186,24 +197,8 @@ body {
   color: #171717;
 }
 
-.descr-text p {
-  margin: 0;
-}
-
-.descr-text-break {
-  line-height: 1.5rem;
-}
-
-.shipping-returns {
-  margin: 0;
-  padding: 2rem 1rem;
-  border-bottom: solid 1px #c6c6c6;
-
-  font-family: Raleway;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.25rem;
-  color: #171717;
+.product__descr-text p {
+  margin: 0;  
 }
 
 .shipping-returns::after {
@@ -212,11 +207,11 @@ body {
   right: 1rem;
 }
 
-.we-recommend {
+.recommendations {
   padding: 3rem 1rem 1rem;
 }
 
-.we-recommend-header {
+.recommendations__header {
   display: inline-block;
   padding-bottom: 0.5rem;
   margin-top: 0;
@@ -230,25 +225,24 @@ body {
   color: #171717;
 }
 
-.recommend-items {
+.recommendations__items {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.recommend-card {
-  flex-basis: 8.125rem;
+.recommendations__card {
+  flex-basis: 45%;
   margin-bottom: 2rem;
   text-decoration: none;
 }
 
-.recommend-card-image {
+.recommendations__card-image {
   display: block;
-  width: 130px;
-  height: 174px;
+  width: 100%;
 }
 
-.recommend-card-title {
+.recommendations__card-title {
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 
@@ -259,7 +253,7 @@ body {
   color: #171717;
 }
 
-.recommend-card-price {
+.recommendations__card-price {
   margin: 0;
   padding-left: 1px;
 
@@ -269,12 +263,12 @@ body {
   color: #999999;
 }
 
-.more-for-you {
+.more {
   margin-left: 1rem;
   margin-bottom: 4rem;
 }
 
-.more-for-you-header {
+.more__header {
   display: inline-block;
   padding-bottom: 0.5rem;
   margin-top: 0;
@@ -288,7 +282,7 @@ body {
   color: #171717;
 }
 
-.more-for-you-text {
+.more__link {
   display: block;
   margin-bottom: 1rem;
   font-family: Lora;
@@ -304,7 +298,7 @@ body {
   background-color: #f3f3f3;
 }
 
-.button_country {
+.footer_btn {
   font-family: Raleway;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -317,32 +311,21 @@ body {
   border: none;
 }
 
-.button_language {
-  font-family: Raleway;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #999999;
-
-  display: block;
-  padding: 0;
-  margin-bottom: 1.5rem;
-  background: inherit;
-  border: none;
-}
-
-.need-help {
+.footer_heading {
   font-family: Raleway;
   font-weight: bold;
   font-size: 1rem;
   line-height: 1rem;
 
+  display: block;
+  padding-top: 0.5rem;
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: center;
   text-decoration: none;
 }
 
-.link_find-out {
+.footer_link{
   font-size: 0.875rem;
   line-height: 1.0625rem;
   font-family: Lora;
