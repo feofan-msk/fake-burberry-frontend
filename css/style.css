@@ -37,6 +37,10 @@ body {
   overflow-x: auto;
 }
 
+.product__image {
+  height: 400px
+}
+
 .product__info {
   box-sizing: border-box;
   margin: 1rem 1rem 2rem;
@@ -225,7 +229,7 @@ body {
   }
 
   .product__image {
-    width: 432px;
+    height: 576px;
   }
 
   .product__info {
@@ -255,6 +259,10 @@ body {
     display: block;
   }
 
+  .delivery__image {
+    height: 324px;
+  }
+
   .delivery__header {
     margin: 0 0 1rem;
     font-family: Raleway;
@@ -274,6 +282,7 @@ body {
   .delivery__text {
     margin: 0 0 1.5rem;
     font-family: Raleway;
+    font-weight: 400;
     font-size: 0.75rem;
     line-height: 1rem;
     color: #171717;
@@ -333,24 +342,34 @@ body {
   margin: 0;
   padding-left: 1px;
 
+  
   font-family: Raleway;
+  font-weight: 400;
   font-size: 0.75rem;
   line-height: 0.875rem;
-  color: #999999;
+  color: #999;
 }
 
 @media screen and (min-width: 48rem) {
+
+  .recommendations {
+    margin: 1.25rem 0 0;
+  }
+
+  .recommendations__header {
+    margin-bottom: 1rem;
+  }
 }
 
 /* END recommendations section */
 
-/* more section */
-.more {
+/* similar-offers section */
+.similar-offers {
   margin-left: 1rem;
   margin-bottom: 4rem;
 }
 
-.more__header {
+.similar-offers__header {
   display: inline-block;
   padding-bottom: 0.5rem;
   margin-top: 0;
@@ -364,17 +383,25 @@ body {
   color: #171717;
 }
 
-.more__link {
+.similar-offers__link {
   display: block;
   margin-bottom: 1rem;
   font-family: Lora;
+  font-weight: 400;
   font-size: 0.875rem;
   font-style: italic;
   line-height: 1.065rem;
   text-decoration: none;
   color: #000;
 }
-/* END more section */
+
+@media screen and (min-width: 48rem) {
+
+  .similar-offers {
+    display: none;
+  }
+}
+/* END similar-offers section */
 
 /* footer section */
 .footer {
@@ -382,11 +409,12 @@ body {
   background-color: #f3f3f3;
 }
 
-.footer_btn {
+.footer__btn {
   font-family: Raleway;
+  font-weight: 400;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: #999999;
+  color: #999;
 
   display: block;
   padding: 0;
@@ -395,7 +423,7 @@ body {
   border: none;
 }
 
-.footer_heading {
+.footer__heading-help {
   font-family: Raleway;
   font-weight: bold;
   font-size: 1rem;
@@ -408,15 +436,62 @@ body {
   text-decoration: none;
 }
 
-.footer_link{
+.footer__link-help{
   font-size: 0.875rem;
   line-height: 1.0625rem;
   font-family: Lora;
+  font-weight: 400;
   font-style: italic;
 
   display: block;
   text-align: center;
   text-decoration: none;
   color: #171717;
+}
+
+.footer-menu {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+
+  .footer__help {
+    display: none;
+  }
+
+  .footer {
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-menu {
+  display: block;
+  }
+
+  .footer-menu__title {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 0.875rem;
+  text-transform: uppercase;
+  color: #171717;
+  }
+
+  .footer-menu__links a{
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: Raleway;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #999999;
+  text-decoration: none;
+  }
+
+  .footer__btn {
+    display: inline;
+    margin: 1.25rem 1.25rem 0 0;
+  }
 }
 /* END footer section */
