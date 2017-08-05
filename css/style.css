@@ -6,6 +6,7 @@ body {
   font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+/* header section */
 .header {
   font-size: 0;
   text-align: center;
@@ -13,6 +14,14 @@ body {
   border-bottom: 1px solid #c6c6c6;
 }
 
+@media screen and (min-width: 48rem) {
+  .header {
+    padding: 1.5rem;
+  }
+}
+/* END header section */
+
+/* product section */
 .product__title {
   margin: 1rem;
   font-family: 'Lora';
@@ -23,13 +32,9 @@ body {
 }
 
 .product__gallery {
-  display: flex;
+  font-size: 0;
+  white-space: nowrap;
   overflow-x: auto;
-}
-
-.product__image {
-  width: 300px;
-  height: 100%;
 }
 
 .product__info {
@@ -213,6 +218,45 @@ body {
   right: 1rem;
 }
 
+@media screen and (min-width: 48rem) {
+
+  .product__title {
+    margin: 1.5rem 0.5rem 1.5rem 0;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  .product__image {
+    width: 432px;
+  }
+
+  .product__info {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  .product__actions {
+    padding: 0;
+    border: none;
+  }
+
+  .product__descr {
+    padding: 1.5rem 0;
+    border: none;
+  }
+
+  .product__descr-text {
+    margin-top: 1rem;
+  }
+
+  .product__delivery {
+    display: none;
+  }
+}
+
+/* END product section */
+
+/* recommendations section */
 .recommendations {
   margin: 3rem 1rem 1rem;
 }
@@ -269,6 +313,16 @@ body {
   color: #999999;
 }
 
+@media screen and (min-width: 48rem) {
+
+  .recommendations {
+    margin: 0;
+  }
+}
+
+/* END recommendations section */
+
+/* more section */
 .more {
   margin-left: 1rem;
   margin-bottom: 4rem;
@@ -298,7 +352,9 @@ body {
   text-decoration: none;
   color: #000;
 }
+/* END more section */
 
+/* footer section */
 .footer {
   padding: 2rem 1rem;
   background-color: #f3f3f3;
@@ -341,3 +397,4 @@ body {
   text-decoration: none;
   color: #171717;
 }
+/* END footer section */
