@@ -4,6 +4,7 @@ html {
 
 body {
   font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Lora", serif;
 }
 
 /* header section */
@@ -260,7 +261,7 @@ body {
   }
 
   .delivery__image {
-    height: 324px;
+    width: 100%;
   }
 
   .delivery__header {
