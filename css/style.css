@@ -161,8 +161,8 @@ body {
   color: #171717;
 }
 
-.descr,
-.shipping {
+.product__descr,
+.product__shipping {
   padding: 2rem 1rem;
   border-bottom: solid 1px #c6c6c6;
 }
@@ -199,7 +199,7 @@ body {
   right: 0;
 }
 
-.descr__text {
+.product__descr-text {
   margin-top: 2rem;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -208,17 +208,17 @@ body {
   color: #171717;
 }
 
-.descr__text p {
+.product__descr-text p {
   margin: 0;  
 }
 
-.descr__text ul {
+.product__descr-text ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.delivery {
+.product__delivery {
   display: none;
 }
 
@@ -244,16 +244,16 @@ body {
     border: none;
   }
 
-  .descr {
+  .product__descr {
     padding: 1.5rem 0;
     border: none;
   }
 
-  .descr__text {
+  .product__descr-text {
     margin-top: 1rem;
   }
 
-  .shipping {
+  .product__shipping {
     display: none;
   }
 
@@ -261,15 +261,15 @@ body {
     display: none;
   }
   
-  .delivery {
+  .product__delivery {
     display: block;
   }
 
-  .delivery__image {
+  .product__delivery-image {
     width: 100%;
   }
 
-  .delivery__header {
+  .product__delivery-header {
     margin: 0 0 1rem;
     font-family: Raleway;
     font-size: 1rem;
@@ -277,7 +277,7 @@ body {
     color: #171717;
   }
 
-  .delivery__subheader {
+  .product__delivery-subheader {
     margin: 0 0 0.25rem;
     font-family: Raleway;
     font-size: 0.75rem;
@@ -285,7 +285,7 @@ body {
     color: #171717;
   }
 
-  .delivery__text {
+  .product__delivery-text {
     margin: 0 0 1.5rem;
     font-family: Raleway;
     font-weight: 400;
@@ -304,6 +304,7 @@ body {
 
 .recommendations__header {
   display: inline-block;
+  box-sizing: border-box;
   padding-bottom: 0.5rem;
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -477,6 +478,7 @@ body {
   .footer-menu__title {
   margin: 0 0 1rem 0;
   padding: 0;
+  font-family: Raleway;
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 0.875rem;
