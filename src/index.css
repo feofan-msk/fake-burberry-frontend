@@ -1,10 +1,12 @@
-html {
-  font-size: 16px;
-}
-
 body {
+  margin: 0;
+  padding: 0;
   font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: "Lora", serif;
+}
+
+html {
+  font-size: 16px;
 }
 
 /* header section */
@@ -184,17 +186,17 @@ body {
   font-weight: 500;
   line-height: 1.25;
   color: #171717;
-}
+} 
 
 .product__btn-expand_open::after {
-  content:  url(../img/triangle.svg);
+  content:  url(./assets/triangle.svg);
   position: absolute;
   right: 0;
   transform: rotate(-180deg);
 }
 
 .product__btn-expand_closed::after {
-  content:  url(../img/triangle.svg);
+  content:  url(./assets/triangle.svg);
   position: absolute;
   right: 0;
 }
@@ -503,3 +505,4 @@ body {
   }
 }
 /* END footer section */
+
