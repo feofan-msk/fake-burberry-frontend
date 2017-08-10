@@ -1,57 +1,45 @@
 import React from 'react';
+import styled from 'styled-components'
+import Navigation from './Navigation'
+import Help from './Help'
+
+const Footer = styled.footer`
+  padding: 2rem 1rem;
+  background-color: #f3f3f3;
+  @media screen and (min-width: 48rem) {
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+`
+const Btn = styled.button`
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #999;
+
+  display: block;
+  padding: 0;
+  margin-bottom: 1rem;
+  background: inherit;
+  border: none;
+  @media screen and (min-width: 48rem) {
+    display: inline;
+    margin: 1.25rem 1.25rem 0 0;
+  }
+`
 
 export default () => {
   return (
-    <footer className="footer">
+    <Footer>
       <div className="container">
-        <div className="footer-menu">
-          <div className="row">
-            <div className="col-md-3">
-              <h4 className="footer-menu__title">customer service</h4>
-              <nav className="footer-menu__links">
-                <a href="#">Contact Us</a>
-                <a href="#">Payment</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">Faqs</a>
-                <a href="#">Live Chat</a>
-                <a href="#">The Burberry App</a>
-                <a href="#">Store Locator</a>
-              </nav>
-            </div>
+        <Navigation />
 
-            <div className="col-md-3">
-              <h4 className="footer-menu__title">our company</h4>
-              <nav className="footer-menu__links">
-                <a href="#">Our History</a>
-                <a href="#">Burberry Group Pic</a>
-                <a href="#">Careers</a>
-                <a href="#">Corporate Responsibility</a>
-                <a href="#">Site Map</a>
-              </nav>
-            </div>
-            
-            <div className="col-md-4">
-              <h4 className="footer-menu__title">legal &amp; cookies</h4>
-              <nav className="footer-menu__links">
-                <a href="#">Terms &amp; Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Accessibility Statement</a>
-                <a href="#">Japan Only - SCTL indications</a>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        <button className="footer__btn" type="button">Shipping country: Russian Federation</button>
-        <button className="footer__btn" type="button">Language: English</button>
+        <Btn>Shipping country: Russian Federation</Btn>
+        <Btn>Language: English</Btn>
         
-        <section className="footer__help">
-          <h4 className="footer__heading-help">Need help?</h4>
-          <a className="footer__link-help" href="#">Find out more and contact us</a>
-        </section>
+        <Help />
       </div>
-    </footer>
+    </Footer>
   );
 };

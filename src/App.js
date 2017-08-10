@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './Header/Header';
-import Main from './Main/Main';
-import Footer from './Footer/Footer';
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
+import Header from './Header/Header'
+import Main from './Main/Main'
+import Footer from './Footer/Footer'
 
 class App extends Component {
   render() {
     return (
-      <div className="body">
+      <div>
+        <Helmet>
+          <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+        </Helmet>
         <Header />
         <Main />
         <Footer />
