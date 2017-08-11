@@ -1,7 +1,7 @@
 import React from "react";
 import Gallery from "./Gallery";
-import Info from "./Info/Info";
-import Actions from "./Actions/Actions";
+import Info from "./Info";
+import Actions from "./Actions";
 import styled from "styled-components";
 
 const Title = styled.h1`

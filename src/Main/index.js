@@ -1,10 +1,10 @@
 import React from "react";
-import Recommendations from "./Recommendations/Recommendations";
+import Recommendations from "./Recommendations";
 import SimilarOffers from "./SimilarOffers";
-import Card from "./Card/Card";
+import Card from "./Card";
 import Description from "./Description";
 import Shipping from "./Shipping";
-import Delivery from "./Delivery/Delivery";
+import Delivery from "./Delivery";
 
 export default () => {
   return (
