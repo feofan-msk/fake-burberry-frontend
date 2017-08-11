@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ActionBtn = styled.button`
+export default styled.button`
   height: 3rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -16,5 +16,3 @@ const ActionBtn = styled.button`
   background-color: ${props => (props.primary ? "#171717" : "#fff")};
   border: solid 1px ${props => (props.primary ? "#171717" : "#999")};
 `;
-
-export default ActionBtn;

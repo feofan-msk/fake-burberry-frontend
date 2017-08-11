@@ -1,6 +1,7 @@
 import React from "react";
 import ColourBtn from "./ColourBtn";
 import styled from "styled-components";
+import { FormattedNumber } from "react-intl";
 
 const Info = styled.section`
   box-sizing: border-box;
@@ -52,7 +53,14 @@ export default () => {
   return (
     <Info>
       <InfoWrapper>
-        <Price>110 000 руб.</Price>
+        <Price>
+          <FormattedNumber
+            value="110000"
+            style="currency"
+            currency="RUB"
+            minimumFractionDigits="0"
+          />
+        </Price>
         <Id>Item 39428531</Id>
       </InfoWrapper>
 
