@@ -12,9 +12,9 @@ const ActionBtn = styled.button`
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1;
-  color: ${props => (props.black ? "#fff" : "#171717")};
-  background-color: ${props => (props.black ? "#171717" : "#fff")};
-  border: solid 1px ${props => (props.black ? "#171717" : "#999")};
+  color: ${props => (props.primary ? "#fff" : "#171717")};
+  background-color: ${props => (props.primary ? "#171717" : "#fff")};
+  border: solid 1px ${props => (props.primary ? "#171717" : "#999")};
 `;
 
 export default ActionBtn;

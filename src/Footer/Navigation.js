@@ -19,18 +19,16 @@ const Title = styled.h4`
     color: #171717;
   }
 `;
-const Link = styled.nav`
+const Link = styled.a`
   @media screen and (min-width: 48rem) {
-    a {
-      display: block;
-      margin-bottom: 0.75rem;
-      font-family: Raleway;
-      font-weight: 600;
-      font-size: 0.75rem;
-      line-height: 1rem;
-      color: #999999;
-      text-decoration: none;
-    }
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #999999;
+    text-decoration: none;
   }
 `;
 
@@ -40,38 +38,38 @@ export default () => {
       <div className="row">
         <div className="col-md-3">
           <Title>customer service</Title>
-          <Link>
-            <a href="#">Contact Us</a>
-            <a href="#">Payment</a>
-            <a href="#">Shipping</a>
-            <a href="#">Returns</a>
-            <a href="#">Faqs</a>
-            <a href="#">Live Chat</a>
-            <a href="#">The Burberry App</a>
-            <a href="#">Store Locator</a>
-          </Link>
+          <nav>
+            <Link href="#">Contact Us</Link>
+            <Link href="#">Payment</Link>
+            <Link href="#">Shipping</Link>
+            <Link href="#">Returns</Link>
+            <Link href="#">Faqs</Link>
+            <Link href="#">Live Chat</Link>
+            <Link href="#">The Burberry App</Link>
+            <Link href="#">Store Locator</Link>
+          </nav>
         </div>
 
         <div className="col-md-3">
           <Title>our company</Title>
-          <Link>
-            <a href="#">Our History</a>
-            <a href="#">Burberry Group Pic</a>
-            <a href="#">Careers</a>
-            <a href="#">Corporate Responsibility</a>
-            <a href="#">Site Map</a>
-          </Link>
+          <nav>
+            <Link href="#">Our History</Link>
+            <Link href="#">Burberry Group Pic</Link>
+            <Link href="#">Careers</Link>
+            <Link href="#">Corporate Responsibility</Link>
+            <Link href="#">Site Map</Link>
+          </nav>
         </div>
 
         <div className="col-md-4">
           <Title>legal &amp; cookies</Title>
-          <Link>
-            <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Cookie Policy</a>
-            <a href="#">Accessibility Statement</a>
-            <a href="#">Japan Only - SCTL indications</a>
-          </Link>
+          <nav>
+            <Link href="#">Terms &amp; Conditions</Link>
+            <Link href="#">Privacy Policy</Link>
+            <Link href="#">Cookie Policy</Link>
+            <Link href="#">Accessibility Statement</Link>
+            <Link href="#">Japan Only - SCTL indications</Link>
+          </nav>
         </div>
       </div>
     </Navigation>

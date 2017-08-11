@@ -59,8 +59,8 @@ export default () => {
       <CurrColor>Colour: Honey</CurrColor>
 
       <BtnContainer>
-        <ColourBtn name="black" value="#000" />
-        <ColourBtn name="honey" value="#cfa880" active />
+        <ColourBtn label="black" value="#000" />
+        <ColourBtn label="honey" value="#cfa880" active />
       </BtnContainer>
     </Info>
   );

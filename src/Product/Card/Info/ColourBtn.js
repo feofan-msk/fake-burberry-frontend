@@ -14,7 +14,7 @@ const ColourBtn = styled.button`
 export default function(props) {
   return (
     <ColourBtn color={props.value} active={props.active} type="button">
-      Change colour to {props.name}
+      Change colour to {props.label}
     </ColourBtn>
   );
 }
