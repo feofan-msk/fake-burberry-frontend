@@ -10,9 +10,15 @@ import SimilarOffers from "./SimilarOffers";
 import styled from "styled-components";
 
 const Card = styled.div`
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
   background-color: transparent;
   @media screen and (min-width: 62rem) {
-    width: 100%;
     background-color: #d4bdad;
   }
 `;

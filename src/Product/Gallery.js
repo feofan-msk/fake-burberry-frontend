@@ -5,6 +5,7 @@ const Gallery = styled.section`
   font-size: 0;
   white-space: nowrap;
   overflow-x: auto;
+  padding-left: 0.5rem;
 `;
 const Image = styled.img`
   height: 400px;
