@@ -1,11 +1,12 @@
 import React from "react";
 import Gallery from "./Gallery";
 import Info from "./Info";
-import Recommendations from "./Recommendations";
-import SimilarOffers from "./SimilarOffers";
 import Description from "./Description";
+import Photos from "./Photos";
 import Shipping from "./Shipping";
 import Delivery from "./Delivery";
+import Recommendations from "./Recommendations";
+import SimilarOffers from "./SimilarOffers";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -66,6 +67,7 @@ export default () => {
         </div>
       </Card>
       <Description />
+      <Photos />
       <Shipping />
       <Delivery />
       <Recommendations />
