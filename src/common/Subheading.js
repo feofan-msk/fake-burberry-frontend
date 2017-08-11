@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Header = styled.h2`
   display: inline-block;
@@ -17,5 +17,5 @@ const Header = styled.h2`
     margin-bottom: 1rem;
   }
 }
-`
-export default Header
+`;
+export default Header;

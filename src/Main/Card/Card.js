@@ -1,8 +1,8 @@
-import React from 'react'
-import Gallery from './Gallery'
-import Info from './Info/Info'
-import Actions from './Actions/Actions'
-import styled from 'styled-components'
+import React from "react";
+import Gallery from "./Gallery";
+import Info from "./Info/Info";
+import Actions from "./Actions/Actions";
+import styled from "styled-components";
 
 const Title = styled.h1`
   margin: 1rem;
@@ -16,13 +16,13 @@ const Title = styled.h1`
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
-`
+`;
 
 export default () => {
   return (
     <section>
       <Title>Long Cotton Gabardine Car Coat</Title>
-      
+
       <div className="row">
         <div className="col-xs-12 col-md-7">
           <Gallery />

@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components'
-import Navigation from './Navigation'
-import Help from './Help'
+import React from "react";
+import styled from "styled-components";
+import Navigation from "./Navigation";
+import Help from "./Help";
 
 const Footer = styled.footer`
   padding: 2rem 1rem;
@@ -10,7 +10,7 @@ const Footer = styled.footer`
     padding: 2rem 0;
     margin-top: 4rem;
   }
-`
+`;
 const Btn = styled.button`
   font-family: Raleway;
   font-weight: 400;
@@ -27,7 +27,7 @@ const Btn = styled.button`
     display: inline;
     margin: 1.25rem 1.25rem 0 0;
   }
-`
+`;
 
 export default () => {
   return (
@@ -37,7 +37,7 @@ export default () => {
 
         <Btn>Shipping country: Russian Federation</Btn>
         <Btn>Language: English</Btn>
-        
+
         <Help />
       </div>
     </Footer>

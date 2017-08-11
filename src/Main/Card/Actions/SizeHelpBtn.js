@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const SizeHelpBtn = styled.button`
   display: block;
@@ -14,12 +14,8 @@ const SizeHelpBtn = styled.button`
   font-size: 0.75rem;
   line-height: 1.33;
   color: #171717;
-`
+`;
 
 export default () => {
-  return (
-    <SizeHelpBtn type="button">
-      NEED SIZE HELP?
-    </SizeHelpBtn>
-  );
+  return <SizeHelpBtn type="button">NEED SIZE HELP?</SizeHelpBtn>;
 };

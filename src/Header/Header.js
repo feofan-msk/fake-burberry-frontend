@@ -1,6 +1,6 @@
-import logo from '../assets/logo.svg';
-import React from 'react';
-import styled from 'styled-components'
+import logo from "../assets/logo.svg";
+import React from "react";
+import styled from "styled-components";
 
 const Header = styled.header`
   font-size: 0;
@@ -10,7 +10,7 @@ const Header = styled.header`
   @media screen and (min-width: 48rem) {
     padding: 1.5rem;
   }
-`
+`;
 
 export default () => {
   return (

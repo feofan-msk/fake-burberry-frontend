@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const Header = styled.h2`
   @media screen and (min-width: 48rem) {
@@ -9,7 +9,7 @@ const Header = styled.h2`
     font-weight: 500;
     color: #171717;
   }
-`
+`;
 const SubHeader = styled.h3`
   @media screen and (min-width: 48rem) {
     margin: 0 0 0.25rem;
@@ -18,7 +18,7 @@ const SubHeader = styled.h3`
     font-weight: bold;
     color: #171717;
   }
-`
+`;
 const Text = styled.p`
   @media screen and (min-width: 48rem) {
     margin: 0 0 1.5rem;
@@ -28,7 +28,7 @@ const Text = styled.p`
     line-height: 1rem;
     color: #171717;
   }
-`
+`;
 
 export default () => {
   return (
@@ -38,11 +38,16 @@ export default () => {
       <SubHeader>Free Next Day Delivery</SubHeader>
       <Text>Order before 7pm Monday to Thursday for delivery the next day</Text>
       <SubHeader>Collect-in-Store</SubHeader>
-      <Text>Order online today and pick up your items in store as early as tomorrow</Text>
+      <Text>
+        Order online today and pick up your items in store as early as tomorrow
+      </Text>
       <SubHeader>Free Returns</SubHeader>
       <Text>Enjoy free returns on your order</Text>
       <SubHeader>Free Gift Packaging</SubHeader>
-      <Text>Discover our gift packaging, a gold lined box tied with a coloured ribbon</Text>
+      <Text>
+        Discover our gift packaging, a gold lined box tied with a coloured
+        ribbon
+      </Text>
     </div>
   );
 };

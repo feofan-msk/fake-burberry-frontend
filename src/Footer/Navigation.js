@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const Navigation = styled.div`
   display: none;
   @media screen and (min-width: 48rem) {
     display: block;
   }
-`
+`;
 const Title = styled.h4`
   @media screen and (min-width: 48rem) {
     margin: 0 0 1rem 0;
@@ -18,21 +18,21 @@ const Title = styled.h4`
     text-transform: uppercase;
     color: #171717;
   }
-`
+`;
 const Link = styled.nav`
- @media screen and (min-width: 48rem) {
-  a {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-family: Raleway;
-    font-weight: 600;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: #999999;
-    text-decoration: none;
+  @media screen and (min-width: 48rem) {
+    a {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-family: Raleway;
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: #999999;
+      text-decoration: none;
+    }
   }
- }
-`
+`;
 
 export default () => {
   return (
@@ -62,7 +62,7 @@ export default () => {
             <a href="#">Site Map</a>
           </Link>
         </div>
-        
+
         <div className="col-md-4">
           <Title>legal &amp; cookies</Title>
           <Link>

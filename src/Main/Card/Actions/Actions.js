@@ -1,7 +1,7 @@
-import React from 'react'
-import ActionBtn from './ActionBtn'
-import SizeHelpBtn from './SizeHelpBtn'
-import styled from 'styled-components'
+import React from "react";
+import ActionBtn from "./ActionBtn";
+import SizeHelpBtn from "./SizeHelpBtn";
+import styled from "styled-components";
 
 const Actions = styled.section`
   padding: 0 1rem 3rem;
@@ -10,11 +10,11 @@ const Actions = styled.section`
     padding: 0;
     border: none;
   }
-`
+`;
 const BtnContainer = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export default () => {
   return (
@@ -23,12 +23,10 @@ export default () => {
         <ActionBtn black type="button">
           FIND IN STORE
         </ActionBtn>
-        <ActionBtn type="button">
-          FIND IN STORE
-        </ActionBtn>
+        <ActionBtn type="button">FIND IN STORE</ActionBtn>
       </BtnContainer>
 
       <SizeHelpBtn />
-    </Actions>  
+    </Actions>
   );
 };

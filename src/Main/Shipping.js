@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import SectionBtn from '../common/SectionBtn'
+import React from "react";
+import styled from "styled-components";
+import SectionBtn from "../common/SectionBtn";
 
 const Shipping = styled.section`
   padding: 2rem 1rem;
@@ -8,7 +8,7 @@ const Shipping = styled.section`
   @media screen and (min-width: 48rem) {
     display: none;
   }
-`
+`;
 
 export default () => {
   return (
