@@ -107,7 +107,7 @@ const Details = styled.div`
   }
 `;
 
-const Caption = styled.h3`
+const SubHeader = styled.h3`
   margin-bottom: 0.25rem;
   font-family: Raleway;
   font-size: 0.75rem;
@@ -174,7 +174,7 @@ export default () => {
       </Actions>
 
       <Details>
-        <Caption>Free Next Day Delivery</Caption>
+        <SubHeader>Free Next Day Delivery</SubHeader>
         <Text>
           Order before 7pm Monday to Thursday for delivery the next day
         </Text>
