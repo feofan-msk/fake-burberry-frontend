@@ -3,16 +3,22 @@ import { Helmet } from "react-helmet";
 import Header from "./Header";
 import Product from "./Product";
 import Footer from "./Footer";
+import { IntlProvider, addLocaleData } from "react-intl";
+import ruLocaleData from "react-intl/locale-data/ru";
+
+addLocaleData(ruLocaleData);
 
 export default () => {
   return (
-    <div>
-      <Helmet>
-        <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-      </Helmet>
-      <Header />
-      <Product />
-      <Footer />
-    </div>
+    <IntlProvider locale="ru">
+      <div>
+        <Helmet>
+          <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+        </Helmet>
+        <Header />
+        <Product />
+        <Footer />
+      </div>
+    </IntlProvider>
   );
 };
