@@ -129,7 +129,7 @@ export default () => {
       <InfoWrapper>
         <Price>
           <FormattedNumber
-            value="110000"
+            value={110000}
             style="currency"
             currency="RUB"
             minimumFractionDigits="0"

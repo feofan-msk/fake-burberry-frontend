@@ -13,7 +13,7 @@ const Shipping = styled.section`
 export default () => {
   return (
     <Shipping>
-      <SectionBtn title="SHIPPING & RETURNS" />
+      <SectionBtn>SHIPPING & RETURNS</SectionBtn>
     </Shipping>
   );
 };

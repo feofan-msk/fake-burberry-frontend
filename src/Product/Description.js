@@ -35,7 +35,7 @@ const Content = styled.article`
 const Photo = styled.img`
   display: none;
 
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     display: block;
     width: 100%;
   }
@@ -46,7 +46,7 @@ export default () => {
     <Description>
       <div className="row">
         <div className="col-xs-12 col-lg-4">
-          <SectionBtn active title="DESCRIPTION" />
+          <SectionBtn active>DESCRIPTION</SectionBtn>
 
           <Content>
             <p>A refined car coat crafted in protective cotton gabardine.</p>
