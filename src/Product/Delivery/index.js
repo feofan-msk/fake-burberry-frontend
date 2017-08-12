@@ -26,9 +26,7 @@ export default () => {
           />
         </div>
 
-        <div className="col-lg-1" />
-
-        <div className="col-md-5 col-lg-4">
+        <div className="col-md-5 col-lg-offset-1 col-lg-4">
           <Content />
         </div>
       </div>

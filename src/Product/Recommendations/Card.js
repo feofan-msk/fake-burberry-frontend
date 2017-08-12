@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedNumber } from "react-intl";
 
 const Card = styled.a`
   flex-basis: 45%;
@@ -54,7 +55,12 @@ export default function(props) {
         {props.title}
       </Title>
       <Price>
-        {props.price}
+        <FormattedNumber
+          value={props.price}
+          style="currency"
+          currency="RUB"
+          minimumFractionDigits="0"
+        />
       </Price>
     </Card>
   );
