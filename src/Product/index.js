@@ -10,13 +10,6 @@ import SimilarOffers from "./SimilarOffers";
 import styled from "styled-components";
 
 const Card = styled.div`
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-
   background-color: transparent;
   @media screen and (min-width: 62rem) {
     background-color: #d4bdad;
@@ -54,30 +47,34 @@ const DesktopTitle = styled.h1`
 
 export default () => {
   return (
-    <main className="container">
+    <div>
       <Card>
-        <Title>Long Cotton Gabardine Car Coat</Title>
+        <main className="container">
+          <Title>Long Cotton Gabardine Car Coat</Title>
 
-        <div className="row">
-          <div className="col-xs-12 col-md-7 col-lg-6">
-            <Gallery />
+          <div className="row">
+            <div className="col-xs-12 col-md-7 col-lg-6">
+              <Gallery />
+            </div>
+
+            <div className="col-xs-12 col-md-5 col-lg-6">
+              <DesktopTitle>
+                Long Cotton Gabardine Car Coat Coat Coat Coat Coat
+              </DesktopTitle>
+
+              <Info />
+            </div>
           </div>
-
-          <div className="col-xs-12 col-md-5 col-lg-6">
-            <DesktopTitle>
-              Long Cotton Gabardine Car Coat Coat Coat Coat Coat
-            </DesktopTitle>
-
-            <Info />
-          </div>
-        </div>
+        </main>
       </Card>
-      <Description />
-      <Photos />
-      <Shipping />
-      <Delivery />
-      <Recommendations />
-      <SimilarOffers />
-    </main>
+      <div className="container">
+        <Description />
+        <Photos />
+        <Shipping />
+        <Delivery />
+        <Recommendations />
+        <SimilarOffers />
+      </div>
+    </div>
   );
 };

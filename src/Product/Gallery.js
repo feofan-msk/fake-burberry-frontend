@@ -5,7 +5,6 @@ const Gallery = styled.section`
   font-size: 0;
   white-space: nowrap;
   overflow-x: auto;
-  padding-left: 0.5rem;
 `;
 const Image = styled.img`
   height: 400px;
@@ -14,6 +13,7 @@ const Image = styled.img`
   }
   @media screen and (min-width: 62rem) {
     height: 651px;
+    width: 100%;
   }
 `;
 

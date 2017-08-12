@@ -20,6 +20,7 @@ const Header = styled.h2`
     display: block;
     text-align: center;
     border: none;
+    margin-bottom: 1.5rem;
   }
 }
 `;

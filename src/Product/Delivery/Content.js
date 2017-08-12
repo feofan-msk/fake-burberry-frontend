@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Content = styled.div`padding-top: 1rem;`;
+const Content = styled.div`
+  @media screen and (min-width: 62rem) {
+    padding-top: 1rem;
+  }
+`;
 const Header = styled.h2`
   @media screen and (min-width: 48rem) {
     margin: 0 0 1rem;

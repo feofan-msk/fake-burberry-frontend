@@ -25,6 +25,8 @@ const Title = styled.h3`
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.5rem;
+
+    margin-top: 1rem;
   }
 `;
 const Price = styled.h5`

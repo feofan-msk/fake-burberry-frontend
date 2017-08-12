@@ -12,10 +12,10 @@ const Info = styled.section`
   @media screen and (min-width: 48rem) {
     margin: 0;
     margin-bottom: 2rem;
+    border: none;
   }
   @media screen and (min-width: 62rem) {
     margin-bottom: 1.5rem;
-    border: none;
   }
 `;
 const InfoWrapper = styled.div`
@@ -157,7 +157,7 @@ export default () => {
 
       <Actions>
         <div className="row">
-          <div className="col-xs-12 col-md-3 col-lg-6">
+          <div className="col-xs-12 col-md-12 col-lg-6">
             <ActionBtn primary>SELECT A SIZE</ActionBtn>
             <ActionBtn primary desktop>
               ADD TO BAG

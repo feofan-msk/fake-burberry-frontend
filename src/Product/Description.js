@@ -11,7 +11,7 @@ const Description = styled.section`
   }
   @media screen and (min-width: 48rem) {
     padding: 0;
-    margin: 4rem 0;
+    margin: 4rem 0 2rem;
   }
 `;
 const Content = styled.article`

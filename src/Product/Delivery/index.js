@@ -6,6 +6,10 @@ const Delivery = styled.section`
   display: none;
   @media screen and (min-width: 48rem) {
     display: block;
+    margin-bottom: 3rem;
+  }
+  @media screen and (min-width: 62rem) {
+    margin-bottom: 4rem;
   }
 `;
 const Image = styled.img`@media screen and (min-width: 48rem) {width: 100%;}`;

@@ -3,7 +3,12 @@ import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
   display: none;
-
+  div:nth-child(1) {
+    padding-top: 2rem;
+  }
+  div:nth-child(2) {
+    padding-top: 6rem;
+  }
   @media (min-width: 62rem) {
     display: block;
     margin-bottom: 4rem;
@@ -11,18 +16,11 @@ const Wrapper = styled.div`
 `;
 
 const Photo = styled.img`
-  display: block;
-  min-width: 100%;
-
-  ${props =>
-    props.left &&
-    css`
-    padding-top: 2rem;
-  `} ${props =>
-      props.center &&
-      css`
-    padding-top: 6rem;
-  `};
+  @media (min-width: 62rem) {
+    display: block;
+    height: 420px;
+    min-width: 100%;
+  }
 `;
 
 export default () => {
