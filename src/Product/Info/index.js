@@ -101,7 +101,7 @@ const SizeHelpBtn = styled.button`
 const Details = styled.div`
   display: none;
 
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     display: block;
     margin-top: 1.5rem;
   }
@@ -170,7 +170,7 @@ export default () => {
           </div>
         </div>
 
-        <SizeHelpBtn>NEED SIZE HELP?</SizeHelpBtn>
+        <SizeHelpBtn type="button">NEED SIZE HELP?</SizeHelpBtn>
       </Actions>
 
       <Details>

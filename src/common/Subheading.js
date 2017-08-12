@@ -16,7 +16,7 @@ const Header = styled.h2`
   @media screen and (min-width: 48rem) {
     margin-bottom: 1rem;
   }
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     display: block;
     text-align: center;
     border: none;

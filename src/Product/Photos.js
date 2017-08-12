@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: none;
@@ -9,14 +9,14 @@ const Wrapper = styled.div`
   div:nth-child(2) {
     padding-top: 6rem;
   }
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     display: block;
     margin-bottom: 4rem;
   }
 `;
 
 const Photo = styled.img`
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     display: block;
     height: 420px;
     min-width: 100%;

@@ -21,7 +21,7 @@ const Title = styled.h3`
   line-height: 1.19;
   color: #171717;
 
-  @media (min-width: 62rem) {
+  @media screen and (min-width: 62rem) {
     font-family: Raleway;
     font-size: 0.75rem;
     font-weight: 600;
@@ -40,7 +40,7 @@ const Price = styled.h5`
   line-height: 0.875rem;
   color: #999;
 
-  @media (min-width: 62rem) {
+  @media  screen and (min-width: 62rem) {
     line-height: 1rem;
     color: #171717;
   }

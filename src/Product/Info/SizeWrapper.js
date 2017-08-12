@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const SizeWrapper = styled.div`
   display: none;
@@ -66,14 +66,16 @@ export default () => {
           <SizeCurrent> XL</SizeCurrent>
         </SizeName>
 
-        <SizeHelpBtn>NEED SIZE HELP?</SizeHelpBtn>
+        <SizeHelpBtn type="button">NEED SIZE HELP?</SizeHelpBtn>
       </Header>
 
       <BtnWrapper>
-        <Btn>S</Btn>
-        <Btn>M</Btn>
-        <Btn>L</Btn>
-        <Btn active>XL</Btn>
+        <Btn type="button">S</Btn>
+        <Btn type="button">M</Btn>
+        <Btn type="button">L</Btn>
+        <Btn active type="button">
+          XL
+        </Btn>
       </BtnWrapper>
     </SizeWrapper>
   );

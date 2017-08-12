@@ -38,8 +38,8 @@ export default () => {
       <div className="container">
         <Navigation />
 
-        <Btn>Shipping country: Russian Federation</Btn>
-        <Btn>Language: English</Btn>
+        <Btn type="button">Shipping country: Russian Federation</Btn>
+        <Btn type="button">Language: English</Btn>
 
         <Help />
       </div>

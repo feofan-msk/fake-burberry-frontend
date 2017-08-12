@@ -10,7 +10,7 @@ const Header = styled.header`
   @media screen and (min-width: 48rem) {
     padding: 1.5rem;
   }
-  @media screen and (min-width: 61rem) {
+  @media screen and (min-width: 62rem) {
     border-bottom: none;
     padding: 2rem;
   }

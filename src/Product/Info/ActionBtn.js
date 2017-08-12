@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default styled.button`
+const ActionBtn = styled.button`
   height: 3rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -23,3 +23,11 @@ export default styled.button`
     margin: 0;
   }
 `;
+
+export default function(props) {
+  return (
+    <ActionBtn primary={props.primary} desktop={props.desktop} type="button">
+      {props.children}
+    </ActionBtn>
+  );
+}
