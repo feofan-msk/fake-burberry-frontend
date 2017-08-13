@@ -5,6 +5,19 @@ import { FormattedNumber } from "react-intl";
 import SizeWrapper from "./SizeWrapper";
 import ActionBtn from "./ActionBtn";
 
+const Title = styled.h1`
+  display: none;
+  @media screen and (min-width: 62rem) {
+    display: block;
+    font-family: Lora;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    color: #111;
+
+    margin: 10rem 0 0.5rem;
+  }
+`;
 const Info = styled.section`
   box-sizing: border-box;
   margin: 1rem 1rem 2rem;
@@ -59,12 +72,6 @@ const CurrColor = styled.p`
   color: #171717;
   margin-bottom: 1rem;
 `;
-const Bold = styled.p`
-  @media screen and (min-width: 62rem) {
-    display: inline;
-    font-weight: bold;
-  }
-`;
 const BtnContainer = styled.div`
   display: flex;
   padding-bottom: 2rem;
@@ -81,7 +88,7 @@ const Actions = styled.section`
     border: none;
   }
 `;
-const SizeHelpBtn = styled.button`
+const TextBtn = styled.button`
   display: block;
   margin: 0;
   margin-top: 0.5rem;
@@ -126,6 +133,8 @@ const Text = styled.div`
 export default () => {
   return (
     <Info>
+      <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
+
       <InfoWrapper>
         <Price>
           <FormattedNumber
@@ -141,7 +150,7 @@ export default () => {
       <div className="row">
         <div className="col-xs-12 col-md-12 col-lg-6">
           <CurrColor>
-            Colour: <Bold>Honey</Bold>
+            Colour: <strong>Honey</strong>
           </CurrColor>
 
           <BtnContainer>
@@ -159,18 +168,17 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-md-12 col-lg-6">
             <ActionBtn primary>SELECT A SIZE</ActionBtn>
-            <ActionBtn primary desktop>
+            <ActionBtn primary name="addtobag">
               ADD TO BAG
             </ActionBtn>
           </div>
 
           <div className="col-xs-12 col-md-12 col-lg-6">
-            <ActionBtn>FIND IN STORE</ActionBtn>
-            <ActionBtn desktop>FIND IN STORE</ActionBtn>
+            <ActionBtn secondary>FIND IN STORE</ActionBtn>
           </div>
         </div>
 
-        <SizeHelpBtn type="button">NEED SIZE HELP?</SizeHelpBtn>
+        <TextBtn type="button">NEED SIZE HELP?</TextBtn>
       </Actions>
 
       <Details>

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ActionBtn = styled.button`
   height: 3rem;
@@ -17,16 +17,29 @@ const ActionBtn = styled.button`
   background-color: ${props => (props.primary ? "#171717" : "transparent")};
   border: solid 1px #171717;
 
-  display: ${props => (props.desktop ? "none" : "block")};
-  @media (min-width: 62rem) {
-    display: ${props => (props.desktop ? "block" : "none")};
-    margin: 0;
+  @media screen and (min-width: 62rem) {
+    display: ${props => (props.secondary ? "block" : "none")};
   }
+
+  ${props =>
+    props.name === "addtobag" &&
+    css`
+    display: none;
+
+    @media screen and (min-width: 62rem) {
+      display: block;
+  }
+  `};
 `;
 
 export default function(props) {
   return (
-    <ActionBtn primary={props.primary} desktop={props.desktop} type="button">
+    <ActionBtn
+      primary={props.primary}
+      secondary={props.secondary}
+      name={props.name}
+      type="button"
+    >
       {props.children}
     </ActionBtn>
   );

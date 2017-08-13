@@ -32,7 +32,6 @@ export default () => {
             src="/img/desktop-photo-1.jpg"
             srcSet="/img/desktop-photo-1@2x.jpg 2x, /img/desktop-photo-1@3x.jpg 3x"
             alt="Long Cotton Gabardine Car Coat"
-            left
           />
         </div>
         <div className="col-lg-4">
@@ -40,7 +39,6 @@ export default () => {
             src="/img/desktop-photo-2.jpg"
             srcSet="/img/desktop-photo-2@2x.jpg 2x, /img/desktop-photo-2@3x.jpg 3x"
             alt="Long Cotton Gabardine Car Coat"
-            center
           />
         </div>
         <div className="col-lg-4">

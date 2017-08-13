@@ -13,7 +13,7 @@ const Header = styled.header`
   margin-bottom: 1rem;
 `;
 
-const SizeName = styled.div`
+const SizeCurrent = styled.div`
   margin: 0;
   font-family: Raleway;
   font-size: 0.75rem;
@@ -22,9 +22,7 @@ const SizeName = styled.div`
   color: #171717;
 `;
 
-const SizeCurrent = styled.span`font-weight: bold;`;
-
-const SizeHelpBtn = styled.button`
+const TextBtn = styled.button`
   display: block;
   margin: 0;
   padding: 0;
@@ -61,12 +59,12 @@ export default () => {
   return (
     <SizeWrapper>
       <Header>
-        <SizeName>
+        <SizeCurrent>
           Size:
-          <SizeCurrent> XL</SizeCurrent>
-        </SizeName>
+          <strong>XL</strong>
+        </SizeCurrent>
 
-        <SizeHelpBtn type="button">NEED SIZE HELP?</SizeHelpBtn>
+        <TextBtn type="button">NEED SIZE HELP?</TextBtn>
       </Header>
 
       <BtnWrapper>

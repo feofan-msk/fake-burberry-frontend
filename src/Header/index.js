@@ -16,7 +16,7 @@ const Header = styled.header`
   }
 `;
 
-const Logo = styled.img`@media screen and (min-width: 61rem) {height: 1rem;}`;
+const Logo = styled.img`@media screen and (min-width: 62rem) {height: 1rem;}`;
 
 export default () => {
   return (

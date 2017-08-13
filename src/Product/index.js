@@ -31,19 +31,6 @@ const Title = styled.h1`
     display: none;
   }
 `;
-const DesktopTitle = styled.h1`
-  display: none;
-  @media screen and (min-width: 62rem) {
-    display: block;
-    font-family: Lora;
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.75rem;
-    color: #111;
-
-    margin: 10rem 0 0.5rem;
-  }
-`;
 
 export default () => {
   return (
@@ -58,10 +45,6 @@ export default () => {
             </div>
 
             <div className="col-xs-12 col-md-5 col-lg-6">
-              <DesktopTitle>
-                Long Cotton Gabardine Car Coat Coat Coat Coat Coat
-              </DesktopTitle>
-
               <Info />
             </div>
           </div>
