@@ -1,7 +1,6 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const ActionBtn = styled.button`
+export default styled.button`
   height: 3rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -18,29 +17,7 @@ const ActionBtn = styled.button`
   border: solid 1px #171717;
 
   @media screen and (min-width: 62rem) {
-    display: ${props => (props.secondary ? "block" : "none")};
-  }
-
-  ${props =>
-    props.name === "addtobag" &&
-    css`
     display: none;
-
-    @media screen and (min-width: 62rem) {
-      display: block;
+    display: ${props => props.secondary && "block"};
   }
-  `};
 `;
-
-export default function(props) {
-  return (
-    <ActionBtn
-      primary={props.primary}
-      secondary={props.secondary}
-      name={props.name}
-      type="button"
-    >
-      {props.children}
-    </ActionBtn>
-  );
-}
