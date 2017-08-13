@@ -61,7 +61,7 @@ export default () => {
           </nav>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-3">
           <Title>legal &amp; cookies</Title>
           <nav>
             <Link href="#">Terms &amp; Conditions</Link>

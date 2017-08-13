@@ -20,6 +20,15 @@ const Title = styled.h3`
   font-size: 1rem;
   line-height: 1.19;
   color: #171717;
+
+  @media screen and (min-width: 62rem) {
+    font-family: Raleway;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+
+    margin-top: 1rem;
+  }
 `;
 const Price = styled.h5`
   margin: 0;
@@ -30,6 +39,12 @@ const Price = styled.h5`
   font-size: 0.75rem;
   line-height: 0.875rem;
   color: #999;
+
+  @media  screen and (min-width: 62rem) {
+    line-height: 1rem;
+    color: #171717;
+  }
+}
 `;
 
 export default function(props) {

@@ -10,13 +10,19 @@ const Header = styled.header`
   @media screen and (min-width: 48rem) {
     padding: 1.5rem;
   }
+  @media screen and (min-width: 62rem) {
+    border-bottom: none;
+    padding: 2rem;
+  }
 `;
+
+const Logo = styled.img`@media screen and (min-width: 62rem) {height: 1rem;}`;
 
 export default () => {
   return (
     <Header>
       <a href="#">
-        <img src={logo} alt="Burberry-logo" />
+        <Logo src={logo} alt="Burberry-logo" />
       </a>
     </Header>
   );

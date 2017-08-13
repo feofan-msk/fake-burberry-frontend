@@ -1,14 +1,20 @@
 import React from "react";
-import Recommendations from "./Recommendations";
-import SimilarOffers from "./SimilarOffers";
-import Description from "./Description";
-import Shipping from "./Shipping";
-import Delivery from "./Delivery";
 import Gallery from "./Gallery";
 import Info from "./Info";
-import Actions from "./Actions";
+import Description from "./Description";
+import Photos from "./Photos";
+import Shipping from "./Shipping";
+import Delivery from "./Delivery";
+import Recommendations from "./Recommendations";
+import SimilarOffers from "./SimilarOffers";
 import styled from "styled-components";
 
+const Card = styled.div`
+  background-color: transparent;
+  @media screen and (min-width: 62rem) {
+    background-color: #d4bdad;
+  }
+`;
 const Title = styled.h1`
   margin: 1rem;
   font-family: 'Lora';
@@ -21,29 +27,37 @@ const Title = styled.h1`
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
+  @media screen and (min-width: 62rem) {
+    display: none;
+  }
 `;
 
 export default () => {
   return (
-    <main className="container">
-      <Title>Long Cotton Gabardine Car Coat</Title>
+    <div>
+      <Card>
+        <main className="container">
+          <Title>Long Cotton Gabardine Car Coat</Title>
 
-      <div className="row">
-        <div className="col-xs-12 col-md-7">
-          <Gallery />
-        </div>
+          <div className="row">
+            <div className="col-xs-12 col-md-7 col-lg-6">
+              <Gallery />
+            </div>
 
-        <div className="col-xs-12 col-md-5">
-          <Info />
-
-          <Actions />
-        </div>
+            <div className="col-xs-12 col-md-5 col-lg-6">
+              <Info />
+            </div>
+          </div>
+        </main>
+      </Card>
+      <div className="container">
+        <Description />
+        <Photos />
+        <Shipping />
+        <Delivery />
+        <Recommendations />
+        <SimilarOffers />
       </div>
-      <Description />
-      <Shipping />
-      <Delivery />
-      <Recommendations />
-      <SimilarOffers />
-    </main>
+    </div>
   );
 };

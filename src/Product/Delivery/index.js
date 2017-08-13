@@ -6,6 +6,10 @@ const Delivery = styled.section`
   display: none;
   @media screen and (min-width: 48rem) {
     display: block;
+    margin-bottom: 3rem;
+  }
+  @media screen and (min-width: 62rem) {
+    margin-bottom: 4rem;
   }
 `;
 const Image = styled.img`@media screen and (min-width: 48rem) {width: 100%;}`;
@@ -13,7 +17,7 @@ const Image = styled.img`@media screen and (min-width: 48rem) {width: 100%;}`;
 export default () => {
   return (
     <Delivery>
-      <div className="row">
+      <div className="row middle-lg">
         <div className="col-md-7">
           <Image
             src="img/delivery_pack@3x.jpg"
@@ -22,7 +26,7 @@ export default () => {
           />
         </div>
 
-        <div className="col-md-5">
+        <div className="col-md-5 col-lg-offset-1 col-lg-4">
           <Content />
         </div>
       </div>

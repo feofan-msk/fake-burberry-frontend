@@ -36,7 +36,7 @@ export default function(props) {
   return (
     <SectionBtn active={props.active} type="button">
       <Title>
-        {props.title}
+        {props.children}
       </Title>
     </SectionBtn>
   );

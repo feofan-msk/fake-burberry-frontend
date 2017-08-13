@@ -11,6 +11,11 @@ const Image = styled.img`
   @media screen and (min-width: 48rem) {
     height: 576px;
   }
+
+  @media screen and (min-width: 62rem) {
+    height: 651px;
+    width: 100%;
+  }
 `;
 
 export default () => {

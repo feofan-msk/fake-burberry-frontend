@@ -8,6 +8,9 @@ const Recommendations = styled.section`
   @media screen and (min-width: 48rem) {
     margin: 1.25rem 0 0;
   }
+  @media screen and (min-width: 48rem) {
+    margin: 0;
+  }
 `;
 const Items = styled.section`
   display: flex;
