@@ -129,7 +129,7 @@ const Text = styled.div`
   font-size: 0.75rem;
   color: #171717;
 `;
-const NewActionBtn = styled(ActionBtn)`
+const BuyBtn = styled(ActionBtn)`
   display: none;
   @media screen and (min-width: 62rem) {
     display: block;
@@ -174,7 +174,7 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-md-12 col-lg-6">
             <ActionBtn primary>SELECT A SIZE</ActionBtn>
-            <NewActionBtn primary>ADD TO BAG</NewActionBtn>
+            <BuyBtn primary>ADD TO BAG</BuyBtn>
           </div>
 
           <div className="col-xs-12 col-md-12 col-lg-6">
