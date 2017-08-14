@@ -5,6 +5,7 @@
   "dependencies": {
     "flexboxgrid2": "^7.0.0-alpha6",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-helmet": "^5.1.3",
@@ -17,8 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-	"precommit": "eslint /src",
-    "prepush": "eslint /src"
+    "precommit": "eslint src --ext=js,jsx",
+    "prepush": "eslint src --ext=js,jsx"
   },
   "devDependencies": {
     "eslint": "4.3.0",

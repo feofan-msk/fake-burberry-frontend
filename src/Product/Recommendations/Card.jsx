@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { FormattedNumber } from "react-intl";
+import React from 'react';
+import styled from 'styled-components';
+import { FormattedNumber } from 'react-intl';
+import PropTypes from 'prop-types';
 
 const Card = styled.a`
   flex-basis: 45%;
@@ -47,7 +48,7 @@ const Price = styled.h5`
 }
 `;
 
-export default function(props) {
+function Item(props) {
   return (
     <Card href={props.href}>
       <Image src={props.src} alt={props.alt} />
@@ -57,7 +58,7 @@ export default function(props) {
       <Price>
         <FormattedNumber
           value={props.price}
-          style="currency"
+          style="currency" // eslint-disable-line
           currency="RUB"
           minimumFractionDigits="0"
         />
@@ -65,3 +66,13 @@ export default function(props) {
     </Card>
   );
 }
+
+Item.propTypes = {
+  href: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
+
+export default Item;

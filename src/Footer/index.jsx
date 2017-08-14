@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Navigation from "./Navigation";
-import Help from "./Help";
+import React from 'react';
+import styled from 'styled-components';
+import Navigation from './Navigation';
+import Help from './Help';
 
 const Footer = styled.footer`
   padding: 2rem 1rem;
@@ -32,17 +32,14 @@ const Btn = styled.button`
   }
 `;
 
-export default () => {
-  return (
-    <Footer>
-      <div className="container">
-        <Navigation />
+export default () =>
+  (<Footer>
+    <div className="container">
+      <Navigation />
 
-        <Btn type="button">Shipping country: Russian Federation</Btn>
-        <Btn type="button">Language: English</Btn>
+      <Btn type="button">Shipping country: Russian Federation</Btn>
+      <Btn type="button">Language: English</Btn>
 
-        <Help />
-      </div>
-    </Footer>
-  );
-};
+      <Help />
+    </div>
+  </Footer>);

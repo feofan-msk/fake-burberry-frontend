@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import triangleIcon from "../assets/triangle.svg";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import triangleIcon from '../assets/triangle.svg';
 
 const SectionBtn = styled.button`
   position: relative;
@@ -15,7 +16,7 @@ const SectionBtn = styled.button`
     content: url(${triangleIcon});
     position: absolute;
     right: 0;
-    ${props => (props.active ? "transform: rotate(180deg);" : "")};
+    ${props => (props.active ? 'transform: rotate(180deg);' : '')};
   }
   @media screen and (min-width: 48rem) {
     ::after {
@@ -32,7 +33,7 @@ const Title = styled.h2`
   color: #171717;
 `;
 
-export default function(props) {
+function Heading(props) {
   return (
     <SectionBtn active={props.active} type="button">
       <Title>
@@ -41,3 +42,10 @@ export default function(props) {
     </SectionBtn>
   );
 }
+
+Heading.propTypes = {
+  children: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+};
+
+export default Heading;

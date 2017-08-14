@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const SizeWrapper = styled.div`
   display: none;
@@ -40,7 +40,7 @@ const BtnWrapper = styled.div`display: flex;`;
 
 const Btn = styled.button`
   display: block;
-  width: ${props => (props.active ? "2.94rem" : "2.6875rem")};
+  width: ${props => (props.active ? '2.94rem' : '2.6875rem')};
   height: 2rem;
   margin-right: 0.5rem;
   padding: 0.5rem;
@@ -52,29 +52,27 @@ const Btn = styled.button`
   font-family: Raleway;
   font-size: 0.75rem;
   line-height: 1rem;
-  font-weight: ${props => (props.active ? "600" : "400")};
+  font-weight: ${props => (props.active ? '600' : '400')};
 `;
 
-export default () => {
-  return (
-    <SizeWrapper>
-      <Header>
-        <SizeCurrent>
+export default () => (
+  <SizeWrapper>
+    <Header>
+      <SizeCurrent>
           Size:
-          <strong>XL</strong>
-        </SizeCurrent>
+        <strong>XL</strong>
+      </SizeCurrent>
 
-        <TextBtn type="button">NEED SIZE HELP?</TextBtn>
-      </Header>
+      <TextBtn type="button">NEED SIZE HELP?</TextBtn>
+    </Header>
 
-      <BtnWrapper>
-        <Btn type="button">S</Btn>
-        <Btn type="button">M</Btn>
-        <Btn type="button">L</Btn>
-        <Btn active type="button">
+    <BtnWrapper>
+      <Btn type="button">S</Btn>
+      <Btn type="button">M</Btn>
+      <Btn type="button">L</Btn>
+      <Btn active type="button">
           XL
-        </Btn>
-      </BtnWrapper>
-    </SizeWrapper>
-  );
-};
+      </Btn>
+    </BtnWrapper>
+  </SizeWrapper>
+);
