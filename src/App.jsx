@@ -1,6 +1,6 @@
+import React from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from './Header';
 import Product from './Product';

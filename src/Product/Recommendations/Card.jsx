@@ -48,7 +48,7 @@ const Price = styled.h5`
 }
 `;
 
-function Item(props) {
+function RecommendCard(props) {
   return (
     <Card href={props.href}>
       <Image src={props.src} alt={props.alt} />
@@ -67,7 +67,7 @@ function Item(props) {
   );
 }
 
-Item.propTypes = {
+RecommendCard.propTypes = {
   href: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
@@ -75,4 +75,4 @@ Item.propTypes = {
   price: PropTypes.number.isRequired,
 };
 
-export default Item;
+export default RecommendCard;
