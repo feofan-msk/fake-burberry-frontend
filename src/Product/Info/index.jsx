@@ -1,9 +1,9 @@
-import React from "react";
-import ColourBtn from "./ColourBtn";
-import styled from "styled-components";
-import { FormattedNumber } from "react-intl";
-import SizeWrapper from "./SizeWrapper";
-import ActionBtn from "./ActionBtn";
+import styled from 'styled-components';
+import { FormattedNumber } from 'react-intl';
+import React from 'react';
+import ColourBtn from './ColourBtn';
+import SizeWrapper from './SizeWrapper';
+import ActionBtn from './ActionBtn';
 
 const Title = styled.h1`
   display: none;
@@ -136,61 +136,56 @@ const BuyBtn = styled(ActionBtn)`
   }
 `;
 
-export default () => {
-  return (
-    <Info>
-      <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
+export default () =>
+  (<Info>
+    <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
 
-      <InfoWrapper>
-        <Price>
-          <FormattedNumber
-            value={110000}
-            style="currency"
-            currency="RUB"
-            minimumFractionDigits="0"
-          />
-        </Price>
-        <Id>Item 39428531</Id>
-      </InfoWrapper>
+    <InfoWrapper>
+      <Price>
+        <FormattedNumber
+          value={110000}
+          style="currency" // eslint-disable-line
+          currency="RUB"
+          minimumFractionDigits="0"
+        />
+      </Price>
+      <Id>Item 39428531</Id>
+    </InfoWrapper>
 
+    <div className="row">
+      <div className="col-xs-12 col-md-12 col-lg-6">
+        <CurrColor>
+          Colour: <strong>Honey</strong>
+        </CurrColor>
+
+        <BtnContainer>
+          <ColourBtn label="black" value="#000" />
+          <ColourBtn label="honey" value="#cfa880" active />
+        </BtnContainer>
+      </div>
+
+      <div className="col-xs-12 col-md-12 col-lg-6">
+        <SizeWrapper />
+      </div>
+    </div>
+
+    <Actions>
       <div className="row">
         <div className="col-xs-12 col-md-12 col-lg-6">
-          <CurrColor>
-            Colour: <strong>Honey</strong>
-          </CurrColor>
-
-          <BtnContainer>
-            <ColourBtn label="black" value="#000" />
-            <ColourBtn label="honey" value="#cfa880" active />
-          </BtnContainer>
+          <ActionBtn primary>SELECT A SIZE</ActionBtn>
+          <BuyBtn primary>ADD TO BAG</BuyBtn>
         </div>
 
         <div className="col-xs-12 col-md-12 col-lg-6">
-          <SizeWrapper />
+          <ActionBtn secondary>FIND IN STORE</ActionBtn>
         </div>
       </div>
 
-      <Actions>
-        <div className="row">
-          <div className="col-xs-12 col-md-12 col-lg-6">
-            <ActionBtn primary>SELECT A SIZE</ActionBtn>
-            <BuyBtn primary>ADD TO BAG</BuyBtn>
-          </div>
+      <TextBtn type="button">NEED SIZE HELP?</TextBtn>
+    </Actions>
 
-          <div className="col-xs-12 col-md-12 col-lg-6">
-            <ActionBtn secondary>FIND IN STORE</ActionBtn>
-          </div>
-        </div>
-
-        <TextBtn type="button">NEED SIZE HELP?</TextBtn>
-      </Actions>
-
-      <Details>
-        <SubHeader>Free Next Day Delivery</SubHeader>
-        <Text>
-          Order before 7pm Monday to Thursday for delivery the next day
-        </Text>
-      </Details>
-    </Info>
-  );
-};
+    <Details>
+      <SubHeader>Free Next Day Delivery</SubHeader>
+      <Text>Order before 7pm Monday to Thursday for delivery the next day</Text>
+    </Details>
+  </Info>);

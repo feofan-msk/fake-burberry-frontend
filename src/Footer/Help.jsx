@@ -1,11 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const Help = styled.section`
-  @media screen and (min-width: 48rem) {
-    display: none;
-  }
-`;
+const Help = styled.section`@media screen and (min-width: 48rem) {display: none;}`;
 const Heading = styled.h4`
   font-family: Raleway;
   font-weight: bold;
@@ -30,11 +26,8 @@ const LinkHelp = styled.a`
   text-decoration: none;
   color: #171717;
 `;
-export default () => {
-  return (
-    <Help>
-      <Heading>Need help?</Heading>
-      <LinkHelp href="#">Find out more and contact us</LinkHelp>
-    </Help>
-  );
-};
+export default () =>
+  (<Help>
+    <Heading>Need help?</Heading>
+    <LinkHelp href="#">Find out more and contact us</LinkHelp>
+  </Help>);
