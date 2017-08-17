@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import Gallery from './Gallery';
 import Info from './Info';
 import Description from './Description';
@@ -34,6 +35,13 @@ const Title = styled.h1`
 
 export default () =>
   (<div>
+    <Helmet>
+      <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+      <meta
+        name="description"
+        content="A refined car coat crafted in protective cotton gabardine."
+      />
+    </Helmet>
     <Card>
       <main className="container">
         <Title>Long Cotton Gabardine Car Coat</Title>
