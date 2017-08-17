@@ -4,9 +4,9 @@ import ruLocaleData from 'react-intl/locale-data/ru';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './Header';
-import Product from './Product';
+import Product from './Products/Show';
+import List from './Products/List';
 import Footer from './Footer';
-import List from './List';
 
 addLocaleData(ruLocaleData);
 

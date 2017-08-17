@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Subheading from '../../common/Subheading';
+import Subheading from '../../../common/Subheading';
 import Card from './Card';
 
 const Recommendations = styled.section`
@@ -18,8 +18,8 @@ const Items = styled.section`
   justify-content: space-between;
 `;
 
-export default () => (
-  <Recommendations>
+export default () =>
+  (<Recommendations>
     <Subheading>WE RECOMMEND</Subheading>
 
     <Items>
@@ -65,5 +65,4 @@ export default () => (
         </div>
       </div>
     </Items>
-  </Recommendations>
-);
+  </Recommendations>);

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import Subheading from '../common/Subheading';
+import Subheading from '../../common/Subheading';
 
 const SimilarOffers = styled.section`
   margin-left: 1rem;

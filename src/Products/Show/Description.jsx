@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SectionBtn from '../common/SectionBtn';
+import SectionBtn from '../../common/SectionBtn';
 
 const Description = styled.section`
   padding: 2rem 1rem;
@@ -41,8 +41,8 @@ const Photo = styled.img`
   }
 `;
 
-export default () => (
-  <Description>
+export default () =>
+  (<Description>
     <div className="row">
       <div className="col-xs-12 col-lg-4">
         <SectionBtn active>DESCRIPTION</SectionBtn>
@@ -50,18 +50,16 @@ export default () => (
         <Content>
           <p>A refined car coat crafted in protective cotton gabardine.</p>
           <p>
-              Invented by Thomas Burberry in 1879, cotton gabardine is a tightly woven and
-              breathable fabric that protects against wind and rain.
+            Invented by Thomas Burberry in 1879, cotton gabardine is a tightly woven and breathable
+            fabric that protects against wind and rain.
           </p>
-          <p>
-              Raglan sleeves and a concealed button closure complement the clean tailored lines.
-          </p>
+          <p>Raglan sleeves and a concealed button closure complement the clean tailored lines.</p>
           <p>The piece is finished with a distinctive check undercollar.</p>
           <br />
           <ul>
             <li>
-                Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change
-                slightly according to size.
+              Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
+              according to size.
             </li>
             <li>Outer: 100% cotton</li>
             <li>Check lining: 100% cotton</li>
@@ -82,5 +80,4 @@ export default () => (
         />
       </div>
     </div>
-  </Description>
-);
+  </Description>);
