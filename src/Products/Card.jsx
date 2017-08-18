@@ -10,7 +10,6 @@ const Link = styled(LinkRouter)`
 text-decoration: none;`;
 const Card = styled.div`
   display: block;
-  flex-basis: 45%;
   margin-bottom: 2rem;
 `;
 const Image = styled.img`
@@ -23,7 +22,7 @@ const TagLikeWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 0.5rem;
 `;
-const Type = styled.span`
+const Label = styled.span`
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -62,16 +61,12 @@ const Colors = styled.span`
 `;
 const Price = styled.h5`
   margin: 0;
-  padding-bottom: 1rem;
 
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #171717;
-
-  @media  screen and (min-width: 62rem) {
-  }
 }
 `;
 
@@ -81,9 +76,9 @@ function ProductCard(props) {
       <Card>
         <Image src={props.src} alt={props.alt} />
         <TagLikeWrapper>
-          <Type>
-            {props.type}
-          </Type>
+          <Label>
+            {props.label}
+          </Label>
           <Like />
         </TagLikeWrapper>
         <Title>
@@ -115,7 +110,7 @@ ProductCard.propTypes = {
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   ColoursAmount: PropTypes.number.isRequired,
 };
 

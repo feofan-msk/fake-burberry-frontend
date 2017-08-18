@@ -9,8 +9,6 @@ import hamburger from '../assets/hamburger.svg';
 
 const Header = styled.header`
   padding: 1rem 0;
-  position: relative;
-  text-align: center;
 
   @media screen and (min-width: 48rem) {
     padding: 1.5rem 0 0;
@@ -20,8 +18,6 @@ const Header = styled.header`
   }
 `;
 const HamburgerBtn = styled.button`
-  position: absolute;
-  left: 2.5%;
   height: 0.625rem;
   width: 1rem;
 
@@ -41,8 +37,6 @@ const LocationSelector = styled(ShowBtn)`
   display: none;
   @media screen and (min-width: 48rem) {
     display: block;
-    position: absolute;
-    left: 1%;
     padding: 0;
     font-weight: 600;
     color: #999;
@@ -50,12 +44,17 @@ const LocationSelector = styled(ShowBtn)`
 `;
 
 export default () =>
-  (<Header>
-    <HamburgerBtn />
-    <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
-    <Link to="/">
-      <Logo src={logo} alt="Burberry-logo" />
-    </Link>
-
+  (<Header className="container">
+    <div className="row">
+      <div className="col-xs-2 col-md-5">
+        <HamburgerBtn />
+        <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
+      </div>
+      <div className="col-xs-8 col-md-4">
+        <Link to="/">
+          <Logo src={logo} alt="Burberry-logo" />
+        </Link>
+      </div>
+    </div>
     <Navigation />
   </Header>);

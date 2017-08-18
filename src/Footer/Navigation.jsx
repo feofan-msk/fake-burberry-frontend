@@ -31,6 +31,22 @@ const Link = styled.a`
     text-decoration: none;
   }
 `;
+const Image = styled.img`
+  @media screen and (min-width: 48rem) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+`;
+const UnderlinedLink = styled.a`
+  @media screen and (min-width: 48rem) {
+    font-family: Raleway;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    color: #171717;
+    border-bottom: 1px solid #171717;
+  }
+`;
 
 export default () =>
   (<Navigation>
@@ -69,6 +85,13 @@ export default () =>
           <Link href="#">Accessibility Statement</Link>
           <Link href="#">Japan Only - SCTL indications</Link>
         </nav>
+      </div>
+      <div className="col-md-3">
+        <Image
+          src="http://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
+          alt="Store"
+        />
+        <UnderlinedLink>Find a store</UnderlinedLink>
       </div>
     </div>
   </Navigation>);

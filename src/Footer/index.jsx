@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import Help from './Help';
 
 const Footer = styled.footer`
-  padding: 2rem 1rem 2 rem 0;
+  padding: 2rem 1rem 2rem 0;
   background-color: #f3f3f3;
   @media screen and (min-width: 48rem) {
     padding: 2rem 0;
@@ -31,14 +31,19 @@ const Btn = styled.button`
     margin: 1.25rem 1.25rem 0 0;
   }
 `;
+const BlackText = styled.span`color: #171717;`;
 
 export default () =>
   (<Footer>
     <div className="container">
       <Navigation />
 
-      <Btn type="button">Shipping country: Russian Federation</Btn>
-      <Btn type="button">Language: English</Btn>
+      <Btn type="button">
+        Shipping country: <BlackText>Russian Federation</BlackText>
+      </Btn>
+      <Btn type="button">
+        Language: <BlackText>English</BlackText>
+      </Btn>
 
       <Help />
     </div>
