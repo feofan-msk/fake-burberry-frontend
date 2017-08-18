@@ -30,6 +30,9 @@ const Btn = styled.button`
     display: inline;
     margin: 1.25rem 1.5rem 0 0;
   }
+  @media screen and (min-width: 62rem) {
+    margin: 2.25rem 3rem 0 0;
+  }
 `;
 const BlackText = styled.span`color: #171717;`;
 

@@ -51,7 +51,8 @@ const Title = styled.h3`
     line-height: 1.25rem;
   }
   @media screen and (min-width: 62rem) {
-    line-height: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
 
     margin-top: 1rem;
   }
@@ -75,6 +76,7 @@ const Price = styled.h5`
   color: #171717;
 }
 `;
+const Underline = styled.span`border-bottom: 1px solid #171717;`;
 
 function ProductCard(props) {
   return (
@@ -92,10 +94,10 @@ function ProductCard(props) {
         </Title>
         <Colours>
           Available in{' '}
-          <u>
+          <Underline>
             {props.ColoursAmount}{' '}
             <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
-          </u>
+          </Underline>
         </Colours>
         <Price>
           <FormattedNumber

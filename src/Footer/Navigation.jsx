@@ -34,6 +34,7 @@ const Link = styled.a`
 const Image = styled.img`
   display: none;
   @media screen and (min-width: 62rem) {
+    display: block;
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -41,6 +42,7 @@ const Image = styled.img`
 const UnderlinedLink = styled.a`
   display: none;
   @media screen and (min-width: 62rem) {
+    display: inline;
     font-family: Raleway;
     font-size: 0.75rem;
     font-weight: 600;
