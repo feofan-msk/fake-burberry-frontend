@@ -18,12 +18,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --ext=js,jsx",
-	"test": "yarn lint && react-scripts test --env=jsdom",
+    "test": "yarn lint && react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "eslint": "4.3.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "2.7.0",

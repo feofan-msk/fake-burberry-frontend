@@ -14,7 +14,11 @@ export default styled.button`
   color: #171717;
 
   ::after {
-    content: url(${arrow});
-    padding-left: 0.5rem;
+    content: '';
+    background-image: url(${arrow});
+    background-size: 12px 6px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-left: 1.25rem;
   }
 `;

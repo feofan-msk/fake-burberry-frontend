@@ -5,7 +5,7 @@ import Btn from './Btn';
 
 const BtnContainer = styled.div`
   white-space: nowrap;
-  overflow-x: auto;
+  overflow: scroll;
 `;
 const Heading = styled(Btn)`
   padding-left: 0.5rem;
