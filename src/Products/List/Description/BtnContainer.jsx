@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Btn from './Btn';
+import Btn from '../../../common/ShowBtn';
 
 const BtnContainer = styled.div`
   white-space: nowrap;

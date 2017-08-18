@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import arrow from '../../../assets/arrow.svg';
+import arrow from '../assets/arrow.svg';
 
 export default styled.button`
   padding: 1.5rem 1rem 1.5rem 0;
