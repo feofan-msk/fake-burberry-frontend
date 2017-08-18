@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "flexboxgrid2": "^7.0.0-alpha6",
+    "flexboxgrid2": "^7.0.0-alpha7",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -21,7 +21,8 @@
     "test": "yarn lint && react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
-    "prepush": "yarn lint"
+    "prepush": "yarn lint",
+	"commit": "git add . && git commit -m"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
