@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import Help from './Help';
 
 const Footer = styled.footer`
-  padding: 2rem 1rem 2rem 0;
+  padding: 2rem 0 2rem;
   background-color: #f3f3f3;
   @media screen and (min-width: 48rem) {
     padding: 2rem 0;

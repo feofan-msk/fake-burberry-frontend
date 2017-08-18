@@ -21,7 +21,7 @@ const CategoryTitle = styled.h2`
   }
 `;
 const HrLine = styled.hr`
-  margin: 1rem 0 1rem;
+  margin: 2rem 0 1rem;
   border: none;
   border-bottom: 1px solid #c6c6c6;
 
@@ -30,7 +30,7 @@ const HrLine = styled.hr`
   }
 `;
 const Loader = styled.div`
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 5rem;
   text-align: center;
   @media screen and (min-width: 48rem) {

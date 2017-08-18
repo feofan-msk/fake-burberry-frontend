@@ -15,6 +15,7 @@ const Card = styled.div`
 const Image = styled.img`
   display: block;
   width: 100%;
+  min-height: 196px;
   margin-bottom: 1rem;
 `;
 const TagLikeWrapper = styled.div`
@@ -50,7 +51,7 @@ const Title = styled.h3`
     margin-top: 1rem;
   }
 `;
-const Colors = styled.span`
+const Colours = styled.div`
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -84,13 +85,13 @@ function ProductCard(props) {
         <Title>
           {props.title}
         </Title>
-        <Colors>
+        <Colours>
           Available in{' '}
           <u>
             {props.ColoursAmount}{' '}
             <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
           </u>
-        </Colors>
+        </Colours>
         <Price>
           <FormattedNumber
             value={props.price}

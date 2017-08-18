@@ -9,7 +9,7 @@ const Heading = styled.h1`
   font-size: 1.625rem;
   color: #171717;
 
-  padding: 2rem 0 1rem 0.5rem;
+  padding: 2rem 0 1rem;
   margin: 0;
   @media screen and (min-width: 48rem) {
     padding-top: 4rem;
@@ -43,7 +43,6 @@ export default () =>
           </Content>
         </div>
       </div>
-
-      <BtnContainer />
     </div>
+    <BtnContainer />
   </Description>);
