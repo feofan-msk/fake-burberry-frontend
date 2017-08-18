@@ -32,13 +32,15 @@ const Link = styled.a`
   }
 `;
 const Image = styled.img`
-  @media screen and (min-width: 48rem) {
+  display: none;
+  @media screen and (min-width: 62rem) {
     width: 100%;
     margin-bottom: 1rem;
   }
 `;
 const UnderlinedLink = styled.a`
-  @media screen and (min-width: 48rem) {
+  display: none;
+  @media screen and (min-width: 62rem) {
     font-family: Raleway;
     font-size: 0.75rem;
     font-weight: 600;

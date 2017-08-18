@@ -28,7 +28,7 @@ const Btn = styled.button`
   border: none;
   @media screen and (min-width: 48rem) {
     display: inline;
-    margin: 1.25rem 1.25rem 0 0;
+    margin: 1.25rem 1.5rem 0 0;
   }
 `;
 const BlackText = styled.span`color: #171717;`;

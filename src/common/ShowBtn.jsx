@@ -21,4 +21,8 @@ export default styled.button`
     background-position: center right;
     padding-left: 1.25rem;
   }
+
+  @media screen and (min-width: 48rem) {
+    padding-right: 3rem;
+  }
 `;

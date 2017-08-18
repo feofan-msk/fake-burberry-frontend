@@ -45,6 +45,11 @@ const Title = styled.h3`
 
   margin: 0 0 0.5rem;
 
+  @media screen and (min-width: 48rem) {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
   @media screen and (min-width: 62rem) {
     line-height: 1.5rem;
 

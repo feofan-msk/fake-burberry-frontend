@@ -8,13 +8,22 @@ const BtnContainer = styled.div`
   justify-content: space-between;
   white-space: nowrap;
   overflow: scroll;
+
+  @media screen and (min-width: 48rem) {
+    Button:last-child {
+      padding-right: 0;
+    }
+  }
 `;
 const Heading = styled(Btn)`
-  padding-left: 0.5rem;
   padding-right: 2rem;
 
   ::after{
     content: none;
+  }
+  
+  @media screen and (min-width: 48rem){
+    display: none;
   }
 `;
 export default () =>

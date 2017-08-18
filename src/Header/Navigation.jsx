@@ -29,7 +29,6 @@ const Link = styled.a`
     css`
     color: #171717;
     border-bottom: 1px solid #171717;
-    letter-spacing: normal;
   `};
 `;
 
