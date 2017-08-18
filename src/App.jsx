@@ -15,12 +15,8 @@ export default () =>
     <Router>
       <div>
         <Header />
-        <Route exact path="/products" component={List} />
-        <Route
-          exact
-          path="/products/long-cotton-gabardine-car-coat-p39428531"
-          component={Product}
-        />
+        <Route exact path="/categories/" component={List} />
+        <Route exact path="/categories/id" component={Product} />
         <Footer />
       </div>
     </Router>

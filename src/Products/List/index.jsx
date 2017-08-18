@@ -15,7 +15,7 @@ const CategoryTitle = styled.h2`
 const HrLine = styled.hr`
   margin: 1rem 0 1rem;
   border: none;
-  border-bottom: 1px solid #c6c6c6;
+  border-bottom: 1px solid /categories/idc6c6c6;
 `;
 const Loader = styled.div`
   margin-top: 1rem;
@@ -39,10 +39,10 @@ export default () =>
       <div className="row">
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -51,10 +51,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -63,10 +63,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -75,10 +75,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -92,10 +92,10 @@ export default () =>
       <div className="row">
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -104,10 +104,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -116,10 +116,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"
@@ -128,10 +128,10 @@ export default () =>
 
         <div className="col-xs-6">
           <Card
-            href="./index.jsx"
+            href="/categories/id"
             title="The Westminster – Long Heritage Trench Coat"
             type="Relaxed fit"
-            colors_number={3}
+            ColoursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/995466e7e1113f3b2f6484ceb090072e1c9062dc.jpg?$BBY_V2_ML_9X16$&hei=196&wid=144"
             alt="Long Heritage Trench Coat"

@@ -12,12 +12,6 @@ export default styled.button`
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1;
-  color: ${props => (props.primary ? '#fff' : '#171717')};
-  background-color: ${props => (props.primary ? '#171717' : 'transparent')};
   border: solid 1px #171717;
-
-  @media screen and (min-width: 62rem) {
-    display: none;
-    display: ${props => props.secondary && 'block'};
   }
 `;

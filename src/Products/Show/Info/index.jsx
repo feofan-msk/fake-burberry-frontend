@@ -88,6 +88,23 @@ const Actions = styled.section`
     border: none;
   }
 `;
+const PrimaryBtn = styled(ActionBtn)`
+  color: #fff;
+  background-color: #171717;
+  @media screen and (min-width: 62rem) {
+    display: none;
+  } 
+`;
+const SecondaryBtn = styled(ActionBtn)`
+  color: #171717;
+  background-color: transparent;
+`;
+const BuyBtn = styled(PrimaryBtn)`
+  display: none;
+  @media screen and (min-width: 62rem) {
+    display: block;
+  }
+`;
 const TextBtn = styled.button`
   display: block;
   margin: 0;
@@ -129,12 +146,6 @@ const Text = styled.div`
   font-size: 0.75rem;
   color: #171717;
 `;
-const BuyBtn = styled(ActionBtn)`
-  display: none;
-  @media screen and (min-width: 62rem) {
-    display: block;
-  }
-`;
 
 export default () =>
   (<Info>
@@ -172,12 +183,12 @@ export default () =>
     <Actions>
       <div className="row">
         <div className="col-xs-12 col-md-12 col-lg-6">
-          <ActionBtn primary>SELECT A SIZE</ActionBtn>
-          <BuyBtn primary>ADD TO BAG</BuyBtn>
+          <PrimaryBtn>SELECT A SIZE</PrimaryBtn>
+          <BuyBtn>ADD TO BAG</BuyBtn>
         </div>
 
         <div className="col-xs-12 col-md-12 col-lg-6">
-          <ActionBtn secondary>FIND IN STORE</ActionBtn>
+          <SecondaryBtn>FIND IN STORE</SecondaryBtn>
         </div>
       </div>
 

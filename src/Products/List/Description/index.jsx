@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BtnContainer from './BtnContainer';
 
-const Descr = styled.section`background-color: #f3f3f3;`;
+const Description = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
   font-family: Lora;
   font-weight: 400;
@@ -23,11 +23,11 @@ const Content = styled.p`
   margin: 0;
 `;
 export default () =>
-  (<Descr>
+  (<Description>
     <Heading>Men’s Clothing</Heading>
     <Content>
       Explore our menswear collection for the season. Sculptural knitwear, sweatshirts, artist
       overalls and oversized cabans feature alongside our signature trench coat in both heritage.
     </Content>
     <BtnContainer />
-  </Descr>);
+  </Description>);

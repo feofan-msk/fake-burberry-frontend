@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
@@ -17,7 +19,6 @@ const HamburgerBtn = styled.button`
   background: url(${hamburger}) no-repeat;
   border: none;
 `;
-const Link = styled.a``;
 const Logo = styled.img`
   height: 0.75rem;
   @media screen and (min-width: 62rem) {
@@ -29,7 +30,7 @@ export default () =>
   (<Header>
     <HamburgerBtn />
 
-    <Link href="index.jsx">
+    <Link to="/">
       <Logo src={logo} alt="Burberry-logo" />
     </Link>
   </Header>);

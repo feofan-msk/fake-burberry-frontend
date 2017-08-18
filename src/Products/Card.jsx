@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FormattedNumber } from 'react-intl';
+import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
+import { Link as LinkRouter } from 'react-router-dom';
+
 import LikeIcon from '../assets/like.svg';
 
-const Card = styled.a`
+const Link = styled(LinkRouter)`
+text-decoration: none;`;
+const Card = styled.div`
   display: block;
   flex-basis: 45%;
   margin-bottom: 2rem;
-  text-decoration: none;
 `;
 const Image = styled.img`
   display: block;
@@ -74,29 +77,35 @@ const Price = styled.h5`
 
 function ProductCard(props) {
   return (
-    <Card href={props.href}>
-      <Image src={props.src} alt={props.alt} />
-      <TagLikeWrapper>
-        <Type>
-          {props.type}
-        </Type>
-        <Like />
-      </TagLikeWrapper>
-      <Title>
-        {props.title}
-      </Title>
-      <Colors>
-        Available in <u>{props.colors_number} colours</u>
-      </Colors>
-      <Price>
-        <FormattedNumber
-          value={props.price}
-          style="currency" // eslint-disable-line
-          currency="RUB"
-          minimumFractionDigits="0"
-        />
-      </Price>
-    </Card>
+    <Link to={props.href}>
+      <Card>
+        <Image src={props.src} alt={props.alt} />
+        <TagLikeWrapper>
+          <Type>
+            {props.type}
+          </Type>
+          <Like />
+        </TagLikeWrapper>
+        <Title>
+          {props.title}
+        </Title>
+        <Colors>
+          Available in{' '}
+          <u>
+            {props.ColoursAmount}{' '}
+            <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
+          </u>
+        </Colors>
+        <Price>
+          <FormattedNumber
+            value={props.price}
+            style="currency" // eslint-disable-line
+            currency="RUB"
+            minimumFractionDigits="0"
+          />
+        </Price>
+      </Card>
+    </Link>
   );
 }
 
@@ -107,7 +116,7 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
-  colors_number: PropTypes.number.isRequired,
+  ColoursAmount: PropTypes.number.isRequired,
 };
 
 export default ProductCard;

@@ -5,7 +5,7 @@ import Gallery from './Gallery';
 import Info from './Info';
 import Description from './Description';
 import Photos from './Photos';
-import Shipping from './Shipping';
+import SectionBtn from '../../common/SectionBtn';
 import Delivery from './Delivery';
 import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
@@ -29,6 +29,13 @@ const Title = styled.h1`
     line-height: 1.75rem;
   }
   @media screen and (min-width: 62rem) {
+    display: none;
+  }
+`;
+const Shipping = styled.section`
+  padding: 2rem 1rem;
+  border-bottom: solid 1px #c6c6c6;
+  @media screen and (min-width: 48rem) {
     display: none;
   }
 `;
@@ -60,7 +67,9 @@ export default () =>
     <div className="container">
       <Description />
       <Photos />
-      <Shipping />
+      <Shipping>
+        <SectionBtn>SHIPPING & RETURNS</SectionBtn>
+      </Shipping>
       <Delivery />
       <Recommendations />
       <SimilarOffers />
