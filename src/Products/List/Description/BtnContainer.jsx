@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Btn from '../../../common/ShowBtn';
 
 const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   white-space: nowrap;
   overflow: scroll;
 `;
@@ -17,9 +19,13 @@ const Heading = styled(Btn)`
 `;
 export default () =>
   (<BtnContainer>
-    <Heading>Refine by</Heading>
-    <Btn>Category</Btn>
-    <Btn>Colour</Btn>
-    <Btn>Size</Btn>
+    <div>
+      <Heading>Refine by</Heading>
+      <span>
+        <Btn>Category</Btn>
+        <Btn>Colour</Btn>
+        <Btn>Size</Btn>
+      </span>
+    </div>
     <Btn>Sort by price</Btn>
   </BtnContainer>);
