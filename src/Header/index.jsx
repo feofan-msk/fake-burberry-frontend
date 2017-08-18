@@ -18,6 +18,7 @@ const Header = styled.header`
   }
 `;
 const HamburgerBtn = styled.button`
+  display: block;
   height: 0.625rem;
   width: 1rem;
 
@@ -28,6 +29,8 @@ const HamburgerBtn = styled.button`
   }
 `;
 const Logo = styled.img`
+  display: block;
+  margin: 0 auto;
   height: 0.75rem;
   @media screen and (min-width: 48rem) {
     height: 1rem;
@@ -44,9 +47,9 @@ const LocationSelector = styled(ShowBtn)`
 `;
 
 export default () =>
-  (<Header className="container">
-    <div className="row">
-      <div className="col-xs-2 col-md-5">
+  (<div className="container">
+    <Header className="row">
+      <div className="col-xs-2 col-md-4">
         <HamburgerBtn />
         <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
       </div>
@@ -55,6 +58,6 @@ export default () =>
           <Logo src={logo} alt="Burberry-logo" />
         </Link>
       </div>
-    </div>
+    </Header>
     <Navigation />
-  </Header>);
+  </div>);
