@@ -7,7 +7,7 @@ const BtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  overflow: scroll;
+  overflow-x: auto;
 
   @media screen and (min-width: 48rem) {
     Button:last-child {

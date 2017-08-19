@@ -12,11 +12,11 @@ const Heading = styled.h1`
   padding: 2rem 0 1rem;
   margin: 0;
   @media screen and (min-width: 48rem) {
-    padding-top: 4rem;
+    padding-top: 4.125rem;
   }
 `;
 const Content = styled.p`
-  opacity: 0.87;
+  display: block;
   font-family: Raleway;
   font-size: 0.75rem;
   line-height: 1.25rem;
@@ -56,7 +56,7 @@ export default () =>
           <Content>
             Explore our menswear collection for the season. Sculptural knitwear,{' '}
             <Link>sweatshirts</Link>, artist overalls and oversized cabans feature alongside our
-            signature trench coat in both heritage and seasonal...<MoreButton>More</MoreButton>
+            signature trench coat in both heritage and seasonal<MoreButton>More</MoreButton>
           </Content>
         </div>
       </div>

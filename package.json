@@ -22,7 +22,7 @@
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "deploy": "yarn build && now ./build"
+    "deploy": "yarn build && now ./build now --public"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
