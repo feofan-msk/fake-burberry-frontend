@@ -80,11 +80,11 @@ const Underline = styled.span`border-bottom: 1px solid #171717;`;
 function ProductCard(props) {
   return (
     <Card>
-      <RouteLink to={props.href}>
+      <RouteLink to={props.to}>
         <Image src={props.src} alt={props.alt} />
       </RouteLink>
       <InfoWrapper>
-        <RouteLink to={props.href}>
+        <RouteLink to={props.to}>
           <Label>
             {props.label}
           </Label>
@@ -118,7 +118,7 @@ function ProductCard(props) {
 }
 
 ProductCard.propTypes = {
-  href: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
