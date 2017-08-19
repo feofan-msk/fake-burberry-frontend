@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 import BtnContainer from './BtnContainer';
 
 const Description = styled.section`background-color: #f3f3f3;`;
@@ -31,7 +31,7 @@ const Content = styled.p`
     padding-bottom: 1rem;
   }
 `;
-const RouteLink = styled(Link)`
+const Link = styled(RouteLink)`
   border-bottom: 1px solid #171717;
   text-decoration: none;
   color: #171717;
@@ -57,9 +57,8 @@ export default () =>
         <div className="col-xs-12 col-md-9 col-lg-7">
           <Content>
             Explore our menswear collection for the season. Sculptural knitwear,{' '}
-            <RouteLink to="/">sweatshirts</RouteLink>, artist overalls and oversized cabans feature
-            alongside our signature trench coat in both heritage and seasonal...{' '}
-            <MoreButton>More</MoreButton>
+            <Link to="/">sweatshirts</Link>, artist overalls and oversized cabans feature alongside
+            our signature trench coat in both heritage and seasonal... <MoreButton>More</MoreButton>
           </Content>
         </div>
       </div>

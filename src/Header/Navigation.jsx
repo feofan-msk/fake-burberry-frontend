@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 
 const Navigation = styled.nav`
   display: none;
@@ -14,7 +14,7 @@ const Navigation = styled.nav`
   }
 `;
 
-const RouteLink = styled(Link)`
+const Link = styled(RouteLink)`
   padding: 1rem;
 
   font-family: Raleway;
@@ -35,11 +35,11 @@ const RouteLink = styled(Link)`
 
 export default () =>
   (<Navigation>
-    <RouteLink to="/">Women</RouteLink>
-    <RouteLink active to="/men/clothing">
+    <Link to="/">Women</Link>
+    <Link active to="/men/clothing">
       Men
-    </RouteLink>
-    <RouteLink to="/">Children</RouteLink>
-    <RouteLink to="/">Beauty</RouteLink>
-    <RouteLink to="/">Experience</RouteLink>
+    </Link>
+    <Link to="/">Children</Link>
+    <Link to="/">Beauty</Link>
+    <Link to="/">Experience</Link>
   </Navigation>);

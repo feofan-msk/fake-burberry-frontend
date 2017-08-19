@@ -20,7 +20,7 @@ export default () =>
     <div className="row">
       <div className="col-xs-6 col-md-3">
         <Card
-          to="/men/clothing/id"
+          to="/men/clothing/long-cotton-gabardine-id39428531"
           title="Emroided Hooded Content For Three Lines"
           label="Relaxed fit"
           ColoursAmount={3}
@@ -32,7 +32,7 @@ export default () =>
 
       <div className="col-xs-6 col-md-3">
         <Card
-          to="/men/clothing/id"
+          to="/men/clothing/long-cotton-gabardine-id39428531"
           title="Relaxed Fit Stretch Jeans Content For Three Lines"
           label="Relaxed fit"
           ColoursAmount={3}
@@ -44,7 +44,7 @@ export default () =>
 
       <div className="col-xs-6 col-md-3">
         <Card
-          to="/men/clothing/id"
+          to="/men/clothing/long-cotton-gabardine-id39428531"
           title="Leather and House Check Content For Three Lines"
           label="Relaxed fit"
           ColoursAmount={3}
@@ -56,7 +56,7 @@ export default () =>
 
       <div className="col-xs-6 col-md-3">
         <Card
-          to="/men/clothing/id"
+          to="/men/clothing/long-cotton-gabardine-id39428531"
           title="Leather Wingtip Check Content For Three Lines"
           label="Relaxed fit"
           ColoursAmount={3}

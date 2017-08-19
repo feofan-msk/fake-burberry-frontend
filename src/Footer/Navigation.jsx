@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 
 const Navigation = styled.div`
   display: none;
@@ -20,7 +20,7 @@ const Title = styled.h4`
     color: #171717;
   }
 `;
-const RouteLink = styled(Link)`
+const Link = styled(RouteLink)`
   @media screen and (min-width: 48rem) {
     display: block;
     margin-bottom: 0.75rem;
@@ -60,36 +60,36 @@ export default () =>
       <div className="col-md-3">
         <Title>customer service</Title>
         <nav>
-          <RouteLink to="/">Contact Us</RouteLink>
-          <RouteLink to="/">Payment</RouteLink>
-          <RouteLink to="/">Shipping</RouteLink>
-          <RouteLink to="/">Returns</RouteLink>
-          <RouteLink to="/">Faqs</RouteLink>
-          <RouteLink to="/">Live Chat</RouteLink>
-          <RouteLink to="/">The Burberry App</RouteLink>
-          <RouteLink to="/">Store Locator</RouteLink>
+          <Link to="/">Contact Us</Link>
+          <Link to="/">Payment</Link>
+          <Link to="/">Shipping</Link>
+          <Link to="/">Returns</Link>
+          <Link to="/">Faqs</Link>
+          <Link to="/">Live Chat</Link>
+          <Link to="/">The Burberry App</Link>
+          <Link to="/">Store Locator</Link>
         </nav>
       </div>
 
       <div className="col-md-3">
         <Title>our company</Title>
         <nav>
-          <RouteLink to="/">Our History</RouteLink>
-          <RouteLink to="/">Burberry Group Pic</RouteLink>
-          <RouteLink to="/">Careers</RouteLink>
-          <RouteLink to="/">Corporate Responsibility</RouteLink>
-          <RouteLink to="/">Site Map</RouteLink>
+          <Link to="/">Our History</Link>
+          <Link to="/">Burberry Group Pic</Link>
+          <Link to="/">Careers</Link>
+          <Link to="/">Corporate Responsibility</Link>
+          <Link to="/">Site Map</Link>
         </nav>
       </div>
 
       <div className="col-md-3">
         <Title>legal &amp; cookies</Title>
         <nav>
-          <RouteLink to="/">Terms &amp; Conditions</RouteLink>
-          <RouteLink to="/">Privacy Policy</RouteLink>
-          <RouteLink to="/">Cookie Policy</RouteLink>
-          <RouteLink to="/">Accessibility Statement</RouteLink>
-          <RouteLink to="/">Japan Only - SCTL indications</RouteLink>
+          <Link to="/">Terms &amp; Conditions</Link>
+          <Link to="/">Privacy Policy</Link>
+          <Link to="/">Cookie Policy</Link>
+          <Link to="/">Accessibility Statement</Link>
+          <Link to="/">Japan Only - SCTL indications</Link>
         </nav>
       </div>
       <div className="col-md-3">
