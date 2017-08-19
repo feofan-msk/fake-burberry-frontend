@@ -63,7 +63,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -75,7 +75,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -87,7 +87,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -99,7 +99,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -111,7 +111,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -123,7 +123,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -135,7 +135,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -147,7 +147,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -164,7 +164,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Online Exclusive"
-            ColoursAmount={7}
+            coloursAmount={7}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="The Westminster – Long Heritage Trench Coat"
@@ -176,7 +176,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -188,7 +188,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -200,7 +200,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -212,7 +212,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -224,7 +224,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -236,7 +236,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={3}
+            coloursAmount={3}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"
@@ -248,7 +248,7 @@ export default () =>
             to="/men/clothing/long-cotton-gabardine-id39428531"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
-            ColoursAmount={1}
+            coloursAmount={1}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
             alt="Long Heritage Trench Coat"

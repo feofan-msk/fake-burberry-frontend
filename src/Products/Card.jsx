@@ -96,8 +96,8 @@ function ProductCard(props) {
           <Colours>
             Available in{' '}
             <Underline>
-              {props.ColoursAmount}{' '}
-              <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
+              {props.coloursAmount}{' '}
+              <FormattedPlural value={props.coloursAmount} one="colour" other="colours" />
             </Underline>
           </Colours>
 
@@ -124,7 +124,7 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
-  ColoursAmount: PropTypes.number.isRequired,
+  coloursAmount: PropTypes.number.isRequired,
 };
 
 export default ProductCard;
