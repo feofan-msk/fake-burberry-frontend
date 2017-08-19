@@ -15,7 +15,7 @@ const Card = styled.div`
 const Image = styled.img`
   display: block;
   width: 100%;
-  min-height: 196px;
+  height: auto;
   margin-bottom: 1rem;
 `;
 const TagLikeWrapper = styled.div`

@@ -15,7 +15,7 @@ export default () =>
     <Router>
       <div>
         <Header />
-        <Redirect to="/men" />
+        <Redirect to="/men/clothing" />
         <Route exact path="/men/clothing" component={List} />
         <Route exact path="/men/clothing/id" component={Product} />
         <Footer />

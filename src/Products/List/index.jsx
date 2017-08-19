@@ -60,7 +60,7 @@ export default () =>
       <div className="row">
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -72,7 +72,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Kensington – Mid-Length Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
@@ -84,7 +84,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -96,7 +96,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
@@ -108,7 +108,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -120,7 +120,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
@@ -132,7 +132,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -144,7 +144,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
@@ -161,7 +161,7 @@ export default () =>
       <div className="row">
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Brighton – Longline Car Coat"
             label="Online Exclusive"
             ColoursAmount={7}
@@ -173,7 +173,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -185,7 +185,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -197,7 +197,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -209,7 +209,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -221,7 +221,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
@@ -233,7 +233,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={3}
@@ -245,7 +245,7 @@ export default () =>
 
         <div className="col-xs-6 col-md-3">
           <Card
-            href="/id"
+            href="/men/clothing/id"
             title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
