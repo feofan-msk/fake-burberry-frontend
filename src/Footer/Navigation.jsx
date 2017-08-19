@@ -25,7 +25,7 @@ const RouteLink = styled(Link)`
     display: block;
     margin-bottom: 0.75rem;
     font-family: Raleway;
-    font-weight: 600;
+    font-weight: 00;
     font-size: 0.75rem;
     line-height: 1rem;
     color: #999999;
