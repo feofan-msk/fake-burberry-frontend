@@ -36,6 +36,7 @@ const Like = styled.button`
   width: 15px;
   height: 14px;
   background: url(${LikeIcon});
+  background-repeat: no-repeat;
   margin-left: 1rem;
 `;
 const Title = styled.h3`
