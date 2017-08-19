@@ -33,6 +33,7 @@ const Content = styled.p`
 const Link = styled.a`
   border-bottom: 1px solid #171717;
   text-decoration: none;
+  color: #171717;
 `;
 const MoreButton = styled.button`
   padding: 0;

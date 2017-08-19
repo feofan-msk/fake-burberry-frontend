@@ -73,11 +73,7 @@ export default () =>
       </div>
 
       <div className="col-lg-8">
-        <Photo
-          src="/img/desktop-description.jpg"
-          srcSet="/img/desktop-description@2x.jpg 2x, /img/desktop-description@3x.jpg 3x"
-          alt="Delivery"
-        />
+        <Photo src={`${process.env.PUBLIC_URL}/img/desktop-description@2x.jpg`} alt="Delivery" />
       </div>
     </div>
   </Description>);

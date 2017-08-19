@@ -8,12 +8,6 @@ const BtnContainer = styled.div`
   justify-content: space-between;
   white-space: nowrap;
   overflow-x: auto;
-
-  @media screen and (min-width: 48rem) {
-    Button:last-child {
-      margin-right: 0;
-    }
-  }
 `;
 const Heading = styled(Btn)`
   margin-right: 2rem;
@@ -26,6 +20,9 @@ const Heading = styled(Btn)`
     display: none;
   }
 `;
+const StyledButton = styled(Btn)`
+  margin-right: 0;
+`;
 export default () =>
   (<BtnContainer>
     <div>
@@ -36,5 +33,5 @@ export default () =>
         <Btn>Size</Btn>
       </span>
     </div>
-    <Btn>Sort by price</Btn>
+    <StyledButton>Sort by price</StyledButton>
   </BtnContainer>);
