@@ -34,11 +34,11 @@ const Link = styled.a`
 
 export default () =>
   (<Navigation>
-    <Link href="#">Women</Link>
-    <Link active href="#">
+    <Link href="/">Women</Link>
+    <Link active href="/men">
       Men
     </Link>
-    <Link href="#">Children</Link>
-    <Link href="#">Beauty</Link>
-    <Link href="#">Experience</Link>
+    <Link href="/">Children</Link>
+    <Link href="/">Beauty</Link>
+    <Link href="/">Experience</Link>
   </Navigation>);

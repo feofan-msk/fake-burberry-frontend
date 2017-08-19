@@ -55,8 +55,9 @@ export default () =>
         <div className="col-xs-12 col-md-9 col-lg-7">
           <Content>
             Explore our menswear collection for the season. Sculptural knitwear,{' '}
-            <Link>sweatshirts</Link>, artist overalls and oversized cabans feature alongside our
-            signature trench coat in both heritage and seasonal... <MoreButton>More</MoreButton>
+            <Link href="/">sweatshirts</Link>, artist overalls and oversized cabans feature
+            alongside our signature trench coat in both heritage and seasonal...{' '}
+            <MoreButton>More</MoreButton>
           </Content>
         </div>
       </div>
