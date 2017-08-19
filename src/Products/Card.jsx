@@ -78,42 +78,41 @@ const Underline = styled.span`border-bottom: 1px solid #171717;`;
 
 function ProductCard(props) {
   return (
-    <Link to={props.href}>
-      <Card>
+    <Card>
+      <Link to={props.href}>
         <Image src={props.src} alt={props.alt} />
+      </Link>
+      <InfoWrapper>
+        <Link to={props.href}>
+          <Label>
+            {props.label}
+          </Label>
 
-        <InfoWrapper>
-          <div>
-            <Label>
-              {props.label}
-            </Label>
+          <Title>
+            {props.title}
+          </Title>
 
-            <Title>
-              {props.title}
-            </Title>
+          <Colours>
+            Available in{' '}
+            <Underline>
+              {props.ColoursAmount}{' '}
+              <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
+            </Underline>
+          </Colours>
 
-            <Colours>
-              Available in{' '}
-              <Underline>
-                {props.ColoursAmount}{' '}
-                <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
-              </Underline>
-            </Colours>
+          <Price>
+            <FormattedNumber
+              value={props.price}
+              style="currency" // eslint-disable-line
+              currency="RUB"
+              minimumFractionDigits="0"
+            />
+          </Price>
+        </Link>
 
-            <Price>
-              <FormattedNumber
-                value={props.price}
-                style="currency" // eslint-disable-line
-                currency="RUB"
-                minimumFractionDigits="0"
-              />
-            </Price>
-          </div>
-
-          <Like />
-        </InfoWrapper>
-      </Card>
-    </Link>
+        <Like />
+      </InfoWrapper>
+    </Card>
   );
 }
 
