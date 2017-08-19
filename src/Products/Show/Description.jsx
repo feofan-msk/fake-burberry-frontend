@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import SectionBtn from '../../common/SectionBtn';
 
 const Description = styled.section`
-  padding: 2rem 1rem;
+  padding-bottom: 2rem;
   border-bottom: solid 1px #c6c6c6;
   @media screen and (min-width: 48rem) {
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 3rem;
     border: none;
   }
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: 62rem) {
     padding: 0;
     margin: 4rem 0 2rem;
   }

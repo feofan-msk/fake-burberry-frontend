@@ -8,10 +8,11 @@ const Footer = styled.footer`
   background-color: #f3f3f3;
   @media screen and (min-width: 48rem) {
     padding: 2rem 0;
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
   @media screen and (min-width: 62rem) {
     padding-top: 4rem;
+    margin-top: 4rem;
   }
 `;
 const Btn = styled.button`

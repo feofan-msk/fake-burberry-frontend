@@ -43,6 +43,7 @@ const LocationSelector = styled(ShowBtn)`
     padding: 0;
     font-weight: 600;
     color: #999;
+    margin: 0;
   }
 `;
 

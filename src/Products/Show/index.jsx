@@ -17,7 +17,7 @@ const Card = styled.div`
   }
 `;
 const Title = styled.h1`
-  margin: 1rem;
+  margin: 1rem 0;
   font-family: 'Lora';
   font-weight: 400;
   font-size: 1.25rem;
@@ -33,7 +33,7 @@ const Title = styled.h1`
   }
 `;
 const Shipping = styled.section`
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   border-bottom: solid 1px #c6c6c6;
   @media screen and (min-width: 48rem) {
     display: none;
@@ -68,7 +68,7 @@ export default () =>
       <Description />
       <Photos />
       <Shipping>
-        <SectionBtn>SHIPPING & RETURNS</SectionBtn>
+        <SectionBtn>DELIVERY</SectionBtn>
       </Shipping>
       <Delivery />
       <Recommendations />
