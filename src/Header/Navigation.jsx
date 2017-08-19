@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Link as RouteLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = styled.nav`
   display: none;
@@ -14,7 +14,7 @@ const Navigation = styled.nav`
   }
 `;
 
-const Link = styled(RouteLink)`
+const Link = styled(NavLink)`
   padding: 1rem;
 
   font-family: Raleway;
@@ -25,21 +25,17 @@ const Link = styled(RouteLink)`
   color: #999;
   text-transform: uppercase;
   text-decoration: none;
-  ${props =>
-    props.active &&
-    css`
+  &.active {
     color: #171717;
     border-bottom: 1px solid #171717;
-  `};
+  }
 `;
 
 export default () =>
   (<Navigation>
-    <Link to="/">Women</Link>
-    <Link active to="/men/clothing">
-      Men
-    </Link>
-    <Link to="/">Children</Link>
-    <Link to="/">Beauty</Link>
-    <Link to="/">Experience</Link>
+    <Link to="/women">Women</Link>
+    <Link to="/men/clothing">Men</Link>
+    <Link to="/children">Children</Link>
+    <Link to="/beaty">Beauty</Link>
+    <Link to="/experience">Experience</Link>
   </Navigation>);
