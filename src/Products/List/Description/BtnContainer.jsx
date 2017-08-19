@@ -11,12 +11,12 @@ const BtnContainer = styled.div`
 
   @media screen and (min-width: 48rem) {
     Button:last-child {
-      padding-right: 0;
+      margin-right: 0;
     }
   }
 `;
 const Heading = styled(Btn)`
-  padding-right: 2rem;
+  margin-right: 2rem;
 
   ::after{
     content: none;

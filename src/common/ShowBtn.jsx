@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import arrow from '../assets/arrow.svg';
 
 export default styled.button`
-  padding: 1.5rem 1rem 1.5rem 0;
+  padding: 1.5rem 0 1.5rem 0;
+  margin-right: 1rem;
 
   border: none;
   background-color: transparent;
@@ -23,6 +24,6 @@ export default styled.button`
   }
 
   @media screen and (min-width: 48rem) {
-    padding-right: 3rem;
+    margin-right: 3rem;
   }
 `;

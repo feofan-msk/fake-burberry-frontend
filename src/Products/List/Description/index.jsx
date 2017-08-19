@@ -36,7 +36,6 @@ const Link = styled.a`
 `;
 const MoreButton = styled.button`
   padding: 0;
-  margin-left: 0.5rem;
   border: none;
   border-bottom: 1px solid #171717;
 
