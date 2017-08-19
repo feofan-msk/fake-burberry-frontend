@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import LikeIcon from '../assets/like.svg';
 
-const Link = styled(LinkRouter)`
+const RouteLink = styled(Link)`
 text-decoration: none;`;
 const Card = styled.div`
   display: block;
@@ -80,11 +80,11 @@ const Underline = styled.span`border-bottom: 1px solid #171717;`;
 function ProductCard(props) {
   return (
     <Card>
-      <Link to={props.href}>
+      <RouteLink to={props.href}>
         <Image src={props.src} alt={props.alt} />
-      </Link>
+      </RouteLink>
       <InfoWrapper>
-        <Link to={props.href}>
+        <RouteLink to={props.href}>
           <Label>
             {props.label}
           </Label>
@@ -109,7 +109,7 @@ function ProductCard(props) {
               minimumFractionDigits="0"
             />
           </Price>
-        </Link>
+        </RouteLink>
 
         <Like />
       </InfoWrapper>
