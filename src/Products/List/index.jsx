@@ -73,7 +73,7 @@ export default () =>
         <div className="col-xs-6 col-md-3">
           <Card
             href="/men/clothing/id"
-            title="The Kensington – Mid-Length Heritage Trench Coat"
+            title="The Westminster – Long Heritage Trench Coat"
             label="Relaxed fit"
             ColoursAmount={1}
             price={100000}
@@ -162,12 +162,12 @@ export default () =>
         <div className="col-xs-6 col-md-3">
           <Card
             href="/men/clothing/id"
-            title="The Brighton – Longline Car Coat"
+            title="The Westminster – Long Heritage Trench Coat"
             label="Online Exclusive"
             ColoursAmount={7}
             price={100000}
             src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="The Brighton – Longline Car Coat"
+            alt="The Westminster – Long Heritage Trench Coat"
           />
         </div>
 

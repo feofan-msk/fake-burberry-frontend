@@ -57,7 +57,7 @@ export default () =>
           <Content>
             Explore our menswear collection for the season. Sculptural knitwear,{' '}
             <Link>sweatshirts</Link>, artist overalls and oversized cabans feature alongside our
-            signature trench coat in both heritage and seasonal<MoreButton>More</MoreButton>
+            signature trench coat in both heritage and seasonal... <MoreButton>More</MoreButton>
           </Content>
         </div>
       </div>

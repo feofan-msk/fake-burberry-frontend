@@ -18,12 +18,13 @@ const Image = styled.img`
   height: auto;
   margin-bottom: 1rem;
 `;
-const TagLikeWrapper = styled.div`
+const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
 `;
-const Label = styled.span`
+const Label = styled.p`
+  margin: 0 0 0.5rem;
+
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -32,9 +33,10 @@ const Label = styled.span`
 `;
 const Like = styled.button`
   border: none;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 15px;
+  height: 14px;
   background: url(${LikeIcon});
+  margin-left: 1rem;
 `;
 const Title = styled.h3`
   font-family: Raleway;
@@ -79,30 +81,37 @@ function ProductCard(props) {
     <Link to={props.href}>
       <Card>
         <Image src={props.src} alt={props.alt} />
-        <TagLikeWrapper>
-          <Label>
-            {props.label}
-          </Label>
+
+        <InfoWrapper>
+          <div>
+            <Label>
+              {props.label}
+            </Label>
+
+            <Title>
+              {props.title}
+            </Title>
+
+            <Colours>
+              Available in{' '}
+              <Underline>
+                {props.ColoursAmount}{' '}
+                <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
+              </Underline>
+            </Colours>
+
+            <Price>
+              <FormattedNumber
+                value={props.price}
+                style="currency" // eslint-disable-line
+                currency="RUB"
+                minimumFractionDigits="0"
+              />
+            </Price>
+          </div>
+
           <Like />
-        </TagLikeWrapper>
-        <Title>
-          {props.title}
-        </Title>
-        <Colours>
-          Available in{' '}
-          <Underline>
-            {props.ColoursAmount}{' '}
-            <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
-          </Underline>
-        </Colours>
-        <Price>
-          <FormattedNumber
-            value={props.price}
-            style="currency" // eslint-disable-line
-            currency="RUB"
-            minimumFractionDigits="0"
-          />
-        </Price>
+        </InfoWrapper>
       </Card>
     </Link>
   );
