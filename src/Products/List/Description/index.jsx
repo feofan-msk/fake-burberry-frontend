@@ -6,13 +6,14 @@ const Description = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
   font-family: Lora;
   font-weight: 400;
+  line-height: 2rem;
   font-size: 1.625rem;
   color: #171717;
 
   padding: 2rem 0 1rem;
   margin: 0;
   @media screen and (min-width: 48rem) {
-    padding-top: 4.125rem;
+    padding-top: 4rem;
   }
 `;
 const Content = styled.p`

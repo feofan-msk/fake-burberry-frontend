@@ -8,7 +8,7 @@ import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
 const Header = styled.header`
-  padding: 1rem 0;
+  padding: 1.125rem 0;
 
   @media screen and (min-width: 48rem) {
     padding: 1.5rem 0 0;
