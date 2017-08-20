@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import 'normalize.css';
-import 'flexboxgrid2/dist/flexboxgrid.css';
+import 'flexboxgrid2/flexboxgrid2.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
