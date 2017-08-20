@@ -23,6 +23,9 @@ export default () =>
         <Redirect from="/" to="/men/clothing" />
         <Route exact path="/men/clothing" component={List} />
         <Route exact path="/men/clothing/long-cotton-gabardine-id39428531" component={Product} />
+
+        <Route exact path="/:category/:section" component={List} />
+        <Route exact path="/:category/:section/:id" component={Product} />
         <Footer />
       </div>
     </Router>
