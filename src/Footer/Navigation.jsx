@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link as RouteLink } from 'react-router-dom';
 
 const Navigation = styled.div`
   display: none;
@@ -19,16 +20,37 @@ const Title = styled.h4`
     color: #171717;
   }
 `;
-const Link = styled.a`
+const Link = styled(RouteLink)`
   @media screen and (min-width: 48rem) {
     display: block;
     margin-bottom: 0.75rem;
     font-family: Raleway;
-    font-weight: 600;
+    font-weight: 00;
     font-size: 0.75rem;
     line-height: 1rem;
     color: #999999;
     text-decoration: none;
+  }
+`;
+const Image = styled.img`
+  display: none;
+  @media screen and (min-width: 62rem) {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+`;
+const UnderlinedLink = styled(Link)`
+  display: none;
+  @media screen and (min-width: 62rem) {
+    display: inline;
+    font-family: Raleway;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    color: #171717;
+    text-decoration: none;
+    border-bottom: 1px solid #171717;
   }
 `;
 
@@ -38,37 +60,44 @@ export default () =>
       <div className="col-md-3">
         <Title>customer service</Title>
         <nav>
-          <Link href="#">Contact Us</Link>
-          <Link href="#">Payment</Link>
-          <Link href="#">Shipping</Link>
-          <Link href="#">Returns</Link>
-          <Link href="#">Faqs</Link>
-          <Link href="#">Live Chat</Link>
-          <Link href="#">The Burberry App</Link>
-          <Link href="#">Store Locator</Link>
+          <Link to="/">Contact Us</Link>
+          <Link to="/">Payment</Link>
+          <Link to="/">Shipping</Link>
+          <Link to="/">Returns</Link>
+          <Link to="/">Faqs</Link>
+          <Link to="/">Live Chat</Link>
+          <Link to="/">The Burberry App</Link>
+          <Link to="/">Store Locator</Link>
         </nav>
       </div>
 
       <div className="col-md-3">
         <Title>our company</Title>
         <nav>
-          <Link href="#">Our History</Link>
-          <Link href="#">Burberry Group Pic</Link>
-          <Link href="#">Careers</Link>
-          <Link href="#">Corporate Responsibility</Link>
-          <Link href="#">Site Map</Link>
+          <Link to="/">Our History</Link>
+          <Link to="/">Burberry Group Pic</Link>
+          <Link to="/">Careers</Link>
+          <Link to="/">Corporate Responsibility</Link>
+          <Link to="/">Site Map</Link>
         </nav>
       </div>
 
       <div className="col-md-3">
         <Title>legal &amp; cookies</Title>
         <nav>
-          <Link href="#">Terms &amp; Conditions</Link>
-          <Link href="#">Privacy Policy</Link>
-          <Link href="#">Cookie Policy</Link>
-          <Link href="#">Accessibility Statement</Link>
-          <Link href="#">Japan Only - SCTL indications</Link>
+          <Link to="/">Terms &amp; Conditions</Link>
+          <Link to="/">Privacy Policy</Link>
+          <Link to="/">Cookie Policy</Link>
+          <Link to="/">Accessibility Statement</Link>
+          <Link to="/">Japan Only - SCTL indications</Link>
         </nav>
+      </div>
+      <div className="col-md-3">
+        <Image
+          src="http://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
+          alt="Store"
+        />
+        <UnderlinedLink to="/">Find a store</UnderlinedLink>
       </div>
     </div>
   </Navigation>);

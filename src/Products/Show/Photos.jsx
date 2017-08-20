@@ -23,30 +23,26 @@ const Photo = styled.img`
   }
 `;
 
-export default () => (
-  <Wrapper>
+export default () =>
+  (<Wrapper>
     <div className="row">
       <div className="col-lg-4">
         <Photo
-          src="/img/desktop-photo-1.jpg"
-          srcSet="/img/desktop-photo-1@2x.jpg 2x, /img/desktop-photo-1@3x.jpg 3x"
+          src={`${process.env.PUBLIC_URL}/img/desktop-photo-1@2x.jpg`}
           alt="Long Cotton Gabardine Car Coat"
         />
       </div>
       <div className="col-lg-4">
         <Photo
-          src="/img/desktop-photo-2.jpg"
-          srcSet="/img/desktop-photo-2@2x.jpg 2x, /img/desktop-photo-2@3x.jpg 3x"
+          src={`${process.env.PUBLIC_URL}/img/desktop-photo-2@2x.jpg`}
           alt="Long Cotton Gabardine Car Coat"
         />
       </div>
       <div className="col-lg-4">
         <Photo
-          src="/img/desktop-photo-3.jpg"
-          srcSet="/img/desktop-photo-3@2x.jpg 2x, /img/desktop-photo-3@3x.jpg 3x"
+          src={`${process.env.PUBLIC_URL}/img/desktop-photo-3@2x.jpg`}
           alt="Long Cotton Gabardine Car Coat"
         />
       </div>
     </div>
-  </Wrapper>
-);
+  </Wrapper>);

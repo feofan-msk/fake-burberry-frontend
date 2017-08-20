@@ -3,10 +3,8 @@ import styled from 'styled-components';
 const Header = styled.h2`
   display: inline-block;
   box-sizing: border-box;
-  padding-bottom: 0.5rem;
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  border-bottom: solid 1px #171717;
+  margin-bottom: 1rem;
 
   font-family: Raleway;
   font-size: 1rem;

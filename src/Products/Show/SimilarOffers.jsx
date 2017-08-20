@@ -3,7 +3,6 @@ import React from 'react';
 import Subheading from '../../common/Subheading';
 
 const SimilarOffers = styled.section`
-  margin-left: 1rem;
   margin-bottom: 4rem;
   @media screen and (min-width: 48rem) {
     display: none;

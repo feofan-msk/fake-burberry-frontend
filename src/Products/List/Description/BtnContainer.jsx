@@ -1,25 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Btn from './Btn';
+import Btn from '../../../common/ShowBtn';
 
 const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   white-space: nowrap;
-  overflow: scroll;
+  overflow-x: auto;
 `;
-const Heading = styled(Btn)`
-  padding-left: 0.5rem;
-  padding-right: 2rem;
-
-  ::after{
-    content: none;
-  }
+const StyledButton = styled(Btn)`
+  margin-right: 0;
 `;
 export default () =>
   (<BtnContainer>
-    <Heading>Refine by</Heading>
-    <Btn>Category</Btn>
-    <Btn>Colour</Btn>
-    <Btn>Size</Btn>
-    <Btn>Sort by price</Btn>
+    <div>
+      <Btn>Category</Btn>
+      <Btn>Colour</Btn>
+      <Btn>Size</Btn>
+    </div>
+    <StyledButton>Sort by price</StyledButton>
   </BtnContainer>);

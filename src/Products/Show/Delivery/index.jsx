@@ -18,11 +18,7 @@ export default () =>
   (<Delivery>
     <div className="row middle-lg">
       <div className="col-md-7">
-        <Image
-          src="/img/delivery_pack@3x.jpg"
-          srcset="/img/delivery_pack@2x.jpg 2x, img/delivery_pack@3x.jpg 3x"
-          alt="delivery image"
-        />
+        <Image src={`${process.env.PUBLIC_URL}/img/delivery_pack@2x.jpg`} alt="delivery image" />
       </div>
 
       <div className="col-md-5 col-lg-offset-1 col-lg-4">

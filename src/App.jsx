@@ -1,7 +1,8 @@
 import React from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import Header from './Header';
 import Product from './Products/Show';
@@ -14,9 +15,14 @@ export default () =>
   (<IntlProvider locale="ru">
     <Router>
       <div>
+        <Helmet>
+          <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
+        </Helmet>
+
         <Header />
-        <Route exact path="/categories/" component={List} />
-        <Route exact path="/categories/id" component={Product} />
+        <Redirect from="/" to="/men/clothing" />
+        <Route exact path="/men/clothing" component={List} />
+        <Route exact path="/men/clothing/long-cotton-gabardine-id39428531" component={Product} />
         <Footer />
       </div>
     </Router>

@@ -20,7 +20,7 @@ const Title = styled.h1`
 `;
 const Info = styled.section`
   box-sizing: border-box;
-  margin: 1rem 1rem 2rem;
+  margin: 1rem 0 2rem;
   border-bottom: 1px solid #c6c6c6;
   @media screen and (min-width: 48rem) {
     margin: 0;
@@ -75,17 +75,21 @@ const CurrColor = styled.p`
 const BtnContainer = styled.div`
   display: flex;
   padding-bottom: 2rem;
+  border-bottom: solid 1px #c6c6c6;
+  margin-bottom: 2rem;
+  @media screen and (min-width: 62rem) {
+    margin-bottom: 0;
+    border: none;
+  }
   @media screen and (min-width: 62rem) {
     padding-bottom: 1.5rem;
   }
 `;
 
 const Actions = styled.section`
-  padding: 0 1rem 3rem;
-  border-bottom: solid 1px #c6c6c6;
+  padding: 0 0 3rem;
   @media screen and (min-width: 48rem) {
     padding: 0;
-    border: none;
   }
 `;
 const PrimaryBtn = styled(ActionBtn)`
@@ -127,12 +131,12 @@ const Details = styled.div`
 
   @media screen and (min-width: 62rem) {
     display: block;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 `;
 
 const SubHeader = styled.h3`
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.25rem;
   font-family: Raleway;
   font-size: 0.75rem;
   font-weight: bold;

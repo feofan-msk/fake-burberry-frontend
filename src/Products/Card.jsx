@@ -2,28 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 
 import LikeIcon from '../assets/like.svg';
 
-const Link = styled(LinkRouter)`
+const Link = styled(RouteLink)`
 text-decoration: none;`;
 const Card = styled.div`
   display: block;
-  flex-basis: 45%;
   margin-bottom: 2rem;
 `;
 const Image = styled.img`
   display: block;
   width: 100%;
+  height: auto;
   margin-bottom: 1rem;
 `;
-const TagLikeWrapper = styled.div`
+const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
 `;
-const Type = styled.span`
+const Label = styled.p`
+  margin: 0 0 0.5rem;
+
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -32,9 +33,11 @@ const Type = styled.span`
 `;
 const Like = styled.button`
   border: none;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 15px;
+  height: 14px;
   background: url(${LikeIcon});
+  background-repeat: no-repeat;
+  margin-left: 1rem;
 `;
 const Title = styled.h3`
   font-family: Raleway;
@@ -45,13 +48,15 @@ const Title = styled.h3`
 
   margin: 0 0 0.5rem;
 
+  @media screen and (min-width: 48rem) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
   @media screen and (min-width: 62rem) {
-    line-height: 1.5rem;
-
-    margin-top: 1rem;
+    font-size: 1rem;
   }
 `;
-const Colors = styled.span`
+const Colours = styled.div`
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -62,61 +67,64 @@ const Colors = styled.span`
 `;
 const Price = styled.h5`
   margin: 0;
-  padding-bottom: 1rem;
 
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #171717;
-
-  @media  screen and (min-width: 62rem) {
-  }
 }
 `;
+const Underline = styled.span`border-bottom: 1px solid #171717;`;
 
 function ProductCard(props) {
   return (
-    <Link to={props.href}>
-      <Card>
+    <Card>
+      <Link to={props.to}>
         <Image src={props.src} alt={props.alt} />
-        <TagLikeWrapper>
-          <Type>
-            {props.type}
-          </Type>
-          <Like />
-        </TagLikeWrapper>
-        <Title>
-          {props.title}
-        </Title>
-        <Colors>
-          Available in{' '}
-          <u>
-            {props.ColoursAmount}{' '}
-            <FormattedPlural value={props.ColoursAmount} one="colour" other="colours" />
-          </u>
-        </Colors>
-        <Price>
-          <FormattedNumber
-            value={props.price}
-            style="currency" // eslint-disable-line
-            currency="RUB"
-            minimumFractionDigits="0"
-          />
-        </Price>
-      </Card>
-    </Link>
+      </Link>
+      <InfoWrapper>
+        <Link to={props.to}>
+          <Label>
+            {props.label}
+          </Label>
+
+          <Title>
+            {props.title}
+          </Title>
+
+          <Colours>
+            Available in{' '}
+            <Underline>
+              {props.coloursAmount}{' '}
+              <FormattedPlural value={props.coloursAmount} one="colour" other="colours" />
+            </Underline>
+          </Colours>
+
+          <Price>
+            <FormattedNumber
+              value={props.price}
+              style="currency" // eslint-disable-line
+              currency="RUB"
+              minimumFractionDigits="0"
+            />
+          </Price>
+        </Link>
+
+        <Like />
+      </InfoWrapper>
+    </Card>
   );
 }
 
 ProductCard.propTypes = {
-  href: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
-  ColoursAmount: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  coloursAmount: PropTypes.number.isRequired,
 };
 
 export default ProductCard;
