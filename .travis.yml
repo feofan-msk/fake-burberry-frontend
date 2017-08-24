@@ -12,7 +12,7 @@ before_deploy:
     
 deploy:
   - provider: script
-    script: now ./build --public --token $now-token
+    script: now ./build --public --token $NOW_TOKEN
     skip_cleanup: true
     on:
       all_branches: true
