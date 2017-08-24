@@ -12,13 +12,13 @@ before_deploy:
     
 deploy:
   - provider: script
-    script: now ./build --public
+    script: now ./build --public --token 319XHt4Wjk0EZKnPEsYv6c58
     skip_cleanup: true
     on:
       branch: develop
 
   - provider: script
-    script: now ./build --public
+    script: now ./build --public --token 319XHt4Wjk0EZKnPEsYv6c58
     skip_cleanup: true
     on:
       branch: master

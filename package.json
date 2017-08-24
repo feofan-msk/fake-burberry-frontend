@@ -18,11 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --ext=js,jsx",
-    "test": "yarn lint && react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "deploy": "yarn build && now ./build now --public"
+    "deploy": "yarn build && now ./build--public"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
