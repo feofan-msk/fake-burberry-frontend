@@ -22,7 +22,7 @@
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "deploy": "yarn build && now ./build now --public"
+    "deploy": "yarn build && now ./build--public"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -31,6 +31,7 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "now": "^7.3.1"
   }
 }
