@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Descr from './Description';
-import Card from '../Card/Card';
+import Card from '../Card';
 import LoadBtn from './LoadBtn';
 
 const CategoryTitle = styled.h2`

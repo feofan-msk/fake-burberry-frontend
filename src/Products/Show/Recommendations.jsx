@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Subheading from '../../common/Subheading';
-import Card from '../Card/Card';
+import Card from '../Card';
 
 const Recommendations = styled.section`
   margin: 3rem 0 1rem;
