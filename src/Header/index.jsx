@@ -39,11 +39,13 @@ const Logo = styled.img`
 const LocationSelector = styled(ShowBtn)`
   display: none;
   @media screen and (min-width: 48rem) {
+    white-space: nowrap;
     display: block;
     padding: 0;
+    margin: 0;
+
     font-weight: 600;
     color: #999;
-    margin: 0;
   }
 `;
 
@@ -52,7 +54,7 @@ export default () =>
     <Header className="row">
       <div className="col-xs-2 col-md-4">
         <HamburgerBtn />
-        <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
+        <LocationSelector title="Shopping in: United Kingdom (£)" />
       </div>
       <div className="col-xs-8 col-md-4">
         <Link to="/">
