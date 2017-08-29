@@ -84,12 +84,12 @@ class ProductCard extends Component {
   }
 
   state = {
-    active: false,
+    isActive: false,
   };
 
   toggle() {
     this.setState(state => ({
-      active: !state.active,
+      isActive: !state.isActive,
     }));
   }
 
@@ -128,7 +128,7 @@ class ProductCard extends Component {
           </Link>
 
           <LikeButtonStyled onClick={this.toggle}>
-            <LikeButton isliked={this.state.active} />
+            <LikeButton fill={this.state.isActive ? '#171717' : 'none'} />
           </LikeButtonStyled>
         </InfoWrapper>
       </Card>
