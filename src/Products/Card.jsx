@@ -4,10 +4,9 @@ import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link as RouteLink } from 'react-router-dom';
 
-import LikeButton from '../common/LikeButton';
+import LikeIcon from '../common/LikeIcon';
 
-const Link = styled(RouteLink)`
-text-decoration: none;`;
+const Link = styled(RouteLink)`text-decoration: none;`;
 const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
@@ -69,7 +68,7 @@ const Price = styled.h5`
 }
 `;
 const Underline = styled.span`border-bottom: 1px solid #171717;`;
-const LikeButtonStyled = styled.button`
+const LikeButton = styled.button`
   padding: 0;
   border: 0;
   outline: none;
@@ -101,13 +100,9 @@ class ProductCard extends Component {
         </Link>
         <InfoWrapper>
           <Link to={this.props.to}>
-            <Label>
-              {this.props.label}
-            </Label>
+            <Label>{this.props.label}</Label>
 
-            <Title>
-              {this.props.title}
-            </Title>
+            <Title>{this.props.title}</Title>
 
             <Colours>
               Available in{' '}
@@ -127,9 +122,9 @@ class ProductCard extends Component {
             </Price>
           </Link>
 
-          <LikeButtonStyled onClick={this.toggle}>
-            <LikeButton fill={this.state.isActive ? '#171717' : 'none'} />
-          </LikeButtonStyled>
+          <LikeButton onClick={this.toggle}>
+            <LikeIcon fill={this.state.isActive ? '#171717' : 'none'} />
+          </LikeButton>
         </InfoWrapper>
       </Card>
     );
