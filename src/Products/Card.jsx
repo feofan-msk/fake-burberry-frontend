@@ -4,7 +4,7 @@ import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link as RouteLink } from 'react-router-dom';
 
-import LikeButton from './LikeButton';
+import LikeButton from '../common/LikeButton';
 
 const Link = styled(RouteLink)`
 text-decoration: none;`;
