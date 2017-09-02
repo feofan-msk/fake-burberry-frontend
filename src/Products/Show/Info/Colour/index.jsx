@@ -6,12 +6,12 @@ import Button from './Btn';
 const colours = [
   {
     id: 1,
-    name: 'black',
+    name: 'Black',
     code: '#000',
   },
   {
     id: 2,
-    name: 'honey',
+    name: 'Honey',
     code: '#cfa880',
   },
 ];
@@ -50,7 +50,7 @@ class Colour extends Component {
     return (
       <div>
         <CurrColor>
-          Colour: <strong>Honey</strong>
+          Colour: <strong>{colours[this.state.activeColourIndex].name}</strong>
         </CurrColor>
 
         <BtnContainer>
