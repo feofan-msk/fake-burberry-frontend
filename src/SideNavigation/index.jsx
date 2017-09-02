@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ButtonSelect from './ButtonSelect';
 import logo from '../assets/logo.svg';
@@ -13,6 +14,8 @@ const Menu = styled.section`
   left: 0;
   width: 274px;
   overflow-y: scroll;
+  transform: ${props => (props.isOpened ? 'translate3d(0, 0, 0)' : 'translate3d(-100%, 0, 0)')};
+
   @media screen and (min-width: 48rem) {
     display: none;
   }
@@ -80,7 +83,7 @@ class SideMenu extends Component {
 
   render() {
     return (
-      <Menu>
+      <Menu isOpened={this.props.isOpened}>
         <Logo alt="Logo" src={logo} />
 
         <Block>
@@ -122,5 +125,9 @@ class SideMenu extends Component {
     );
   }
 }
+
+SideMenu.propTypes = {
+  isOpened: PropTypes.bool.isRequired,
+};
 
 export default SideMenu;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
 
@@ -27,7 +27,6 @@ const Page = styled.section`
   height: 100%;
   transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
   ${props => props.isSideNavOpened && css`transform: translate3d(274px, 0, 0);`};
-  background: #fff;
 `;
 const PageOverlay = styled.button`
   position: absolute;
@@ -57,17 +56,24 @@ class App extends Component {
           <PageWrapper>
             <Helmet>
               <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
+              <meta
+                name="description"
+                content="Discover trench coats, luxury clothing, leather bags and more."
+              />
             </Helmet>
 
-            <SideNav />
+            <SideNav isOpened={this.state.isSideNavOpened} />
 
             <Page isSideNavOpened={this.state.isSideNavOpened}>
               {this.state.isSideNavOpened && <PageOverlay onClick={this.toggleSideNav} />}
               <Header onHamburgerClick={this.toggleSideNav} />
 
-              <Redirect from="/" to="/men/clothing" />
-              <Route exact path="/:category/:section" component={List} />
-              <Route exact path="/:category/:section/:id" component={Product} />
+              <Switch>
+                <Redirect exact from="/" to="/men/clothing" />
+                <Route exact path="/:category" component={List} />
+                <Route exact path="/:category/:section" component={List} />
+                <Route exact path="/:category/:section/:id" component={Product} />
+              </Switch>
 
               <Footer />
             </Page>
