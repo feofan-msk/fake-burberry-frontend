@@ -278,7 +278,7 @@ class List extends Component {
             <LoadTitle>Showing 8 of 17</LoadTitle>
             <LoadBtn>View 9 more</LoadBtn>
           </Loader>
-          
+
           <Overlay visible={this.state.overlayVisible} />
         </div>
       </div>
