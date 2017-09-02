@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import ButtonSelect from './ButtonSelect';
 import logo from '../assets/logo.svg';
 import arrow from '../assets/arrow.svg';
 
@@ -24,7 +25,7 @@ const Logo = styled.img`
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  padding: 2rem 0;
 `;
 const SectionButton = styled.button`
   display: block;
@@ -69,6 +70,10 @@ const Link = styled(NavLink)`
   font-size: 0.875rem;
   color: #171717;
 `;
+const ButtonContainer = Block.extend`padding-top: 0.25rem;`;
+
+const locations = ['United Kingdom (£)', 'Russia (₽)', 'China (Ұ)'];
+const languages = ['English', 'Russian', 'Chinese'];
 
 class SideMenu extends Component {
   state = {};
@@ -108,6 +113,11 @@ class SideMenu extends Component {
             <Link to="/site-map">Site Map</Link>
           </nav>
         </Block>
+
+        <ButtonContainer>
+          <ButtonSelect options={locations} />
+          <ButtonSelect options={languages} />
+        </ButtonContainer>
       </Menu>
     );
   }
