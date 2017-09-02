@@ -6,8 +6,9 @@ import arrow from '../assets/arrow.svg';
 
 const Wrapper = styled.div`position: relative;`;
 const Btn = styled.button`
+  position: relative;  
   padding: 1.5rem 0;
-  position: relative;
+  margin-right: 1rem;
 
   border: none;
   background-color: transparent;
@@ -33,16 +34,24 @@ const Btn = styled.button`
     transform: ${props => (props.currentState ? 'rotate(180deg)' : 'none')};
   }
   
-    @media screen and (min-width: 48rem) {
-      margin-right: ${props => (props.align === 'right' ? 0 : '3rem')};
-      margin-left: ${props => (props.align === 'right' ? 'auto' : 0)};
-    }
+  @media screen and (min-width: 48rem) {
+    margin-right: ${props => (props.align === 'right' ? 0 : '3rem')};
+  }
   }
 `;
 const Content = styled.div`
   z-index: 9999;
   position: absolute;
   padding: 1rem 1.5rem 1.5rem;
+  left: -1.5rem;
+  right: auto;
+  ${props =>
+    props.align === 'right' &&
+    `
+      left: auto;
+      right: -0.5rem;
+      padding-right: 0.5rem;
+  `};
 
   font-family: Raleway;
   font-size: 0.75rem;
@@ -51,16 +60,6 @@ const Content = styled.div`
   white-space: nowrap;
 
   background-color: #f3f3f3;
-
-  margin-left: ${props => (props.align === 'left' ? 0 : '-1.5rem')};
-  right: ${props => (props.align === 'right' ? 0 : 'auto')};
-
-  ${props =>
-    props.align === 'right' &&
-    `
-      margin-right: 0;
-      margin-left: auto;
-  `};
 `;
 
 class ShowBtn extends Component {
