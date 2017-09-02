@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 import React from 'react';
-import ColourBtn from './ColourBtn';
+import ColourPanel from './Colour';
 import SizeWrapper from './SizeWrapper';
 import ActionBtn from './ActionBtn';
 
@@ -63,29 +63,6 @@ const Id = styled.p`
     display: none;
   }
 `;
-const CurrColor = styled.p`
-  margin: 0;
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #171717;
-  margin-bottom: 1rem;
-`;
-const BtnContainer = styled.div`
-  display: flex;
-  padding-bottom: 2rem;
-  border-bottom: solid 1px #c6c6c6;
-  margin-bottom: 2rem;
-  @media screen and (min-width: 62rem) {
-    margin-bottom: 0;
-    border: none;
-  }
-  @media screen and (min-width: 62rem) {
-    padding-bottom: 1.5rem;
-  }
-`;
-
 const Actions = styled.section`
   padding: 0 0 3rem;
   @media screen and (min-width: 48rem) {
@@ -97,7 +74,7 @@ const PrimaryBtn = styled(ActionBtn)`
   background-color: #171717;
   @media screen and (min-width: 62rem) {
     display: none;
-  } 
+  }
 `;
 const SecondaryBtn = styled(ActionBtn)`
   color: #171717;
@@ -151,8 +128,8 @@ const Text = styled.div`
   color: #171717;
 `;
 
-export default () =>
-  (<Info>
+export default () => (
+  <Info>
     <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
 
     <InfoWrapper>
@@ -169,14 +146,7 @@ export default () =>
 
     <div className="row">
       <div className="col-xs-12 col-md-12 col-lg-6">
-        <CurrColor>
-          Colour: <strong>Honey</strong>
-        </CurrColor>
-
-        <BtnContainer>
-          <ColourBtn label="black" value="#000" />
-          <ColourBtn label="honey" value="#cfa880" active />
-        </BtnContainer>
+        <ColourPanel />
       </div>
 
       <div className="col-xs-12 col-md-12 col-lg-6">
@@ -203,4 +173,5 @@ export default () =>
       <SubHeader>Free Next Day Delivery</SubHeader>
       <Text>Order before 7pm Monday to Thursday for delivery the next day</Text>
     </Details>
-  </Info>);
+  </Info>
+);
