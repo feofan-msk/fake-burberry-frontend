@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Navigation from './Navigation';
 import ShowBtn from '../common/ShowBtn';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
-const Header = styled.header`
+const HeaderStyled = styled.header`
   padding: 1.125rem 0;
 
   @media screen and (min-width: 48rem) {
@@ -47,11 +48,11 @@ const LocationSelector = styled(ShowBtn)`
   }
 `;
 
-export default () =>
-  (<div className="container">
-    <Header className="row">
+const Header = props => (
+  <div className="container">
+    <HeaderStyled className="row">
       <div className="col-xs-2 col-md-4">
-        <HamburgerBtn />
+        <HamburgerBtn onClick={props.onHamburgerClick} />
         <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
       </div>
       <div className="col-xs-8 col-md-4">
@@ -59,6 +60,13 @@ export default () =>
           <Logo src={logo} alt="Burberry-logo" />
         </Link>
       </div>
-    </Header>
+    </HeaderStyled>
     <Navigation />
-  </div>);
+  </div>
+);
+
+Header.propTypes = {
+  onHamburgerClick: PropTypes.func.isRequired,
+};
+
+export default Header;
