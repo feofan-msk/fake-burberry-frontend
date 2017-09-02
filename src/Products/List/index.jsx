@@ -15,8 +15,7 @@ const CategoryTitle = styled.h2`
   color: #171717;
 
   @media screen and (min-width: 48rem) {
-    padding: 0;
-    margin: 4rem 0 2rem;
+    padding: 4rem 0 2rem;
     font-size: 1.25rem;
   }
 `;
@@ -30,8 +29,7 @@ const HrLine = styled.hr`
   }
 `;
 const Loader = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem 0 5rem;
   text-align: center;
   @media screen and (min-width: 48rem) {
     margin-top: 3rem;
@@ -43,6 +41,15 @@ const LoadTitle = styled(CategoryTitle)`
   @media screen and (min-width: 48rem) {
     padding-bottom: 2rem;
   }
+`;
+const ContentDarken = styled.div`
+  position: absolute;
+  display: ${props => (props.currentState ? 'block' : 'none')};
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: 0.3;
 `;
 
 class List extends Component {
@@ -69,206 +76,209 @@ class List extends Component {
           />
         </Helmet>
         <Description stateUpdate={this.stateUpdate} />
-        <div className="container">
-          <CategoryTitle>Heritage Trench Coats</CategoryTitle>
-          <div className="row">
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
+        <div style={{ position: 'relative' }}>
+          <div className="container">
+            <CategoryTitle>Heritage Trench Coats</CategoryTitle>
+            <div className="row">
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
             </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+            <HrLine />
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+            <CategoryTitle>Single Breasted Trench Coats</CategoryTitle>
+            <div className="row">
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Online Exclusive"
+                  coloursAmount={7}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="The Westminster – Long Heritage Trench Coat"
+                />
+              </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
 
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={3}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
+
+              <div className="col-xs-6 col-md-3">
+                <Card
+                  to="/men/clothing/long-cotton-gabardine-id39428531"
+                  title="The Westminster – Long Heritage Trench Coat"
+                  label="Relaxed fit"
+                  coloursAmount={1}
+                  price={100000}
+                  src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
+                  alt="Long Heritage Trench Coat"
+                />
+              </div>
             </div>
           </div>
-
-          <HrLine />
-
-          <CategoryTitle>Single Breasted Trench Coats</CategoryTitle>
-          <div className="row">
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Online Exclusive"
-                coloursAmount={7}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="The Westminster – Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={3}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <Card
-                to="/men/clothing/long-cotton-gabardine-id39428531"
-                title="The Westminster – Long Heritage Trench Coat"
-                label="Relaxed fit"
-                coloursAmount={1}
-                price={100000}
-                src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-                alt="Long Heritage Trench Coat"
-              />
-            </div>
-          </div>
+          <ContentDarken currentState={this.state.isActive} />
         </div>
         <Loader>
           <LoadTitle>Showing 8 of 17</LoadTitle>

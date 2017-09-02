@@ -40,6 +40,7 @@ const Btn = styled.button`
   }
 `;
 const Content = styled.div`
+  z-index: 9999;
   position: absolute;
   padding: 1rem 1.5rem 1.5rem;
 
