@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FormattedNumber, FormattedPlural } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link as RouteLink } from 'react-router-dom';
 
-import LikeIcon from '../assets/like.svg';
+import LikeIcon from '../common/LikeIcon';
 
-const Link = styled(RouteLink)`
-text-decoration: none;`;
+const Link = styled(RouteLink)`text-decoration: none;`;
 const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
@@ -21,6 +20,7 @@ const Image = styled.img`
 const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 `;
 const Label = styled.p`
   margin: 0 0 0.5rem;
@@ -30,14 +30,6 @@ const Label = styled.p`
   font-size: 0.75rem;
   line-height: 1rem;
   color: #171717;
-`;
-const Like = styled.button`
-  border: none;
-  width: 15px;
-  height: 14px;
-  background: url(${LikeIcon});
-  background-repeat: no-repeat;
-  margin-left: 1rem;
 `;
 const Title = styled.h3`
   font-family: Raleway;
@@ -76,45 +68,67 @@ const Price = styled.h5`
 }
 `;
 const Underline = styled.span`border-bottom: 1px solid #171717;`;
+const LikeButton = styled.button`
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
+`;
 
-function ProductCard(props) {
-  return (
-    <Card>
-      <Link to={props.to}>
-        <Image src={props.src} alt={props.alt} />
-      </Link>
-      <InfoWrapper>
-        <Link to={props.to}>
-          <Label>
-            {props.label}
-          </Label>
+class ProductCard extends Component {
+  constructor() {
+    super();
+    this.toggle = this.toggle.bind(this);
+  }
 
-          <Title>
-            {props.title}
-          </Title>
+  state = {
+    isActive: false,
+  };
 
-          <Colours>
-            Available in{' '}
-            <Underline>
-              {props.coloursAmount}{' '}
-              <FormattedPlural value={props.coloursAmount} one="colour" other="colours" />
-            </Underline>
-          </Colours>
+  toggle() {
+    this.setState(state => ({
+      isActive: !state.isActive,
+    }));
+  }
 
-          <Price>
-            <FormattedNumber
-              value={props.price}
-              style="currency" // eslint-disable-line
-              currency="RUB"
-              minimumFractionDigits="0"
-            />
-          </Price>
+  render() {
+    return (
+      <Card>
+        <Link to={this.props.to}>
+          <Image src={this.props.src} alt={this.props.alt} />
         </Link>
+        <InfoWrapper>
+          <Link to={this.props.to}>
+            <Label>{this.props.label}</Label>
 
-        <Like />
-      </InfoWrapper>
-    </Card>
-  );
+            <Title>{this.props.title}</Title>
+
+            <Colours>
+              Available in{' '}
+              <Underline>
+                {this.props.coloursAmount}{' '}
+                <FormattedPlural value={this.props.coloursAmount} one="colour" other="colours" />
+              </Underline>
+            </Colours>
+
+            <Price>
+              <FormattedNumber
+                value={this.props.price}
+                style="currency" // eslint-disable-line
+                currency="RUB"
+                minimumFractionDigits="0"
+              />
+            </Price>
+          </Link>
+
+          <LikeButton onClick={this.toggle}>
+            <LikeIcon fill={this.state.isActive ? '#171717' : 'none'} />
+          </LikeButton>
+        </InfoWrapper>
+      </Card>
+    );
+  }
 }
 
 ProductCard.propTypes = {

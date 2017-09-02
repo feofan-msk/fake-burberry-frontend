@@ -22,12 +22,12 @@
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "deploy": "yarn build && now ./build--public"
+    "deploy": "yarn build && now ./build --public"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "eslint": "4.3.0",
+    "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
