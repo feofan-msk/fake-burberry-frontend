@@ -19,12 +19,14 @@ const PageWrapper = styled.section`
   top: 0;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 `;
 
 const Page = styled.section`
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: auto;
   transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
   ${props => props.isSideNavOpened && css`transform: translate3d(274px, 0, 0);`};
 `;
