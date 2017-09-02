@@ -42,7 +42,6 @@ const Btn = styled.button`
 const Content = styled.div`
   position: absolute;
   padding: 1rem 1.5rem 1.5rem;
-  left: -1.5rem;
 
   font-family: Raleway;
   font-size: 0.75rem;
@@ -52,6 +51,7 @@ const Content = styled.div`
 
   background-color: #f3f3f3;
 
+  margin-left: ${props => (props.align === 'left' ? 0 : '-1.5rem')};
   right: ${props => (props.align === 'right' ? 0 : 'auto')};
 
   ${props =>
