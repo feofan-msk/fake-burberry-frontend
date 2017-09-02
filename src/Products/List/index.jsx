@@ -29,7 +29,7 @@ const HrLine = styled.hr`
   }
 `;
 const Loader = styled.div`
-  margin-top: 2rem 0 5rem;
+  padding: 2rem 0 5rem;
   text-align: center;
   @media screen and (min-width: 48rem) {
     margin-top: 3rem;
@@ -273,12 +273,14 @@ class List extends Component {
               </div>
             </div>
           </div>
+
+          <Loader>
+            <LoadTitle>Showing 8 of 17</LoadTitle>
+            <LoadBtn>View 9 more</LoadBtn>
+          </Loader>
+          
           <Overlay visible={this.state.overlayVisible} />
         </div>
-        <Loader>
-          <LoadTitle>Showing 8 of 17</LoadTitle>
-          <LoadBtn>View 9 more</LoadBtn>
-        </Loader>
       </div>
     );
   }
