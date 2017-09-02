@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import BtnContainer from './BtnContainer';
+import Btn from '../../../common/ShowBtn';
 
 const Background = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
@@ -50,20 +50,30 @@ const MoreButton = styled.button`
   color: #171717;
   background-color: inherit;
 `;
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow-x: auto;
+  @media screen and (min-width: 48rem) {
+    overflow-x: visible;
+  }
+`;
+const Wrapper = styled.div`display: flex;`;
 
 class Description extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isActive: false };
-    this.stateUpdate = this.stateUpdate.bind(this);
-  }
+  state = {
+    activeFilter: undefined,
+  };
 
-  stateUpdate(data) {
-    this.props.stateUpdate(this.state.isActive);
-    this.setState({
-      isActive: !data,
-    });
-  }
+  handleFilterToggle = (filterName, toggledOn) => {
+    if (toggledOn) {
+      this.setState({ activeFilter: filterName });
+    } else {
+      this.setState({ activeFilter: undefined });
+    }
+    this.props.onToggle(toggledOn);
+  };
 
   render() {
     return (
@@ -81,7 +91,41 @@ class Description extends Component {
               </Content>
             </div>
           </div>
-          <BtnContainer stateUpdate={this.stateUpdate} />
+
+          <BtnContainer>
+            <Wrapper>
+              {['Category', 'Colour', 'Size'].map(filterName => (
+                <Btn
+                  title={filterName}
+                  onToggle={toggledOn => this.handleFilterToggle(filterName, toggledOn)}
+                  isActive={
+                    this.state.activeFilter !== undefined && this.state.activeFilter !== filterName
+                  }
+                >
+                  Content content content content content content content<br />
+                  content content content content content content content<br />
+                  content content content content content content content<br />
+                  content content content content content content content<br />
+                  content content content content content content content<br />
+                  content content content content content content content
+                </Btn>
+              ))}
+            </Wrapper>
+
+            <Btn
+              title="Sort by price"
+              rightSideAlign
+              onToggle={toggledOn => this.handleFilterToggle('Sort by price', toggledOn)}
+              isActive={
+                this.state.activeFilter !== undefined && this.state.activeFilter !== 'Sort by price'
+              }
+            >
+              high or<br />
+              low<br />
+              it’s medium length of<br />
+              content
+            </Btn>
+          </BtnContainer>
         </div>
       </Background>
     );
@@ -89,7 +133,7 @@ class Description extends Component {
 }
 
 Description.propTypes = {
-  stateUpdate: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 };
 
 export default Description;

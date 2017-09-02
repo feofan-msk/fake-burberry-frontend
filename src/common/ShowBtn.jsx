@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import arrow from '../assets/arrow.svg';
@@ -21,8 +21,7 @@ const Btn = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  opacity: ${props => (props.currentState && props.active ? '0.5' : '1')};
-  opacity: ${props => (!props.currentState && props.active ? '0.5' : '1')};
+  opacity: ${props => (props.isActive && props.active ? '0.5' : '1')};
 
   ::after {
     content: '';
@@ -35,7 +34,7 @@ const Btn = styled.button`
   }
   
   @media screen and (min-width: 48rem) {
-    margin-right: ${props => (props.align === 'right' ? 0 : '3rem')};
+    margin-right: ${props => (props.rightSideAlign ? '0' : '3rem')};
   }
   }
 `;
@@ -46,12 +45,12 @@ const Content = styled.div`
   left: -1.5rem;
   right: auto;
   ${props =>
-    props.align === 'right' &&
-    `
+    props.rightSideAlign &&
+    css`
       left: auto;
       right: -0.5rem;
       padding-right: 0.5rem;
-  `};
+    `};
 
   font-family: Raleway;
   font-size: 0.75rem;
@@ -63,12 +62,9 @@ const Content = styled.div`
 `;
 
 class ShowBtn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isActive: false };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
-  }
+  state = {
+    isOpened: false,
+  };
 
   componentDidMount() {
     document.addEventListener('click', this.handleOutsideClick, true);
@@ -78,19 +74,20 @@ class ShowBtn extends Component {
     document.removeEventListener('click', this.handleOutsideClick, true);
   }
 
-  handleOutsideClick(e) {
+  handleOutsideClick = (e) => {
     if (this.node && !this.node.contains(e.target)) {
-      this.handleClick(false);
+      this.toggle(false);
     }
-  }
+  };
 
-  handleClick(on = true) {
-    if (on === false && on === this.state.isActive) return;
-    this.props.childClick(this.state.isActive);
-    this.setState(prevState => ({
-      isActive: !prevState.isActive,
-    }));
-  }
+  toggle = (on = true) => {
+    if (on || on !== this.state.isOpened) {
+      this.setState(
+        prevState => ({ isOpened: !prevState.isOpened }),
+        () => this.props.onToggle(this.state.isOpened),
+      );
+    }
+  };
 
   render() {
     return (
@@ -101,14 +98,16 @@ class ShowBtn extends Component {
           }}
         >
           <Btn
-            onClick={this.handleClick}
-            currentState={this.state.isActive}
-            align={this.props.align}
-            active={this.props.active}
+            rightSideAlign={this.props.rightSideAlign}
+            isOpened={this.state.isOpened}
+            isActive={this.props.isActive}
+            onClick={this.toggle}
           >
             {this.props.title}
           </Btn>
-          {this.state.isActive && <Content align={this.props.align}>{this.props.children}</Content>}
+          {this.state.isOpened && (
+            <Content rightSideAlign={this.props.rightSideAlign}>{this.props.children}</Content>
+          )}
         </div>
       </Wrapper>
     );
@@ -118,9 +117,14 @@ class ShowBtn extends Component {
 ShowBtn.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
-  align: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
-  childClick: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
+  rightSideAlign: PropTypes.bool,
+};
+
+ShowBtn.defaultProps = {
+  rightSideAlign: false,
+  isActive: true,
 };
 
 export default ShowBtn;

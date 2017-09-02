@@ -42,9 +42,9 @@ const LoadTitle = styled(CategoryTitle)`
     padding-bottom: 2rem;
   }
 `;
-const ContentDarken = styled.div`
+const Overlay = styled.div`
   position: absolute;
-  display: ${props => (props.currentState ? 'block' : 'none')};
+  display: ${props => (props.visible ? 'block' : 'none')};
   background-color: #000000;
   height: 100%;
   width: 100%;
@@ -53,19 +53,14 @@ const ContentDarken = styled.div`
 `;
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isActive: false };
-    this.stateUpdate = this.stateUpdate.bind(this);
-  }
-
-  stateUpdate(data) {
-    this.setState({
-      isActive: !data,
-    });
-  }
+  state = {
+    overlayVisible: false,
+  };
 
   render() {
+    const setOverlayVisible = (overlayVisible) => {
+      this.setState({ overlayVisible });
+    };
     return (
       <div>
         <Helmet>
@@ -75,7 +70,7 @@ class List extends Component {
             content="Menswear collection for the season. Knitwear, sweatshirts, oversized cabans"
           />
         </Helmet>
-        <Description stateUpdate={this.stateUpdate} />
+        <Description onToggle={setOverlayVisible} />
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle>Heritage Trench Coats</CategoryTitle>
@@ -278,7 +273,7 @@ class List extends Component {
               </div>
             </div>
           </div>
-          <ContentDarken currentState={this.state.isActive} />
+          <Overlay visible={this.state.overlayVisible} />
         </div>
         <Loader>
           <LoadTitle>Showing 8 of 17</LoadTitle>
