@@ -10,6 +10,7 @@ const Btn = styled.button`
   font-size: 0;
   border: ${props => (props.isActive ? 'solid 1px #232122' : 'none')};
   background-color: ${props => props.color};
+  cursor: pointer;
 `;
 
 class Button extends Component {
