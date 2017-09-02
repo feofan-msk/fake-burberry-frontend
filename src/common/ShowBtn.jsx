@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import arrow from '../assets/arrow.svg';
 
-const Wrapper = styled.div`
-  margin-right: 1rem;
-  position: relative;
-
-  @media screen and (min-width: 48rem) {
-    margin-right: 3rem;
-  }
-`;
+const Wrapper = styled.div`position: relative;`;
 const Btn = styled.button`
   padding: 1.5rem 0;
   position: relative;
@@ -24,19 +17,26 @@ const Btn = styled.button`
   line-height: 1rem;
   color: #171717;
 
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: ${props => (props.currentState && props.active ? '0.5' : '1')};
+  opacity: ${props => (!props.currentState && props.active ? '0.5' : '1')};
+
   ::after {
     content: '';
-    background: url(${arrow});
-    background-size: 12px 6px;
-    background-repeat: no-repeat;
-    background-position: center right;
-    padding-left: 1.25rem;
-    transform: rotate(180deg);
-    ${props =>
-    props.active &&
-      css`
-        transform: rotate(180deg);
-      `};
+    background-image: url(${arrow});
+    margin-left: 0.5rem;
+    background-size: contain;
+    width: 0.75rem;
+    height: 0.375rem;
+    transform: ${props => (props.currentState ? 'rotate(180deg)' : 'none')};
+  }
+  
+    @media screen and (min-width: 48rem) {
+      margin-right: ${props => (props.align === 'right' ? 0 : '3rem')};
+      margin-left: ${props => (props.align === 'right' ? 'auto' : 0)};
+    }
   }
 `;
 const Content = styled.div`
@@ -51,34 +51,65 @@ const Content = styled.div`
   white-space: nowrap;
 
   background-color: #f3f3f3;
+
+  right: ${props => (props.align === 'right' ? 0 : 'auto')};
+
+  ${props =>
+    props.align === 'right' &&
+    `
+      margin-right: 0;
+      margin-left: auto;
+  `};
 `;
 
 class ShowBtn extends Component {
-  constructor() {
-    super();
-    this.toggle = this.toggle.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = { isActive: false };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  state = {
-    active: false,
-  };
+  componentDidMount() {
+    document.addEventListener('click', this.handleOutsideClick, true);
+  }
 
-  toggle() {
-    this.setState(state => ({
-      active: !state.active,
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, true);
+  }
+
+  handleOutsideClick(e) {
+    if (this.node && !this.node.contains(e.target)) {
+      this.handleClick(false);
+    }
+  }
+
+  handleClick(on = true) {
+    if (on === false && on === this.state.isActive) return;
+    this.props.childClick(this.state.isActive);
+    this.setState(prevState => ({
+      isActive: !prevState.isActive,
     }));
   }
 
   render() {
     return (
       <Wrapper>
-        <Btn isOpened={this.state.active} onClick={this.toggle}>
-          {this.props.title}
-        </Btn>
-        {this.state.active &&
-          <Content>
-            {this.props.children}
-          </Content>}
+        <div
+          ref={(node) => {
+            this.node = node;
+          }}
+        >
+          <Btn
+            onClick={this.handleClick}
+            currentState={this.state.isActive}
+            align={this.props.align}
+            active={this.props.active}
+          >
+            {this.props.title}
+          </Btn>
+          {this.state.isActive && <Content align={this.props.align}>{this.props.children}</Content>}
+        </div>
       </Wrapper>
     );
   }
@@ -87,6 +118,9 @@ class ShowBtn extends Component {
 ShowBtn.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
+  align: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  childClick: PropTypes.func.isRequired,
 };
 
 export default ShowBtn;
