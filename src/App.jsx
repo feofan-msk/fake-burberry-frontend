@@ -29,6 +29,15 @@ const Page = styled.section`
   ${props => props.isSideNavOpened && css`transform: translate3d(274px, 0, 0);`};
   background: #fff;
 `;
+const PageOverlay = styled.button`
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+`;
 
 class App extends Component {
   state = {
@@ -53,6 +62,7 @@ class App extends Component {
             <SideNav />
 
             <Page isSideNavOpened={this.state.isSideNavOpened}>
+              {this.state.isSideNavOpened && <PageOverlay onClick={this.toggleSideNav} />}
               <Header onHamburgerClick={this.toggleSideNav} />
 
               <Redirect from="/" to="/men/clothing" />
