@@ -21,7 +21,7 @@ const Btn = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  opacity: ${props => (props.isActive && props.active ? '0.5' : '1')};
+  opacity: ${props => (props.isActive ? '0.5' : '1')};
 
   ::after {
     content: '';
@@ -30,7 +30,7 @@ const Btn = styled.button`
     background-size: contain;
     width: 0.75rem;
     height: 0.375rem;
-    transform: ${props => (props.currentState ? 'rotate(180deg)' : 'none')};
+    transform: ${props => (props.isOpened ? 'rotate(180deg)' : 'none')};
   }
   
   @media screen and (min-width: 48rem) {

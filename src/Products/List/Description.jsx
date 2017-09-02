@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Btn from '../../../common/ShowBtn';
+import Btn from '../../common/ShowBtn';
 
 const Background = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
