@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 import React from 'react';
 import ColourPanel from './Colour';
-import SizeWrapper from './SizeWrapper';
+import SizeWrapper from './Size';
 import ActionBtn from './ActionBtn';
 
 const Title = styled.h1`
