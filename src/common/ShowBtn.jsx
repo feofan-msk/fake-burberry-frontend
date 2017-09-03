@@ -80,7 +80,7 @@ class ShowBtn extends Component {
   };
 
   toggle = (on = true) => {
-    if (on !== this.state.isOpened || on) {
+    if (this.state.isOpened !== on || on) {
       this.setState(
         prevState => ({ isOpened: !prevState.isOpened }),
         () => this.props.onToggle(this.state.isOpened),
