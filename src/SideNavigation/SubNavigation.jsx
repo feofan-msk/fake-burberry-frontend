@@ -62,7 +62,8 @@ const Title = styled.h2`
   margin: 0;
   padding: 1rem 0.5rem;
   background-color: rgba(255, 255, 255, 0.7);
-  font-family: Lora, serif;
+  font-family: Lora;
+  font-weight: 400;
   font-size: 1.25rem;
   line-height: 1;
   color: #171717;
