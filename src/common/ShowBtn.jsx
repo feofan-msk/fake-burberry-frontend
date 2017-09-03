@@ -48,8 +48,7 @@ const Content = styled.div`
     props.rightSideAlign &&
     css`
       left: auto;
-      right: -0.5rem;
-      padding-right: 0.5rem;
+      right: -1.5rem;
     `};
 
   font-family: Raleway;
@@ -81,7 +80,7 @@ class ShowBtn extends Component {
   };
 
   toggle = (on = true) => {
-    if (on || on !== this.state.isOpened) {
+    if (on !== this.state.isOpened || on) {
       this.setState(
         prevState => ({ isOpened: !prevState.isOpened }),
         () => this.props.onToggle(this.state.isOpened),

@@ -42,7 +42,7 @@ const LoadTitle = styled(CategoryTitle)`
     padding-bottom: 2rem;
   }
 `;
-const Overlay = styled.div`
+const DarkenOverlay = styled.div`
   position: absolute;
   display: ${props => (props.visible ? 'block' : 'none')};
   background-color: #000000;
@@ -54,13 +54,15 @@ const Overlay = styled.div`
 
 class List extends Component {
   state = {
-    overlayVisible: false,
+    isDarkenOverlayVisible: false,
   };
 
+  toggleDarkenOverlay = () => {
+    this.setState(prevState => ({
+      isDarkenOverlayVisible: !prevState.isDarkenOverlayVisible,
+    }));
+  };
   render() {
-    const setOverlayVisible = (overlayVisible) => {
-      this.setState({ overlayVisible });
-    };
     return (
       <div>
         <Helmet>
@@ -70,7 +72,8 @@ class List extends Component {
             content="Menswear collection for the season. Knitwear, sweatshirts, oversized cabans"
           />
         </Helmet>
-        <Description onToggle={setOverlayVisible} />
+
+        <Description onFilterClick={this.toggleDarkenOverlay} />
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle>Heritage Trench Coats</CategoryTitle>
@@ -279,7 +282,7 @@ class List extends Component {
             <LoadBtn>View 9 more</LoadBtn>
           </Loader>
 
-          <Overlay visible={this.state.overlayVisible} />
+          <DarkenOverlay visible={this.state.isDarkenOverlayVisible} />
         </div>
       </div>
     );

@@ -67,12 +67,8 @@ class Description extends Component {
   };
 
   handleFilterToggle = (filterName, toggledOn) => {
-    if (toggledOn) {
-      this.setState({ activeFilter: filterName });
-    } else {
-      this.setState({ activeFilter: undefined });
-    }
-    this.props.onToggle(toggledOn);
+    this.setState(toggledOn ? { activeFilter: filterName } : { activeFilter: undefined });
+    this.props.onFilterClick(toggledOn);
   };
 
   render() {
@@ -80,7 +76,6 @@ class Description extends Component {
       <Background>
         <div className="container">
           <Heading>Men’s Clothing</Heading>
-
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
               <Content>
@@ -133,7 +128,7 @@ class Description extends Component {
 }
 
 Description.propTypes = {
-  onToggle: PropTypes.func.isRequired,
+  onFilterClick: PropTypes.func.isRequired,
 };
 
 export default Description;
