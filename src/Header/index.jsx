@@ -43,7 +43,7 @@ const Header = props => (
   <div className="container">
     <HeaderStyled className="row">
       <div className="col-xs-2 col-md-4">
-        <HamburgerBtn onClick={props.onHamburgerClick} />
+        <HamburgerBtn onClick={props.handleSideNavClick} />
         <LocationSelector locations={locations} />
       </div>
       <div className="col-xs-8 col-md-4">
@@ -57,7 +57,7 @@ const Header = props => (
 );
 
 Header.propTypes = {
-  onHamburgerClick: PropTypes.func.isRequired,
+  handleSideNavClick: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -73,7 +73,7 @@ class App extends Component {
 
             <Page isSideNavOpened={this.state.isSideNavOpened}>
               {this.state.isSideNavOpened && <PageOverlay onClick={this.toggleSideNav} />}
-              <Header onHamburgerClick={this.toggleSideNav} />
+              <Header handleSideNavClick={this.toggleSideNav} />
 
               <Switch>
                 <Redirect exact from="/" to="/men/clothing" />
