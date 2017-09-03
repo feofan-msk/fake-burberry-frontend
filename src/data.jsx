@@ -1,5 +1,5 @@
-export const locations = ['United Kingdom (£)', 'Russia (₽)', 'China (Ұ)'];
 export const languages = ['English', 'Russian', 'Chinese'];
+export const locations = ['United Kingdom (£)', 'Russia (₽)', 'China (Ұ)'];
 export const sections = [
   {
     title: 'Men',
