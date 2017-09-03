@@ -22,7 +22,7 @@ const Button = styled.button`
 
 class Selector extends Component {
   handleClick = () => {
-    this.props.onClick(this.props.name);
+    this.props.onClick(this.props.index);
   };
 
   render() {
@@ -38,6 +38,7 @@ Selector.propTypes = {
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default Selector;

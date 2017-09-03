@@ -45,11 +45,8 @@ class Size extends Component {
     selectedSizeIndex: 3,
   };
 
-  handleClick = (newSize) => {
-    const newSizeIndex = availableSizes.indexOf(newSize);
-    if (newSizeIndex > -1) {
-      this.setState({ selectedSizeIndex: newSizeIndex });
-    }
+  handleClick = (newSizeIndex) => {
+    this.setState({ selectedSizeIndex: newSizeIndex });
   };
 
   render() {
@@ -65,12 +62,12 @@ class Size extends Component {
         </Header>
 
         <SelectPanel>
-          {availableSizes.map(size => (
+          {availableSizes.map((size, index) => (
             <Selector
-              key={size}
               onClick={this.handleClick}
               name={size}
-              isActive={size === availableSizes[this.state.selectedSizeIndex]}
+              index={index}
+              isActive={this.state.selectedSizeIndex === index}
             />
           ))}
         </SelectPanel>
