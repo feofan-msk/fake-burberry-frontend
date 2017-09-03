@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Navigation from './Navigation';
-import ShowBtn from '../common/ShowBtn';
+import LocationSelector from './LocationSelector';
+import { locations } from '../data';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
@@ -37,23 +38,13 @@ const Logo = styled.img`
     height: 1rem;
   }
 `;
-const LocationSelector = styled(ShowBtn)`
-  display: none;
-  @media screen and (min-width: 48rem) {
-    display: block;
-    padding: 0;
-    font-weight: 600;
-    color: #999;
-    margin: 0;
-  }
-`;
 
 const Header = props => (
   <div className="container">
     <HeaderStyled className="row">
       <div className="col-xs-2 col-md-4">
         <HamburgerBtn onClick={props.onHamburgerClick} />
-        <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
+        <LocationSelector locations={locations} />
       </div>
       <div className="col-xs-8 col-md-4">
         <Link to="/">
