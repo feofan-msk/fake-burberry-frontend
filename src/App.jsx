@@ -27,7 +27,7 @@ const Page = styled.section`
   width: 100%;
   height: 100%;
   overflow: auto;
-  transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   ${props => props.isSideNavOpened && css`transform: translate3d(274px, 0, 0);`};
 `;
 const PageOverlay = styled.button`
