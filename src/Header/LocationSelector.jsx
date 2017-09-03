@@ -15,13 +15,12 @@ const LocationSelectorStyled = styled.div`
 const Button = styled.div`
   position: absolute;
   z-index: 0;
-  top: 1.25rem;
   left: 0;
   width: 100%;
-  font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
+  font-family: Raleway;
   font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1rem;
   color: #999;
 
   :: after {
@@ -34,26 +33,13 @@ const Button = styled.div`
     background-position: 0 9px;
     content: '';
   }
-
-  @media screen and (min-width: 62rem) {
-    top: 1.75rem;
-  }
 `;
 
 const Select = styled.select`
-  font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
+  font-family: Raleway;
   font-size: 0.75rem;
   opacity: 0;
   cursor: pointer;
-
-  @media screen and (min-width: 48rem) {
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-  }
-
-  @media screen and (min-width: 62rem) {
-    margin-top: 1.75rem;
-  }
 `;
 
 class LocationSelector extends Component {
