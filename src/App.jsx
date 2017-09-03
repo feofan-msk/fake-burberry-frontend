@@ -1,7 +1,7 @@
 import React from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import Header from './Header';
@@ -20,7 +20,7 @@ export default () => (
         </Helmet>
 
         <Header />
-        
+
         <Redirect from="/" to="/men/clothing" />
 
         <Route exact path="/" component={List} />
