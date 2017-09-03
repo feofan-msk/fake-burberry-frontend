@@ -42,7 +42,7 @@ const LoadTitle = styled(CategoryTitle)`
     padding-bottom: 2rem;
   }
 `;
-const DarkenOverlay = styled.div`
+const Overlay = styled.div`
   position: absolute;
   display: ${props => (props.visible ? 'block' : 'none')};
   background-color: #000000;
@@ -54,12 +54,12 @@ const DarkenOverlay = styled.div`
 
 class List extends Component {
   state = {
-    isDarkenOverlayVisible: false,
+    isOverlayVisible: false,
   };
 
-  toggleDarkenOverlay = () => {
+  toggleOverlay = () => {
     this.setState(prevState => ({
-      isDarkenOverlayVisible: !prevState.isDarkenOverlayVisible,
+      isOverlayVisible: !prevState.isOverlayVisible,
     }));
   };
   render() {
@@ -73,7 +73,7 @@ class List extends Component {
           />
         </Helmet>
 
-        <Description onFilterClick={this.toggleDarkenOverlay} />
+        <Description onFilterClick={this.toggleOverlay} />
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle>Heritage Trench Coats</CategoryTitle>
@@ -282,7 +282,7 @@ class List extends Component {
             <LoadBtn>View 9 more</LoadBtn>
           </Loader>
 
-          <DarkenOverlay visible={this.state.isDarkenOverlayVisible} />
+          <Overlay visible={this.state.isOverlayVisible} />
         </div>
       </div>
     );
