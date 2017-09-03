@@ -77,12 +77,7 @@ const Link = styled(NavLink)`
 const ButtonContainer = Block.extend`padding-top: 0.25rem;`;
 const MainNavigation = styled.div`
   transition: 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-  ${props =>
-    props.isShiftedLeft &&
-    css`
-      transform: translate3d(-274px, 0, 0);
-      height: 90%;
-    `};
+  ${props => props.isShiftedLeft && css`transform: translate3d(-100%, 0, 0);`};
 `;
 
 const locations = ['United Kingdom (£)', 'Russia (₽)', 'China (Ұ)'];

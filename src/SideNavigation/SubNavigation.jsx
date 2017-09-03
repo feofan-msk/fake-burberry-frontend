@@ -76,14 +76,14 @@ const Link = styled(NavLink)`
   padding-bottom: 1rem;
   font-size: 0.875rem;
   font-weight: 400;
-  font-family: Raleway, sans-serif;
+  font-family: Raleway;
   line-heigth: 1rem;
   color: #171717;
   text-decoration: none;
   &.active {
     font-size: 0.875rem;
     font-weight: 700;
-    font-family: Raleway, sans-serif;
+    font-family: Raleway;
     line-height: 1rem;
   }
 `;
