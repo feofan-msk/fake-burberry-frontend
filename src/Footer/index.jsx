@@ -4,15 +4,11 @@ import Navigation from './Navigation';
 import Help from './Help';
 
 const Footer = styled.footer`
-  padding: 2rem 0 2rem;
+  padding: 2rem 0;
   background-color: #f3f3f3;
-  @media screen and (min-width: 48rem) {
-    padding: 2rem 0;
-    margin-top: 2rem;
-  }
+
   @media screen and (min-width: 62rem) {
     padding-top: 4rem;
-    margin-top: 4rem;
   }
 `;
 const Btn = styled.button`
@@ -37,8 +33,8 @@ const Btn = styled.button`
 `;
 const BlackText = styled.span`color: #171717;`;
 
-export default () =>
-  (<Footer>
+export default () => (
+  <Footer>
     <div className="container">
       <Navigation />
 
@@ -51,4 +47,5 @@ export default () =>
 
       <Help />
     </div>
-  </Footer>);
+  </Footer>
+);

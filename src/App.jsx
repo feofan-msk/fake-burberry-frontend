@@ -20,6 +20,8 @@ export default () => (
         </Helmet>
 
         <Header />
+        
+        <Redirect from="/" to="/men/clothing" />
 
         <Route exact path="/" component={List} />
         <Route exact path="/:category/:section" component={List} />
