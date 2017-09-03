@@ -29,7 +29,7 @@ const HrLine = styled.hr`
   }
 `;
 const Loader = styled.div`
-  margin-top: 2rem 0 5rem;
+  padding: 2rem 0 5rem;
   text-align: center;
   @media screen and (min-width: 48rem) {
     margin-top: 3rem;
@@ -42,9 +42,9 @@ const LoadTitle = styled(CategoryTitle)`
     padding-bottom: 2rem;
   }
 `;
-const ContentDarken = styled.div`
+const DarkenOverlay = styled.div`
   position: absolute;
-  display: ${props => (props.currentState ? 'block' : 'none')};
+  display: ${props => (props.visible ? 'block' : 'none')};
   background-color: #000000;
   height: 100%;
   width: 100%;
@@ -53,18 +53,15 @@ const ContentDarken = styled.div`
 `;
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isActive: false };
-    this.stateUpdate = this.stateUpdate.bind(this);
-  }
+  state = {
+    isDarkenOverlayVisible: false,
+  };
 
-  stateUpdate(data) {
-    this.setState({
-      isActive: !data,
-    });
-  }
-
+  toggleDarkenOverlay = () => {
+    this.setState(prevState => ({
+      isDarkenOverlayVisible: !prevState.isDarkenOverlayVisible,
+    }));
+  };
   render() {
     return (
       <div>
@@ -75,7 +72,8 @@ class List extends Component {
             content="Menswear collection for the season. Knitwear, sweatshirts, oversized cabans"
           />
         </Helmet>
-        <Description stateUpdate={this.stateUpdate} />
+
+        <Description onFilterClick={this.toggleDarkenOverlay} />
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle>Heritage Trench Coats</CategoryTitle>
@@ -278,12 +276,14 @@ class List extends Component {
               </div>
             </div>
           </div>
-          <ContentDarken currentState={this.state.isActive} />
+
+          <Loader>
+            <LoadTitle>Showing 8 of 17</LoadTitle>
+            <LoadBtn>View 9 more</LoadBtn>
+          </Loader>
+
+          <DarkenOverlay visible={this.state.isDarkenOverlayVisible} />
         </div>
-        <Loader>
-          <LoadTitle>Showing 8 of 17</LoadTitle>
-          <LoadBtn>View 9 more</LoadBtn>
-        </Loader>
       </div>
     );
   }
