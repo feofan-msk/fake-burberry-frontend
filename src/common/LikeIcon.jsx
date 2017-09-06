@@ -29,7 +29,7 @@ LikeIcon.propTypes = {
 
 LikeIcon.defaultProps = {
   width: 16,
-  height: 15,
+  height: 20,
   fill: 'none',
   viewBox: '0 0 16 15',
 };
