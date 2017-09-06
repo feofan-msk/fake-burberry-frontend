@@ -86,11 +86,11 @@ class ProductCard extends Component {
     isActive: false,
   };
 
-  toggle() {
-    this.setState(state => ({
-      isActive: !state.isActive,
+  toggle = () => {
+    this.setState(prevState => ({
+      isActive: !prevState.isActive,
     }));
-  }
+  };
 
   render() {
     return (
