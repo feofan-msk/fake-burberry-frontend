@@ -13,7 +13,6 @@ const Footer = styled.footer`
   @media screen and (min-width: 62rem) {
     padding-top: 4rem;
   }
-`;
 
   display: block;
   padding: 0;
@@ -28,7 +27,6 @@ const Footer = styled.footer`
     margin: 2.25rem 3rem 0 0;
   }
 `;
-const BlackText = styled.span`color: #171717;`;
 
 export default () => (
   <Footer>

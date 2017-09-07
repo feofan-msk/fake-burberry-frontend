@@ -8,7 +8,6 @@ import LocationSelector from './LocationSelector';
 import { locations } from '../data';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
-import arrow from '../assets/arrow.svg';
 
 const HeaderStyled = styled.header`
   padding: 1.125rem 0;
