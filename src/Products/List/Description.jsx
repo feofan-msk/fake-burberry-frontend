@@ -54,10 +54,6 @@ const BtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  overflow-x: auto;
-  @media screen and (min-width: 48rem) {
-    overflow-x: visible;
-  }
 `;
 const Wrapper = styled.div`display: flex;`;
 

@@ -6,7 +6,6 @@ import arrow from '../assets/arrow.svg';
 
 const Wrapper = styled.div`position: relative;`;
 const Btn = styled.button`
-  position: relative;  
   padding: 1.5rem 0;
   margin-right: 1rem;
 
