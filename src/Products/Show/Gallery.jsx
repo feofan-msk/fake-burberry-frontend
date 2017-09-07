@@ -14,14 +14,17 @@ const Image = styled.img`
 
   @media screen and (min-width: 62rem) {
     height: 651px;
-    width: 100%;
+  }
+  @media screen and (min-width: 75rem) {
+    height: 780px;
   }
 `;
 
-export default () =>
-  (<Gallery>
+export default () => (
+  <Gallery>
     <Image src={`${process.env.PUBLIC_URL}/img/preview-1@2x.jpg`} alt="Photo 1" />
     <Image src={`${process.env.PUBLIC_URL}/img/preview-2@2x.jpg`} alt="Photo 2" />
     <Image src={`${process.env.PUBLIC_URL}/img/preview-3@2x.jpg`} alt="Photo 3" />
     <Image src={`${process.env.PUBLIC_URL}/img/preview-4@2x.jpg`} alt="Photo 4" />
-  </Gallery>);
+  </Gallery>
+);
