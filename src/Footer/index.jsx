@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 import Help from './Help';
+import LocationSelector from './LocationSelector';
+import LanguageSelector from './LanguageSelector';
+import { locations, languages } from '../data';
 
 const Footer = styled.footer`
   padding: 2rem 0;
@@ -10,13 +13,6 @@ const Footer = styled.footer`
   @media screen and (min-width: 62rem) {
     padding-top: 4rem;
   }
-`;
-const Btn = styled.button`
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #999;
 
   display: block;
   padding: 0;
@@ -31,19 +27,14 @@ const Btn = styled.button`
     margin: 2.25rem 3rem 0 0;
   }
 `;
-const BlackText = styled.span`color: #171717;`;
 
 export default () => (
   <Footer>
     <div className="container">
       <Navigation />
 
-      <Btn type="button">
-        Shipping country: <BlackText>Russian Federation</BlackText>
-      </Btn>
-      <Btn type="button">
-        Language: <BlackText>English</BlackText>
-      </Btn>
+      <LocationSelector locations={locations} />
+      <LanguageSelector languages={languages} />
 
       <Help />
     </div>

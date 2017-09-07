@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Navigation from './Navigation';
+import LocationSelector from './LocationSelector';
+import { locations } from '../data';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
-import arrow from '../assets/arrow.svg';
 
-const Header = styled.header`
+const HeaderStyled = styled.header`
   padding: 1.125rem 0;
 
   @media screen and (min-width: 48rem) {
@@ -36,55 +38,26 @@ const Logo = styled.img`
     height: 1rem;
   }
 `;
-const LocationSelector = styled.button`
-  display: none;
-  @media screen and (min-width: 48rem) {
-    position: relative;
 
-    display: block;
-    white-space: nowrap;
-    padding: 0;
-    margin: 0;
-
-    border: none;
-    background-color: transparent;
-    font-family: Raleway;
-    font-weight: 600;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: #999;
-
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    opacity: ${props => (props.currentState && props.active ? '0.5' : '1')};
-    opacity: ${props => (!props.currentState && props.active ? '0.5' : '1')};
-
-    ::after {
-      content: '';
-      background-image: url(${arrow});
-      margin-left: 0.5rem;
-      background-size: contain;
-      width: 0.75rem;
-      height: 0.375rem;
-      transform: ${props => (props.currentState ? 'rotate(180deg)' : 'none')};
-    }
-  }
-`;
-
-export default () => (
+const Header = props => (
   <div className="container">
-    <Header className="row">
+    <HeaderStyled className="row">
       <div className="col-xs-2 col-md-4">
-        <HamburgerBtn />
-        <LocationSelector>Shopping in: United Kingdom (£)</LocationSelector>
+        <HamburgerBtn onClick={props.handleSideNavClick} />
+        <LocationSelector locations={locations} />
       </div>
       <div className="col-xs-8 col-md-4">
         <Link to="/">
           <Logo src={logo} alt="Burberry-logo" />
         </Link>
       </div>
-    </Header>
+    </HeaderStyled>
     <Navigation />
   </div>
 );
+
+Header.propTypes = {
+  handleSideNavClick: PropTypes.func.isRequired,
+};
+
+export default Header;
