@@ -6,7 +6,7 @@ import Card from '../Card';
 import LoadBtn from './LoadBtn';
 
 const CategoryTitle = styled.h2`
-  padding: 2rem 0 1rem;
+  padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
   margin: 0;
 
   font-family: Lora;
@@ -15,7 +15,7 @@ const CategoryTitle = styled.h2`
   color: #171717;
 
   @media screen and (min-width: 48rem) {
-    padding: 4rem 0 2rem;
+    padding: ${props => (!props.children ? '1rem' : '4rem 0 2rem')};
     font-size: 1.25rem;
   }
 `;
@@ -62,7 +62,12 @@ class List extends Component {
     const url = 'https://erodionov-burberry-fake-api.now.sh/v1/products/men/suits';
     fetch(url)
       .then(response => response.json())
-      .then(json => this.setState({ products: json }));
+      .then(json => this.setState({ products: json }))
+      .catch((response) => {
+        const error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+      });
   }
 
   toggleOverlay = () => {
@@ -82,10 +87,14 @@ class List extends Component {
           />
         </Helmet>
 
-        <Description title={this.state.products.title} onFilterClick={this.toggleOverlay} />
+        <Description
+          title={this.state.products.title}
+          description={this.state.products.description}
+          onFilterClick={this.toggleOverlay}
+        />
         <div style={{ position: 'relative' }}>
           <div className="container">
-            <CategoryTitle>Heritage Trench Coats</CategoryTitle>
+            <CategoryTitle />
             <div className="row">
               <div className="col-xs-6 col-md-3">
                 <Card

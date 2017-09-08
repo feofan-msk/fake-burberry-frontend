@@ -33,15 +33,16 @@ const Content = styled.p`
     padding-bottom: 1rem;
   }
 `;
-const Link = styled(RouteLink)`
-  border-bottom: 1px solid #171717;
-  text-decoration: none;
-  color: #171717;
-`;
-const MoreButton = styled.button`
+// const Link = styled(RouteLink)`
+//   border-bottom: 1px solid #171717;
+//   text-decoration: none;
+//   color: #171717;
+// `;
+const ExpandButton = styled.button`
   padding: 0;
   border: none;
   border-bottom: 1px solid #171717;
+  cursor: pointer;
 
   font-family: Raleway;
   font-size: 0.75rem;
@@ -56,10 +57,12 @@ const BtnContainer = styled.div`
   white-space: nowrap;
 `;
 const Wrapper = styled.div`display: flex;`;
+const maxLength = 183;
 
 class Description extends Component {
   state = {
     activeFilter: undefined,
+    isDescriptionHidden: true,
   };
 
   handleFilterToggle = (filterName, toggledOn) => {
@@ -67,7 +70,18 @@ class Description extends Component {
     this.props.onFilterClick(toggledOn);
   };
 
+  handleExpandButtonClick = () => {
+    this.setState(prevState => ({ isDescriptionHidden: !prevState.isDescriptionHidden }));
+  };
+
   render() {
+    const hideText = (str) => {
+      if (str && str.length > maxLength && this.state.isDescriptionHidden) {
+        return `${str.slice(0, maxLength)}... `;
+      }
+      return str;
+    };
+
     return (
       <Background>
         <div className="container">
@@ -75,10 +89,8 @@ class Description extends Component {
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
               <Content>
-                Explore our menswear collection for the season. Sculptural knitwear,{' '}
-                <Link to="/">sweatshirts</Link>, artist overalls and oversized cabans feature
-                alongside our signature trench coat in both heritage and seasonal...{' '}
-                <MoreButton>More</MoreButton>
+                {hideText(this.props.description)}{' '}
+                <ExpandButton onClick={this.handleExpandButtonClick}>More</ExpandButton>
               </Content>
             </div>
           </div>
@@ -126,6 +138,7 @@ class Description extends Component {
 Description.propTypes = {
   onFilterClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default Description;
