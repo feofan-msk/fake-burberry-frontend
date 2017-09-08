@@ -55,13 +55,22 @@ const Overlay = styled.div`
 class List extends Component {
   state = {
     isOverlayVisible: false,
+    products: [],
   };
+
+  componentDidMount() {
+    const url = 'https://erodionov-burberry-fake-api.now.sh/v1/products/men/suits';
+    fetch(url)
+      .then(response => response.json())
+      .then(json => this.setState({ products: json }));
+  }
 
   toggleOverlay = () => {
     this.setState(prevState => ({
       isOverlayVisible: !prevState.isOverlayVisible,
     }));
   };
+
   render() {
     return (
       <div>
@@ -73,7 +82,7 @@ class List extends Component {
           />
         </Helmet>
 
-        <Description onFilterClick={this.toggleOverlay} />
+        <Description title={this.state.products.title} onFilterClick={this.toggleOverlay} />
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle>Heritage Trench Coats</CategoryTitle>

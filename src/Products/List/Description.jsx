@@ -71,7 +71,7 @@ class Description extends Component {
     return (
       <Background>
         <div className="container">
-          <Heading>Men’s Clothing</Heading>
+          <Heading>{this.props.title}</Heading>
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
               <Content>
@@ -125,6 +125,7 @@ class Description extends Component {
 
 Description.propTypes = {
   onFilterClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Description;
