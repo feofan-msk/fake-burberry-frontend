@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: [0] */
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
@@ -33,11 +34,11 @@ const Content = styled.p`
     padding-bottom: 1rem;
   }
 `;
-// const Link = styled(RouteLink)`
-//   border-bottom: 1px solid #171717;
-//   text-decoration: none;
-//   color: #171717;
-// `;
+const Link = styled(RouteLink)`
+  border-bottom: 1px solid #171717;
+  text-decoration: none;
+  color: #171717;
+`;
 const ExpandButton = styled.button`
   padding: 0;
   border: none;
