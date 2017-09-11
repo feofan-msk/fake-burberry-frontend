@@ -95,11 +95,11 @@ class ProductCard extends Component {
   render() {
     return (
       <Card>
-        <Link to={`/products/men/suits/${this.props.slug}`}>
+        <Link to={`/men/suits/${this.props.slug}`}>
           <Image src={this.props.image} alt={this.props.title} />
         </Link>
         <InfoWrapper>
-          <Link to={`/products/men/suits/${this.props.slug}`}>
+          <Link to={`/men/suits/${this.props.slug}`}>
             <Label>{this.props.label}</Label>
 
             <Title>{this.props.title}</Title>
@@ -142,7 +142,7 @@ ProductCard.propTypes = {
 
 ProductCard.defaultProps = {
   label: 'Relaxed fit',
-  coloursAmount: '0',
+  coloursAmount: '1',
 };
 
 export default ProductCard;

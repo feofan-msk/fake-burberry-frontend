@@ -76,7 +76,7 @@ class App extends Component {
               <Header handleSideNavClick={this.toggleSideNav} />
 
               <Switch>
-                <Redirect exact from="/" to="/men/clothing" />
+                <Redirect exact from="/" to="/men/suits" />
                 <Route exact path="/:category" component={List} />
                 <Route exact path="/:category/:section" component={List} />
                 <Route exact path="/:category/:section/:id" component={Product} />

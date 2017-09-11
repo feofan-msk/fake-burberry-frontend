@@ -31,11 +31,12 @@ const Link = styled(NavLink)`
   }
 `;
 
-export default () =>
-  (<Navigation>
+export default () => (
+  <Navigation>
     <Link to="/women">Women</Link>
-    <Link to="/men/clothing">Men</Link>
+    <Link to="/men">Men</Link>
     <Link to="/children">Children</Link>
     <Link to="/beaty">Beauty</Link>
     <Link to="/experience">Experience</Link>
-  </Navigation>);
+  </Navigation>
+);

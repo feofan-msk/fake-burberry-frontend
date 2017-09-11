@@ -111,7 +111,7 @@ class List extends Component {
                   <Card
                     slug={product.slug}
                     title={product.title}
-                    colorsAmount={product.colours.length}
+                    coloursAmount={product.colours.length}
                     price={product.multiCurrencyPrices.RUB / 100}
                     image={product.images[0]}
                     id={parseInt(product.id, 10)}
