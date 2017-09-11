@@ -95,11 +95,11 @@ class ProductCard extends Component {
   render() {
     return (
       <Card>
-        <Link to={`/men/suits/${this.props.slug}`}>
+        <Link to={`${this.props.adress}`}>
           <Image src={this.props.image} alt={this.props.title} />
         </Link>
         <InfoWrapper>
-          <Link to={`/men/suits/${this.props.slug}`}>
+          <Link to={`${this.props.adress}`}>
             <Label>{this.props.label}</Label>
 
             <Title>{this.props.title}</Title>
@@ -132,7 +132,7 @@ class ProductCard extends Component {
 }
 
 ProductCard.propTypes = {
-  slug: PropTypes.string.isRequired,
+  adress: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,

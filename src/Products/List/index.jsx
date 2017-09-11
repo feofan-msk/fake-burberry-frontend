@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
+
 import Description from './Description';
 import Card from '../Card';
 import LoadBtn from './LoadBtn';
@@ -54,6 +56,10 @@ const Overlay = styled.div`
 `;
 
 class List extends Component {
+  constructor({ props }) {
+    super(props);
+  }
+
   state = {
     isOverlayVisible: false,
     title: '',
@@ -109,6 +115,8 @@ class List extends Component {
               {this.state.products.map(product => (
                 <div className="col-xs-6 col-md-3" key={product.id}>
                   <Card
+                    adress={`/${this.props.match.params.category}/${this.props.match.params
+                      .section}/${product.slug}`}
                     slug={product.slug}
                     title={product.title}
                     coloursAmount={product.colours.length}
@@ -134,5 +142,9 @@ class List extends Component {
     );
   }
 }
+
+List.propTypes = {
+  match: PropTypes.string.isRequired,
+};
 
 export default List;
