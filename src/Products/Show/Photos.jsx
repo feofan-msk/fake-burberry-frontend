@@ -19,12 +19,14 @@ const Photo = styled.img`
   @media screen and (min-width: 62rem) {
     display: block;
     height: 420px;
-    min-width: 100%;
+  }
+  @media screen and (min-width: 75em) {
+    height: 485px;
   }
 `;
 
-export default () =>
-  (<Wrapper>
+export default () => (
+  <Wrapper>
     <div className="row">
       <div className="col-lg-4">
         <Photo
@@ -45,4 +47,5 @@ export default () =>
         />
       </div>
     </div>
-  </Wrapper>);
+  </Wrapper>
+);

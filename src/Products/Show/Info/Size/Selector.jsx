@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const Button = styled.button`
   display: block;
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem;
 
   width: ${props => (props.isActive ? '2.9rem' : '2.7rem')};

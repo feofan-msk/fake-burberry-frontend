@@ -1,20 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Button from './Btn';
-
-const colours = [
-  {
-    id: 1,
-    name: 'Black',
-    code: '#000',
-  },
-  {
-    id: 2,
-    name: 'Honey',
-    code: '#cfa880',
-  },
-];
 
 const BtnContainer = styled.div`
   display: flex;
@@ -38,9 +26,10 @@ const CurrColor = styled.p`
 `;
 
 class Colour extends Component {
-  state = {
-    activeColourIndex: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { activeColourIndex: 0 };
+  }
 
   selectColour = (newColourIndex) => {
     this.setState({ activeColourIndex: newColourIndex });
@@ -49,25 +38,32 @@ class Colour extends Component {
   render() {
     return (
       <div>
-        <CurrColor>
-          Colour: <strong>{colours[this.state.activeColourIndex].name}</strong>
-        </CurrColor>
+        {this.props.colours && (
+          <CurrColor>
+            Colour: <strong>{this.props.colours[this.state.activeColourIndex].value}</strong>
+          </CurrColor>
+        )}
 
         <BtnContainer>
-          {colours.map((colour, idx) => (
-            <Button
-              key={colour.name}
-              label={colour.name}
-              value={colour.code}
-              colourIndex={idx}
-              onClick={this.selectColour}
-              isActive={colour === colours[this.state.activeColourIndex]}
-            />
-          ))}
+          {this.props.colours &&
+            this.props.colours.map((colour, index) => (
+              <Button
+                key={colour.value}
+                label={colour.value}
+                value={colour.src}
+                colourIndex={index}
+                onClick={this.selectColour}
+                isActive={colour === this.props.colours[this.state.activeColourIndex]}
+              />
+            ))}
         </BtnContainer>
       </div>
     );
   }
 }
+
+Colour.propTypes = {
+  colours: PropTypes.node.isRequired,
+};
 
 export default Colour;

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
+
 import Gallery from './Gallery';
 import Info from './Info';
 import Description from './Description';
@@ -13,7 +15,7 @@ import SimilarOffers from './SimilarOffers';
 const Card = styled.div`
   background-color: transparent;
   @media screen and (min-width: 62rem) {
-    background-color: #d4bdad;
+    // background-color: #d4bdad;
   }
 `;
 const Title = styled.h1`
@@ -40,38 +42,81 @@ const Shipping = styled.section`
   }
 `;
 
-export default () =>
-  (<div>
-    <Helmet>
-      <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-      <meta
-        name="description"
-        content="A refined car coat crafted in protective cotton gabardine."
-      />
-    </Helmet>
-    <Card>
-      <main className="container">
-        <Title>Long Cotton Gabardine Car Coat</Title>
+class Show extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { product: [] };
+  }
 
-        <div className="row">
-          <div className="col-xs-12 col-md-7 col-lg-6">
-            <Gallery />
-          </div>
+  componentDidMount() {
+    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
+      .category}/${this.props.match.params.section}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(json =>
+        this.setState({
+          product: json.items.find(j => j.slug === this.props.match.params.id),
+        }),
+      )
+      .catch((response) => {
+        const { status, body } = response;
+        const error = { status, body };
+        throw error;
+      });
+  }
 
-          <div className="col-xs-12 col-md-5 col-lg-6">
-            <Info />
-          </div>
+  render() {
+    const multiPrice = this.state.product.multiCurrencyPrices || {};
+    const priceRub = multiPrice.RUB || {};
+
+    return (
+      <div>
+        <Helmet>
+          <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+          <meta
+            name="description"
+            content="A refined car coat crafted in protective cotton gabardine."
+          />
+        </Helmet>
+
+        <Card>
+          <main className="container">
+            <Title>{this.state.product.title}</Title>
+
+            <div className="row">
+              <div className="col-xs-12 col-md-7 col-lg-6">
+                <Gallery images={this.state.product.images} />
+              </div>
+
+              <div className="col-xs-12 col-md-5 col-lg-6">
+                <Info
+                  title={this.state.product.title}
+                  id={this.state.product.id}
+                  price={priceRub / 100}
+                  colours={this.state.product.colours}
+                  sizes={this.state.product.sizes}
+                />
+              </div>
+            </div>
+          </main>
+        </Card>
+        <div className="container">
+          <Description />
+          <Photos />
+          <Shipping>
+            <SectionBtn>DELIVERY</SectionBtn>
+          </Shipping>
+          <Delivery />
+          <Recommendations />
+          <SimilarOffers />
         </div>
-      </main>
-    </Card>
-    <div className="container">
-      <Description />
-      <Photos />
-      <Shipping>
-        <SectionBtn>DELIVERY</SectionBtn>
-      </Shipping>
-      <Delivery />
-      <Recommendations />
-      <SimilarOffers />
-    </div>
-  </div>);
+      </div>
+    );
+  }
+}
+
+Show.propTypes = {
+  match: PropTypes.node.isRequired,
+};
+
+export default Show;

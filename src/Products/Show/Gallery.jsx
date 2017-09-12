@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Gallery = styled.section`
+const Wrapper = styled.section`
   font-size: 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -20,11 +21,17 @@ const Image = styled.img`
   }
 `;
 
-export default () => (
-  <Gallery>
-    <Image src={`${process.env.PUBLIC_URL}/img/preview-1@2x.jpg`} alt="Photo 1" />
-    <Image src={`${process.env.PUBLIC_URL}/img/preview-2@2x.jpg`} alt="Photo 2" />
-    <Image src={`${process.env.PUBLIC_URL}/img/preview-3@2x.jpg`} alt="Photo 3" />
-    <Image src={`${process.env.PUBLIC_URL}/img/preview-4@2x.jpg`} alt="Photo 4" />
-  </Gallery>
+const Gallery = props => (
+  <Wrapper>
+    {props.images &&
+      props.images.map(image => (
+        <Image key={image} src={`${image}?$BBY_V2_ML_3X4$&hei=800&wid=600`} alt="Gallery photo" />
+      ))}
+  </Wrapper>
 );
+
+Gallery.propTypes = {
+  images: PropTypes.node.isRequired,
+};
+
+export default Gallery;
