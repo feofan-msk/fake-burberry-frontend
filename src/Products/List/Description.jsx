@@ -64,6 +64,7 @@ class Description extends Component {
   state = {
     activeFilter: undefined,
     isDescriptionHidden: true,
+    expandButtonText: 'More',
   };
 
   handleFilterToggle = (filterName, toggledOn) => {
@@ -73,6 +74,13 @@ class Description extends Component {
 
   handleExpandButtonClick = () => {
     this.setState(prevState => ({ isDescriptionHidden: !prevState.isDescriptionHidden }));
+    this.setState(
+      this.state.isDescriptionHidden
+        ? {
+          expandButtonText: 'Less',
+        }
+        : { expandButtonText: 'More' },
+    );
   };
 
   render() {
@@ -91,7 +99,9 @@ class Description extends Component {
             <div className="col-xs-12 col-md-9 col-lg-7">
               <Content>
                 {hideText(this.props.description)}{' '}
-                <ExpandButton onClick={this.handleExpandButtonClick}>More</ExpandButton>
+                <ExpandButton onClick={this.handleExpandButtonClick}>
+                  {this.state.expandButtonText}
+                </ExpandButton>
               </Content>
             </div>
           </div>

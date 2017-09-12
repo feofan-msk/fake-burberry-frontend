@@ -56,16 +56,15 @@ const Overlay = styled.div`
 `;
 
 class List extends Component {
-  constructor({ props }) {
+  constructor(props) {
     super(props);
+    this.state = {
+      isOverlayVisible: false,
+      title: '',
+      description: '',
+      products: [],
+    };
   }
-
-  state = {
-    isOverlayVisible: false,
-    title: '',
-    description: '',
-    products: [],
-  };
 
   componentDidMount() {
     const url = 'https://erodionov-burberry-fake-api.now.sh/v1/products/men/suits';
@@ -115,9 +114,8 @@ class List extends Component {
               {this.state.products.map(product => (
                 <div className="col-xs-6 col-md-3" key={product.id}>
                   <Card
-                    adress={`/${this.props.match.params.category}/${this.props.match.params
+                    to={`/${this.props.match.params.category}/${this.props.match.params
                       .section}/${product.slug}`}
-                    slug={product.slug}
                     title={product.title}
                     coloursAmount={product.colours.length}
                     price={product.multiCurrencyPrices.RUB / 100}
@@ -144,7 +142,7 @@ class List extends Component {
 }
 
 List.propTypes = {
-  match: PropTypes.string.isRequired,
+  match: PropTypes.node.isRequired,
 };
 
 export default List;
