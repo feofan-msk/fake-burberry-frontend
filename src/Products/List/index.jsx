@@ -60,6 +60,7 @@ class List extends Component {
     super(props);
     this.state = {
       isOverlayVisible: false,
+      data: {},
       title: '',
       description: '',
       products: [],
@@ -67,11 +68,13 @@ class List extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://erodionov-burberry-fake-api.now.sh/v1/products/men/suits';
+    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
+      .category}/${this.props.match.params.section}`;
     fetch(url)
       .then(response => response.json())
       .then(json =>
         this.setState({
+          data: json,
           title: json.title,
           description: json.description,
           products: json.items,
@@ -119,7 +122,7 @@ class List extends Component {
                     title={product.title}
                     coloursAmount={product.colours.length}
                     price={product.multiCurrencyPrices.RUB / 100}
-                    image={product.images[0]}
+                    image={`${product.images[0]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
                     id={parseInt(product.id, 10)}
                   />
                 </div>
@@ -129,10 +132,12 @@ class List extends Component {
             </div>
           </div>
 
-          <Loader>
-            <LoadTitle>Showing 8 of 17</LoadTitle>
-            <LoadBtn>View 9 more</LoadBtn>
-          </Loader>
+          {this.state.data.total > this.state.data.limit && (
+            <Loader>
+              <LoadTitle>Showing 8 of 17</LoadTitle>
+              <LoadBtn>View 9 more</LoadBtn>
+            </Loader>
+          )}
 
           <Overlay visible={this.state.isOverlayVisible} />
         </div>

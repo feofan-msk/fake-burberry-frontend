@@ -42,7 +42,8 @@ const PageOverlay = styled.button`
   height: 100%;
   border: none;
   outline: none;
-  background: transparent;
+  background: black;
+  opacity: 0.3;
 `;
 
 class App extends Component {

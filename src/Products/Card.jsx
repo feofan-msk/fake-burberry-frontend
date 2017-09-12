@@ -23,7 +23,7 @@ const InfoWrapper = styled.div`
   align-items: flex-start;
 `;
 const Label = styled.p`
-  margin: 0 0 0.5rem;
+  margin: ${props => (props.children ? '0 0 0.5rem' : '0')};
 
   font-family: Raleway;
   font-weight: 400;
