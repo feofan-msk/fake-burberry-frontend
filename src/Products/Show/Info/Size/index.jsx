@@ -45,7 +45,7 @@ const TextBtn = styled.button`
 class Size extends Component {
   constructor(props) {
     super(props);
-    this.state = { selectedSizeIndex: 3 };
+    this.state = { selectedSizeIndex: 0 };
   }
 
   handleClick = (newSizeIndex) => {

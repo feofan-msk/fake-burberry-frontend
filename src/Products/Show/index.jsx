@@ -51,23 +51,26 @@ class Show extends Component {
   componentDidMount() {
     const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
       .category}/${this.props.match.params.section}`;
-    fetch(url)
+
+    fetch(`${url}/${this.props.match.params.id}`)
       .then(response => response.json())
       .then((json) => {
         this.setState({
-          recommendedProducts: json.items.slice(-4),
-          product: json.items.find(j => j.slug === this.props.match.params.id),
+          product: json,
         });
-        // this.setState({ // заготовка под рекомендации
-        //   recommendedProducts: json.items.map(
-        //     j => this.state.product.linkedProductIds.map(recId => recId === j.id),
-        //   ),
-        // });
       })
       .catch((response) => {
         const { status, body } = response;
         const error = { status, body };
         throw error;
+      });
+
+    fetch(url)
+      .then(response => response.json())
+      .then((json) => {
+        this.setState({
+          recommendedProducts: json.items.slice(-4),
+        });
       });
   }
 
