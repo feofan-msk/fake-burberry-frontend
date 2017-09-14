@@ -53,11 +53,17 @@ class Show extends Component {
       .category}/${this.props.match.params.section}`;
     fetch(url)
       .then(response => response.json())
-      .then(json =>
+      .then((json) => {
         this.setState({
+          recommendedProducts: json.items.slice(-4),
           product: json.items.find(j => j.slug === this.props.match.params.id),
-        }),
-      )
+        });
+        // this.setState({ // заготовка под рекомендации
+        //   recommendedProducts: json.items.map(
+        //     j => this.state.product.linkedProductIds.map(recId => recId === j.id),
+        //   ),
+        // });
+      })
       .catch((response) => {
         const { status, body } = response;
         const error = { status, body };
@@ -111,7 +117,7 @@ class Show extends Component {
             <SectionBtn>DELIVERY</SectionBtn>
           </Shipping>
           <Delivery />
-          <Recommendations />
+          <Recommendations recommendedProducts={this.state.recommendedProducts} />
           <SimilarOffers />
         </div>
       </div>
