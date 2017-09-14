@@ -54,7 +54,7 @@ const Description = props => (
 
       <div className="col-lg-8">
         {props.images && (
-          <Photo src={`${props.images[1]}?$BBY_V2_ML_3X4$&hei=1225&wid=918`} alt="Delivery" />
+          <Photo src={`${props.images[1]}?$BBY_V2_ML_3X4$&hei=1920&wid=1440`} alt="Delivery" />
         )}
       </div>
     </div>

@@ -20,7 +20,7 @@ export default () => (
       <div className="col-md-7">
         <Image
           src={
-            'https://assets.burberry.com/is/image/Burberryltd/c4f8224a4727d674516f49dfc7c8d50cbec5bc7c.jpg?$BBY_V2_ML_4X3$&hei=648&wid=864'
+            'https://assets.burberry.com/is/image/Burberryltd/c4f8224a4727d674516f49dfc7c8d50cbec5bc7c.jpg?$BBY_V2_ML_4X3$&hei=1296&wid=1728'
           }
           alt="Delivery image"
         />

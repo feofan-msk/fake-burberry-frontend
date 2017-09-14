@@ -31,13 +31,13 @@ const Photos = props => (
     {props.images && (
       <div className="row">
         <div className="col-lg-4">
-          <Photo src={`${props.images[2]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+          <Photo src={`${props.images[2]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
         </div>
         <div className="col-lg-4">
-          <Photo src={`${props.images[3]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+          <Photo src={`${props.images[3]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
         </div>
         <div className="col-lg-4">
-          <Photo src={`${props.images[4]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+          <Photo src={`${props.images[4]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
         </div>
       </div>
     )}

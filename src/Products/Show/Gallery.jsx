@@ -25,7 +25,7 @@ const Gallery = props => (
   <Wrapper>
     {props.images &&
       props.images.map(image => (
-        <Image key={image} src={`${image}?$BBY_V2_ML_3X4$&hei=800&wid=600`} alt="Gallery photo" />
+        <Image key={image} src={`${image}?$BBY_V2_ML_3X4$&hei=1920&wid=1440`} alt="Gallery photo" />
       ))}
   </Wrapper>
 );
