@@ -100,9 +100,13 @@ class Show extends Component {
             </div>
           </main>
         </Card>
+
         <div className="container">
-          <Description />
-          <Photos />
+          <Description
+            content={this.state.product.description + this.state.product.details}
+            images={this.state.product.images}
+          />
+          <Photos images={this.state.product.images} />
           <Shipping>
             <SectionBtn>DELIVERY</SectionBtn>
           </Shipping>

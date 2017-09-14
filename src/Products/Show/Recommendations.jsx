@@ -13,8 +13,8 @@ const Recommendations = styled.section`
   }
 `;
 
-export default () =>
-  (<Recommendations>
+export default () => (
+  <Recommendations>
     <Subheading>WE RECOMMEND</Subheading>
 
     <div className="row">
@@ -66,4 +66,5 @@ export default () =>
         />
       </div>
     </div>
-  </Recommendations>);
+  </Recommendations>
+);

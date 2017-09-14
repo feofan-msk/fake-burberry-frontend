@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: none;
@@ -25,27 +26,26 @@ const Photo = styled.img`
   }
 `;
 
-export default () => (
+const Photos = props => (
   <Wrapper>
-    <div className="row">
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-1@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
+    {props.images && (
+      <div className="row">
+        <div className="col-lg-4">
+          <Photo src={`${props.images[2]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+        </div>
+        <div className="col-lg-4">
+          <Photo src={`${props.images[3]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+        </div>
+        <div className="col-lg-4">
+          <Photo src={`${props.images[4]}?$BBY_V2_ML_3X4$&hei=854&wid=640`} alt="Product photo" />
+        </div>
       </div>
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-2@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
-      </div>
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-3@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
-      </div>
-    </div>
+    )}
   </Wrapper>
 );
+
+Photos.propTypes = {
+  images: PropTypes.string.isRequired,
+};
+
+export default Photos;
