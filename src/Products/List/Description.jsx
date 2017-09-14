@@ -74,13 +74,7 @@ class Description extends Component {
 
   handleExpandButtonClick = () => {
     this.setState(prevState => ({ isDescriptionHidden: !prevState.isDescriptionHidden }));
-    this.setState(
-      this.state.isDescriptionHidden
-        ? {
-          expandButtonText: 'Less',
-        }
-        : { expandButtonText: 'More' },
-    );
+    this.setState({ expandButtonText: this.state.isDescriptionHidden ? 'Less' : 'More' });
   };
 
   render() {

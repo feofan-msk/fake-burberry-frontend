@@ -23,8 +23,6 @@ const InfoWrapper = styled.div`
   align-items: flex-start;
 `;
 const Label = styled.p`
-  margin: ${props => (props.children ? '0 0 0.5rem' : '0')};
-
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -69,6 +67,7 @@ const Price = styled.h5`
 `;
 const Underline = styled.span`border-bottom: 1px solid #171717;`;
 const LikeButton = styled.button`
+  margin-left: 1rem;
   padding: 0;
   border: 0;
   outline: none;
@@ -100,7 +99,7 @@ class ProductCard extends Component {
         </Link>
         <InfoWrapper>
           <Link to={`${this.props.to}`}>
-            <Label>{this.props.label}</Label>
+            {this.props.label && <Label>{this.props.label}</Label>}
 
             <Title>{this.props.title}</Title>
 

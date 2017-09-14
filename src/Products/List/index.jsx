@@ -32,10 +32,10 @@ const HrLine = styled.hr`
   }
 `;
 const Loader = styled.div`
-  padding: 2rem 0 5rem;
+  padding: 2rem 0 2rem;
   text-align: center;
   @media screen and (min-width: 48rem) {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 `;
 const LoadTitle = styled(CategoryTitle)`
