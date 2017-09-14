@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -25,45 +25,37 @@ const CurrColor = styled.p`
   margin-bottom: 1rem;
 `;
 
-class Colour extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeColourIndex: 0 };
-  }
+const Colour = (props) => {
+  const selectColour = props.selectColour;
+  return (
+    <div>
+      {props.colours && (
+        <CurrColor>
+          Colour: <strong>{props.colours[props.activeColourIndex].value}</strong>
+        </CurrColor>
+      )}
 
-  selectColour = (newColourIndex) => {
-    this.setState({ activeColourIndex: newColourIndex });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.props.colours && (
-          <CurrColor>
-            Colour: <strong>{this.props.colours[this.state.activeColourIndex].value}</strong>
-          </CurrColor>
-        )}
-
-        <BtnContainer>
-          {this.props.colours &&
-            this.props.colours.map((colour, index) => (
-              <Button
-                key={colour.value}
-                label={colour.value}
-                value={colour.src}
-                colourIndex={index}
-                onClick={this.selectColour}
-                isActive={colour === this.props.colours[this.state.activeColourIndex]}
-              />
-            ))}
-        </BtnContainer>
-      </div>
-    );
-  }
-}
+      <BtnContainer>
+        {props.colours &&
+          props.colours.map((colour, index) => (
+            <Button
+              key={colour.value}
+              label={colour.value}
+              value={colour.src}
+              colourIndex={index}
+              onClick={selectColour}
+              isActive={colour === props.colours[props.activeColourIndex]}
+            />
+          ))}
+      </BtnContainer>
+    </div>
+  );
+};
 
 Colour.propTypes = {
   colours: PropTypes.node.isRequired,
+  selectColour: PropTypes.func.isRequired,
+  activeColourIndex: PropTypes.number.isRequired,
 };
 
 export default Colour;

@@ -45,7 +45,7 @@ const Shipping = styled.section`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { product: [] };
+    this.state = { product: [], activeColourIndex: 0 };
   }
 
   componentDidMount() {
@@ -74,6 +74,10 @@ class Show extends Component {
       });
   }
 
+  selectColour = (newColourIndex) => {
+    this.setState({ activeColourIndex: newColourIndex });
+  };
+
   render() {
     const multiPrice = this.state.product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
@@ -94,7 +98,10 @@ class Show extends Component {
 
             <div className="row">
               <div className="col-xs-12 col-md-7 col-lg-6">
-                <Gallery images={this.state.product.images} />
+                <Gallery
+                  colours={this.state.product.colours}
+                  activeColourIndex={this.state.activeColourIndex}
+                />
               </div>
 
               <div className="col-xs-12 col-md-5 col-lg-6">
@@ -103,6 +110,8 @@ class Show extends Component {
                   id={this.state.product.id}
                   price={priceRub / 100}
                   colours={this.state.product.colours}
+                  activeColourIndex={this.state.activeColourIndex}
+                  selectColour={this.selectColour}
                   sizes={this.state.product.sizes}
                 />
               </div>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.section`
   font-size: 0;
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: hidden;
 `;
 const Image = styled.img`
   height: 400px;
@@ -23,15 +23,18 @@ const Image = styled.img`
 
 const Gallery = props => (
   <Wrapper>
-    {props.images &&
-      props.images.map(image => (
-        <Image key={image} src={`${image}?$BBY_V2_ML_3X4$&hei=1920&wid=1440`} alt="Gallery photo" />
-      ))}
+    {props.colours && (
+      <Image
+        src={`${props.colours[props.activeColourIndex].heroSrc}?$BBY_V2_ML_4X3$&hei=1100&wid=2250`}
+        alt="Gallery photo"
+      />
+    )}
   </Wrapper>
 );
 
 Gallery.propTypes = {
-  images: PropTypes.node.isRequired,
+  colours: PropTypes.node.isRequired,
+  activeColourIndex: PropTypes.number.isRequired,
 };
 
 export default Gallery;

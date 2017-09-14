@@ -148,7 +148,11 @@ const Info = props => (
 
     <div className="row">
       <div className="col-xs-12 col-md-12 col-lg-6">
-        <ColourPanel colours={props.colours} />
+        <ColourPanel
+          colours={props.colours}
+          activeColourIndex={props.activeColourIndex}
+          selectColour={props.selectColour}
+        />
       </div>
 
       <div className="col-xs-12 col-md-12 col-lg-6">
@@ -183,6 +187,8 @@ Info.propTypes = {
   id: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   colours: PropTypes.node.isRequired,
+  activeColourIndex: PropTypes.number.isRequired,
+  selectColour: PropTypes.func.isRequired,
   sizes: PropTypes.node.isRequired,
 };
 
