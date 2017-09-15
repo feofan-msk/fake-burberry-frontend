@@ -25,32 +25,29 @@ const CurrColor = styled.p`
   margin-bottom: 1rem;
 `;
 
-const Colour = (props) => {
-  const selectColour = props.selectColour;
-  return (
-    <div>
-      {props.colours && (
-        <CurrColor>
-          Colour: <strong>{props.colours[props.activeColourIndex].value}</strong>
-        </CurrColor>
-      )}
+const Colour = (props, { selectColour = props.selectColour }) => (
+  <div>
+    {props.colours && (
+      <CurrColor>
+        Colour: <strong>{props.colours[props.activeColourIndex].value}</strong>
+      </CurrColor>
+    )}
 
-      <BtnContainer>
-        {props.colours &&
-          props.colours.map((colour, index) => (
-            <Button
-              key={colour.value}
-              label={colour.value}
-              value={colour.src}
-              colourIndex={index}
-              onClick={selectColour}
-              isActive={colour === props.colours[props.activeColourIndex]}
-            />
-          ))}
-      </BtnContainer>
-    </div>
-  );
-};
+    <BtnContainer>
+      {props.colours &&
+        props.colours.map((colour, index) => (
+          <Button
+            key={colour.value}
+            label={colour.value}
+            value={colour.src}
+            colourIndex={index}
+            onClick={selectColour}
+            isActive={colour === props.colours[props.activeColourIndex]}
+          />
+        ))}
+    </BtnContainer>
+  </div>
+);
 
 Colour.propTypes = {
   colours: PropTypes.node.isRequired,
