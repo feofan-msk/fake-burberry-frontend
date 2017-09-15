@@ -68,9 +68,9 @@ class List extends Component {
   }
 
   componentDidMount() {
-    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
+    const url = `//erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
       .category}/${this.props.match.params.section}`;
-    fetch(url)
+    fetch(url, { mode: 'no-cors' })
       .then(response => response.json())
       .then(json =>
         this.setState({
