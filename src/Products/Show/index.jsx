@@ -74,6 +74,24 @@ class Show extends Component {
       });
   }
 
+  componentWillReceiveProps(newProps) {
+    fetch(
+      `https://erodionov-burberry-fake-api.now.sh/v1/products/${newProps.match.params
+        .category}/${newProps.match.params.section}/${newProps.match.params.id}`,
+    )
+      .then(response => response.json())
+      .then((json) => {
+        this.setState({
+          product: json,
+        });
+      })
+      .catch((response) => {
+        const { status, body } = response;
+        const error = { status, body };
+        throw error;
+      });
+  }
+
   selectColour = (newColourIndex) => {
     this.setState({ activeColourIndex: newColourIndex });
   };
@@ -129,7 +147,11 @@ class Show extends Component {
             <SectionBtn>DELIVERY</SectionBtn>
           </Shipping>
           <Delivery />
-          <Recommendations recommendedProducts={this.state.recommendedProducts} />
+          <Recommendations
+            category={this.props.match.params.category}
+            section={this.props.match.params.section}
+            recommendedProducts={this.state.recommendedProducts}
+          />
           <SimilarOffers />
         </div>
       </div>

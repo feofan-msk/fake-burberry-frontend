@@ -11,12 +11,10 @@ import arrow from '../assets/arrow.svg';
 
 const Menu = styled.section`
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 274px;
-  overflow-y: scroll;
-  transform: ${props => (props.isOpened ? 'translate3d(0, 0, 0)' : 'translate3d(-100%, 0, 0)')};
+  height: 100%;
+  overflow-y: auto;
+  transform: ${props => !props.isOpened && 'translateX(-100%)'};
 
   @media screen and (min-width: 48rem) {
     display: none;
@@ -77,8 +75,8 @@ const Link = styled(NavLink)`
 `;
 const ButtonContainer = Block.extend`padding-top: 0.25rem;`;
 const MainNavigation = styled.div`
-  transition: 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-  ${props => props.isShiftedLeft && css`transform: translate3d(-100%, 0, 0);`};
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  ${props => props.isShiftedLeft && css`transform: translateX(-100%);`};
 `;
 
 class SideMenu extends Component {

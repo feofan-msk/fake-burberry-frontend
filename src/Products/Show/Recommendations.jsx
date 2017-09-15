@@ -15,7 +15,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const Recommendations = props => (
+const Recommendations = (props, { category = props.category, section = props.section }) => (
   <Wrapper>
     <Subheading>WE RECOMMEND</Subheading>
 
@@ -24,7 +24,7 @@ const Recommendations = props => (
         props.recommendedProducts.map(product => (
           <div className="col-xs-6 col-md-3" key={product.id}>
             <Card
-              to={`/mens/suits/${product.slug}`}
+              to={`/${category}/${section}/${product.slug}`}
               title={product.title}
               coloursAmount={product.colours.length}
               price={product.multiCurrencyPrices.RUB / 100}
@@ -39,6 +39,8 @@ const Recommendations = props => (
 
 Recommendations.propTypes = {
   recommendedProducts: PropTypes.node.isRequired,
+  section: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Recommendations;

@@ -9,6 +9,7 @@ const Btn = styled.button`
   border-radius: 50%;
   font-size: 0;
   border: ${props => (props.isActive ? 'solid 1px #232122' : 'none')};
+  outline: ${props => props.isActive && 'none'};
   background-image: url(${props => props.color});
   cursor: pointer;
 `;
