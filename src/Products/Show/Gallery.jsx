@@ -16,6 +16,7 @@ const Image = styled.img`
   @media screen and (min-width: 62rem) {
     height: 651px;
   }
+
   @media screen and (min-width: 75rem) {
     height: 780px;
   }
@@ -29,6 +30,11 @@ const Gallery = props => (
         alt="Gallery photo"
       />
     )}
+
+    {props.colours &&
+      props.colours.map(image => (
+        <Image src={`${image.heroSrc}?$BBY_V2_ML_4X3$&hei=1100&wid=2250`} alt="Gallery photo" />
+      ))}
   </Wrapper>
 );
 

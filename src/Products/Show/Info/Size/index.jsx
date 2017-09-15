@@ -58,8 +58,7 @@ class Size extends Component {
         <Header>
           {this.props.sizes && (
             <SizeCurrent>
-              Size:
-              <strong>{this.props.sizes[this.state.selectedSizeIndex].title}</strong>
+              Size: <strong>{this.props.sizes[this.state.selectedSizeIndex].title}</strong>
             </SizeCurrent>
           )}
           <TextBtn>NEED SIZE HELP?</TextBtn>
