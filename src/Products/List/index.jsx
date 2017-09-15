@@ -97,11 +97,8 @@ class List extends Component {
     return (
       <div>
         <Helmet>
-          <title>Men’s clothing | Burberry</title>
-          <meta
-            name="description"
-            content="Menswear collection for the season. Knitwear, sweatshirts, oversized cabans"
-          />
+          <title>Men’s {this.state.title} | Burberry</title>
+          <meta name="description" content={this.state.description} />
         </Helmet>
 
         <Description

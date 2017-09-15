@@ -103,11 +103,7 @@ class Show extends Component {
     return (
       <div>
         <Helmet>
-          <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-          <meta
-            name="description"
-            content="A refined car coat crafted in protective cotton gabardine."
-          />
+          <title>{this.state.product.title}</title>
         </Helmet>
 
         <Card>
