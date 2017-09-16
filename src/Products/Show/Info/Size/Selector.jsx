@@ -6,7 +6,6 @@ const Button = styled.button`
   display: block;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  padding: 0.5rem;
 
   width: 2.7rem;
   height: 2rem;
