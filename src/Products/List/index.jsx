@@ -97,7 +97,7 @@ class List extends Component {
     return (
       <div>
         <Helmet>
-          <title>Men’s {this.state.title} | Burberry</title>
+          <title>{this.state.title} | Burberry</title>
           <meta name="description" content={this.state.description} />
         </Helmet>
 
