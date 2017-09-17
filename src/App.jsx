@@ -4,7 +4,9 @@ import ruLocaleData from 'react-intl/locale-data/ru';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
+import { Provider } from 'react-redux';
 
+import configureStore from './configureStore';
 import ScrollToTop from './ScrollToTop';
 import SideNav from './SideNavigation';
 import Header from './Header';
@@ -13,6 +15,8 @@ import List from './Products/List';
 import Footer from './Footer';
 
 addLocaleData(ruLocaleData);
+
+const store = configureStore();
 
 const PageWrapper = styled.section`overflow-x: hidden;`;
 
@@ -50,37 +54,39 @@ class App extends Component {
 
   render() {
     return (
-      <IntlProvider locale="ru">
-        <Router>
-          <ScrollToTop>
-            <PageWrapper>
-              <Helmet>
-                <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
-                <meta
-                  name="description"
-                  content="Discover trench coats, luxury clothing, leather bags and more."
-                />
-              </Helmet>
+      <Provider store={store}>
+        <IntlProvider locale="ru">
+          <Router>
+            <ScrollToTop>
+              <PageWrapper>
+                <Helmet>
+                  <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
+                  <meta
+                    name="description"
+                    content="Discover trench coats, luxury clothing, leather bags and more."
+                  />
+                </Helmet>
 
-              <SideNav isOpened={this.state.isSideNavOpened} />
+                <SideNav isOpened={this.state.isSideNavOpened} />
 
-              <Page isSideNavOpened={this.state.isSideNavOpened}>
-                {this.state.isSideNavOpened && <PageOverlay onClick={this.toggleSideNav} />}
-                <Header handleSideNavClick={this.toggleSideNav} />
+                <Page isSideNavOpened={this.state.isSideNavOpened}>
+                  {this.state.isSideNavOpened && <PageOverlay onClick={this.toggleSideNav} />}
+                  <Header handleSideNavClick={this.toggleSideNav} />
 
-                <Switch>
-                  <Redirect exact from="/" to="/men/suits" />
-                  <Route exact path="/:category" component={List} />
-                  <Route exact path="/:category/:section" component={List} />
-                  <Route exact path="/:category/:section/:id" component={Product} />
-                </Switch>
+                  <Switch>
+                    <Redirect exact from="/" to="/men/suits" />
+                    <Route exact path="/:category" component={List} />
+                    <Route exact path="/:category/:section" component={List} />
+                    <Route exact path="/:category/:section/:id" component={Product} />
+                  </Switch>
 
-                <Footer />
-              </Page>
-            </PageWrapper>
-          </ScrollToTop>
-        </Router>
-      </IntlProvider>
+                  <Footer />
+                </Page>
+              </PageWrapper>
+            </ScrollToTop>
+          </Router>
+        </IntlProvider>
+      </Provider>
     );
   }
 }

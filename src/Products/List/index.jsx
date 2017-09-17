@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Description from './Description';
 import Card from '../Card';
 import LoadBtn from './LoadBtn';
+import fetchDataWithRedux from '../../actions';
 
 const CategoryTitle = styled.h2`
   padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
@@ -60,31 +63,13 @@ class List extends Component {
     super(props);
     this.state = {
       isOverlayVisible: false,
-      data: {},
-      title: '',
-      description: '',
-      products: [],
     };
   }
 
   componentDidMount() {
-    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
-      .category}/${this.props.match.params.section}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(json =>
-        this.setState({
-          data: json,
-          title: json.title,
-          description: json.description,
-          products: json.items,
-        }),
-      )
-      .catch((response) => {
-        const { status, body } = response;
-        const error = { status, body };
-        throw error;
-      });
+    this.props.fetchDataWithRedux(
+      `v1/products/${this.props.match.params.category}/${this.props.match.params.section}`,
+    );
   }
 
   toggleOverlay = () => {
@@ -94,42 +79,45 @@ class List extends Component {
   };
 
   render() {
+    const { isFetching, data, error } = this.props;
     return (
       <div>
         <Helmet>
-          <title>Men’s {this.state.title} | Burberry</title>
-          <meta name="description" content={this.state.description} />
+          <title>{`${data.title} | Burberry`}</title>
+          <meta name="description" content={data.description} />
         </Helmet>
 
         <Description
-          title={this.state.title}
-          description={this.state.description}
+          title={data.title}
+          description={data.description}
           onFilterClick={this.toggleOverlay}
         />
+
         <div style={{ position: 'relative' }}>
           <div className="container">
             <CategoryTitle />
 
             <div className="row">
-              {this.state.products.map(product => (
-                <div className="col-xs-6 col-md-3" key={product.id}>
-                  <Card
-                    to={`/${this.props.match.params.category}/${this.props.match.params
-                      .section}/${product.slug}`}
-                    title={product.title}
-                    coloursAmount={product.colours.length}
-                    price={product.multiCurrencyPrices.RUB / 100}
-                    image={`${product.images[0]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
-                    id={parseInt(product.id, 10)}
-                  />
-                </div>
-              ))}
+              {data.items &&
+                data.items.map(product => (
+                  <div className="col-xs-6 col-md-3" key={product.id}>
+                    <Card
+                      to={`/${this.props.match.params.category}/${this.props.match.params
+                        .section}/${product.slug}`}
+                      title={product.title}
+                      coloursAmount={product.colours.length}
+                      price={product.multiCurrencyPrices.RUB / 100}
+                      image={`${product.images[0]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
+                      id={parseInt(product.id, 10)}
+                    />
+                  </div>
+                ))}
 
               {/* <HrLine /> */}
             </div>
           </div>
 
-          {this.state.data.total > this.state.data.limit && (
+          {data.total > data.limit && (
             <Loader>
               <LoadTitle>Showing 8 of 17</LoadTitle>
               <LoadBtn>View 9 more</LoadBtn>
@@ -145,6 +133,24 @@ class List extends Component {
 
 List.propTypes = {
   match: PropTypes.node.isRequired,
+  fetchDataWithRedux: PropTypes.func.isRequired,
+  data: PropTypes.node.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
-export default List;
+function mapStateToProps(state) {
+  return {
+    data: state.data,
+    isFetching: state.isFetching,
+    error: state.error,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchDataWithRedux: bindActionCreators(fetchDataWithRedux, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
