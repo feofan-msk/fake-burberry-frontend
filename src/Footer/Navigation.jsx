@@ -94,7 +94,7 @@ export default () => (
       </div>
       <div className="col-md-3">
         <Image
-          src="https://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
+          src="//assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
           alt="Store"
         />
         <UnderlinedLink to="/">Find a store</UnderlinedLink>
