@@ -1,5 +1,6 @@
 export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_SUCCESS_LIST = 'FETCH_SUCCESS_LIST';
+export const FETCH_SUCCESS_PRODUCT = 'FETCH_SUCCESS_PRODUCT';
 export const FETCH_ERROR = 'FETCH_ERROR';
 
 function fetchDataRequest() {
@@ -8,9 +9,16 @@ function fetchDataRequest() {
   };
 }
 
-function fetchDataSuccess(payload) {
+function fetchListSuccess(payload) {
   return {
-    type: FETCH_SUCCESS,
+    type: FETCH_SUCCESS_LIST,
+    payload,
+  };
+}
+
+function fetchProductSuccess(payload) {
+  return {
+    type: FETCH_SUCCESS_PRODUCT,
     payload,
   };
 }
@@ -27,12 +35,16 @@ function fetchData(path) {
   return fetch(URL).then(response => Promise.all([response, response.json()]));
 }
 
-export default function fetchDataWithRedux(path) {
+export default function fetchWithRedux(path, destination) {
   return (dispatch) => {
     dispatch(fetchDataRequest());
     return fetchData(path).then(([response, json]) => {
       if (response.status === 200) {
-        dispatch(fetchDataSuccess(json));
+        if (destination === 'list') {
+          dispatch(fetchListSuccess(json));
+        } else if (destination === 'product') {
+          dispatch(fetchProductSuccess(json));
+        }
       } else {
         dispatch(fetchDataError(response.status));
       }

@@ -69,6 +69,7 @@ class List extends Component {
   componentDidMount() {
     this.props.fetchDataWithRedux(
       `v1/products/${this.props.match.params.category}/${this.props.match.params.section}`,
+      'list',
     );
   }
 
@@ -79,17 +80,17 @@ class List extends Component {
   };
 
   render() {
-    const { isFetching, data, error } = this.props;
+    const { isFetching, list, error } = this.props;
     return (
       <div>
         <Helmet>
-          <title>{`${data.title} | Burberry`}</title>
-          <meta name="description" content={data.description} />
+          <title>{`${list.title} | Burberry`}</title>
+          <meta name="description" content={list.description} />
         </Helmet>
 
         <Description
-          title={data.title}
-          description={data.description}
+          title={list.title}
+          description={list.description}
           onFilterClick={this.toggleOverlay}
         />
 
@@ -98,8 +99,8 @@ class List extends Component {
             <CategoryTitle />
 
             <div className="row">
-              {data.items &&
-                data.items.map(product => (
+              {list.items &&
+                list.items.map(product => (
                   <div className="col-xs-6 col-md-3" key={product.id}>
                     <Card
                       to={`/${this.props.match.params.category}/${this.props.match.params
@@ -117,7 +118,7 @@ class List extends Component {
             </div>
           </div>
 
-          {data.total > data.limit && (
+          {list.total > list.limit && (
             <Loader>
               <LoadTitle>Showing 8 of 17</LoadTitle>
               <LoadBtn>View 9 more</LoadBtn>
@@ -134,14 +135,14 @@ class List extends Component {
 List.propTypes = {
   match: PropTypes.node.isRequired,
   fetchDataWithRedux: PropTypes.func.isRequired,
-  data: PropTypes.node.isRequired,
+  list: PropTypes.node.isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    data: state.data,
+    list: state.list,
     isFetching: state.isFetching,
     error: state.error,
   };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Gallery from './Gallery';
 import Info from './Info';
@@ -11,6 +13,7 @@ import SectionBtn from '../../common/SectionBtn';
 import Delivery from './Delivery';
 import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
+import fetchDataWithRedux from '../../actions';
 
 const Card = styled.div`
   background-color: transparent;
@@ -45,51 +48,21 @@ const Shipping = styled.section`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { product: [], activeColourIndex: 0 };
+    this.state = { activeColourIndex: 0 };
   }
 
   componentDidMount() {
-    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
-      .category}/${this.props.match.params.section}`;
+    const url = `v1/products/${this.props.match.params.category}/${this.props.match.params
+      .section}`;
 
-    fetch(`${url}/${this.props.match.params.id}`)
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          product: json,
-        });
-      })
-      .catch((response) => {
-        const { status, body } = response;
-        const error = { status, body };
-        throw error;
-      });
-
-    fetch(url)
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          recommendedProducts: json.items.slice(-4),
-        });
-      });
+    this.props.fetchDataWithRedux(`${url}/${this.props.match.params.id}`, 'product');
   }
 
   componentWillReceiveProps(newProps) {
-    fetch(
-      `https://erodionov-burberry-fake-api.now.sh/v1/products/${newProps.match.params
-        .category}/${newProps.match.params.section}/${newProps.match.params.id}`,
-    )
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          product: json,
-        });
-      })
-      .catch((response) => {
-        const { status, body } = response;
-        const error = { status, body };
-        throw error;
-      });
+    newProps.fetchDataWithRedux(
+      `v1/products/${newProps.match.params.category}/${newProps.match.params.section}/${this.props
+        .match.params.id}`,
+    );
   }
 
   selectColour = (newColourIndex) => {
@@ -97,36 +70,37 @@ class Show extends Component {
   };
 
   render() {
-    const multiPrice = this.state.product.multiCurrencyPrices || {};
+    const { product } = this.props;
+    const multiPrice = product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
 
     return (
       <div>
         <Helmet>
-          <title>{this.state.product.title}</title>
+          <title>{product.title}</title>
         </Helmet>
 
         <Card>
           <main className="container">
-            <Title>{this.state.product.title}</Title>
+            <Title>{product.title}</Title>
 
             <div className="row">
               <div className="col-xs-12 col-md-7 col-lg-6">
                 <Gallery
-                  colours={this.state.product.colours}
+                  colours={product.colours}
                   activeColourIndex={this.state.activeColourIndex}
                 />
               </div>
 
               <div className="col-xs-12 col-md-5 col-lg-6">
                 <Info
-                  title={this.state.product.title}
-                  id={this.state.product.id}
+                  title={product.title}
+                  id={product.id}
                   price={priceRub / 100}
-                  colours={this.state.product.colours}
+                  colours={product.colours}
                   activeColourIndex={this.state.activeColourIndex}
                   selectColour={this.selectColour}
-                  sizes={this.state.product.sizes}
+                  sizes={product.sizes}
                 />
               </div>
             </div>
@@ -134,11 +108,8 @@ class Show extends Component {
         </Card>
 
         <div className="container">
-          <Description
-            content={this.state.product.description + this.state.product.details}
-            images={this.state.product.images}
-          />
-          <Photos images={this.state.product.images} />
+          <Description content={product.description + product.details} images={product.images} />
+          <Photos images={product.images} />
           <Shipping>
             <SectionBtn>DELIVERY</SectionBtn>
           </Shipping>
@@ -146,7 +117,7 @@ class Show extends Component {
           <Recommendations
             category={this.props.match.params.category}
             section={this.props.match.params.section}
-            recommendedProducts={this.state.recommendedProducts}
+            // recommendedProducts={this.props.list}
           />
           <SimilarOffers />
         </div>
@@ -157,6 +128,22 @@ class Show extends Component {
 
 Show.propTypes = {
   match: PropTypes.node.isRequired,
+  fetchDataWithRedux: PropTypes.func.isRequired,
+  product: PropTypes.node.isRequired,
 };
 
-export default Show;
+function mapStateToProps(state) {
+  return {
+    product: state.product,
+    isFetching: state.isFetching,
+    error: state.error,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchDataWithRedux: bindActionCreators(fetchDataWithRedux, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Show);
