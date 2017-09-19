@@ -8,9 +8,6 @@ import Card from '../Card';
 const Wrapper = styled.section`
   margin: 3rem 0 1rem;
   @media screen and (min-width: 48rem) {
-    margin: 1.25rem 0 0;
-  }
-  @media screen and (min-width: 48rem) {
     margin: 0;
   }
 `;

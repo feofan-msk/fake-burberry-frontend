@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Description from './Description';
 import Card from '../Card';
 import LoadBtn from './LoadBtn';
-import load from '../actions/loadList';
+import loadList from '../actions/loadList';
 
 const CategoryTitle = styled.h2`
   padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
@@ -139,18 +138,14 @@ List.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    list: state.products.list.content,
-    isFetching: state.isFetching,
-    error: state.error,
-  };
-}
+const mapStateToProps = state => ({
+  list: state.products.list.content,
+  isFetching: state.isFetching,
+  error: state.error,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    load: bindActionCreators(load, dispatch),
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  load: path => dispatch(loadList(path)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

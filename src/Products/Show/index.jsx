@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Gallery from './Gallery';
 import Info from './Info';
@@ -13,7 +12,8 @@ import SectionBtn from '../../common/SectionBtn';
 import Delivery from './Delivery';
 import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
-import load from '../actions/loadProduct';
+import loadProduct from '../actions/loadProduct';
+import loadList from '../actions/loadList';
 
 const Card = styled.div`
   background-color: transparent;
@@ -56,13 +56,8 @@ class Show extends Component {
       .section}`;
 
     this.props.load(`${url}/${this.props.match.params.id}`);
-  }
 
-  componentWillReceiveProps(newProps) {
-    newProps.load(
-      `v1/products/${newProps.match.params.category}/${newProps.match.params.section}/${this.props
-        .match.params.id}`,
-    );
+    this.props.loadList(url);
   }
 
   selectColour = (newColourIndex) => {
@@ -73,6 +68,7 @@ class Show extends Component {
     const { product } = this.props;
     const multiPrice = product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
+    const recommendedProducts = this.props.list.items || [];
 
     return (
       <div>
@@ -117,7 +113,7 @@ class Show extends Component {
           <Recommendations
             category={this.props.match.params.category}
             section={this.props.match.params.section}
-            // recommendedProducts={this.props.list}
+            recommendedProducts={recommendedProducts.slice(-4)}
           />
           <SimilarOffers />
         </div>
@@ -130,20 +126,20 @@ Show.propTypes = {
   match: PropTypes.node.isRequired,
   load: PropTypes.func.isRequired,
   product: PropTypes.node.isRequired,
+  loadList: PropTypes.func.isRequired,
+  list: PropTypes.node.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    product: state.products.show.content,
-    isFetching: state.isFetching,
-    error: state.error,
-  };
-}
+const mapStateToProps = state => ({
+  product: state.products.show.content,
+  list: state.products.list.content,
+  isFetching: state.isFetching,
+  error: state.error,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    load: bindActionCreators(load, dispatch),
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  load: path => dispatch(loadProduct(path)),
+  loadList: path => dispatch(loadList(path)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Show);
