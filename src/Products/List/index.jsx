@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import Description from './Description';
 import Card from '../Card';
 import LoadBtn from './LoadBtn';
-import fetchDataWithRedux from '../../actions';
+import load from '../actions/loadList';
 
 const CategoryTitle = styled.h2`
   padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
@@ -67,9 +67,8 @@ class List extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchDataWithRedux(
+    this.props.load(
       `v1/products/${this.props.match.params.category}/${this.props.match.params.section}`,
-      'list',
     );
   }
 
@@ -134,7 +133,7 @@ class List extends Component {
 
 List.propTypes = {
   match: PropTypes.node.isRequired,
-  fetchDataWithRedux: PropTypes.func.isRequired,
+  load: PropTypes.func.isRequired,
   list: PropTypes.node.isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
@@ -142,7 +141,7 @@ List.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    list: state.list,
+    list: state.products.list.content,
     isFetching: state.isFetching,
     error: state.error,
   };
@@ -150,7 +149,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchDataWithRedux: bindActionCreators(fetchDataWithRedux, dispatch),
+    load: bindActionCreators(load, dispatch),
   };
 }
 

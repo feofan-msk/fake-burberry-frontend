@@ -13,7 +13,7 @@ import SectionBtn from '../../common/SectionBtn';
 import Delivery from './Delivery';
 import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
-import fetchDataWithRedux from '../../actions';
+import load from '../actions/loadProduct';
 
 const Card = styled.div`
   background-color: transparent;
@@ -55,11 +55,11 @@ class Show extends Component {
     const url = `v1/products/${this.props.match.params.category}/${this.props.match.params
       .section}`;
 
-    this.props.fetchDataWithRedux(`${url}/${this.props.match.params.id}`, 'product');
+    this.props.load(`${url}/${this.props.match.params.id}`);
   }
 
   componentWillReceiveProps(newProps) {
-    newProps.fetchDataWithRedux(
+    newProps.load(
       `v1/products/${newProps.match.params.category}/${newProps.match.params.section}/${this.props
         .match.params.id}`,
     );
@@ -128,13 +128,13 @@ class Show extends Component {
 
 Show.propTypes = {
   match: PropTypes.node.isRequired,
-  fetchDataWithRedux: PropTypes.func.isRequired,
+  load: PropTypes.func.isRequired,
   product: PropTypes.node.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    product: state.product,
+    product: state.products.show.content,
     isFetching: state.isFetching,
     error: state.error,
   };
@@ -142,7 +142,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchDataWithRedux: bindActionCreators(fetchDataWithRedux, dispatch),
+    load: bindActionCreators(load, dispatch),
   };
 }
 
