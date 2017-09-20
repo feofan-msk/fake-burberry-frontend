@@ -60,6 +60,15 @@ class Show extends Component {
     this.props.loadList(url);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.load(
+        `v1/products/${nextProps.match.params.category}/${nextProps.match.params
+          .section}/${nextProps.match.params.id}`,
+      );
+    }
+  }
+
   selectColour = (newColourIndex) => {
     this.setState({ activeColourIndex: newColourIndex });
   };
@@ -133,7 +142,7 @@ Show.propTypes = {
 const mapStateToProps = state => ({
   product: state.products.show.content,
   list: state.products.list.content,
-  isFetching: state.isFetching,
+  isLoading: state.products.show.isLoading,
   error: state.error,
 });
 

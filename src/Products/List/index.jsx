@@ -78,7 +78,7 @@ class List extends Component {
   };
 
   render() {
-    const { isFetching, list, error } = this.props;
+    const { isLoading, list, error } = this.props;
     return (
       <div>
         <Helmet>
@@ -134,13 +134,13 @@ List.propTypes = {
   match: PropTypes.node.isRequired,
   load: PropTypes.func.isRequired,
   list: PropTypes.node.isRequired,
-  isFetching: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   list: state.products.list.content,
-  isFetching: state.isFetching,
+  isLoading: state.isLoading,
   error: state.error,
 });
 
