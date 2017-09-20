@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
 
 import { LOAD_LIST_STARTED, LOAD_LIST_SUCCEEDED, LOAD_LIST_FAILED } from './actions/loadList';
 import {
@@ -13,31 +14,35 @@ const initialState = {
   error: {},
 };
 
-function list(state = initialState, action) {
-  switch (action.type) {
-    case LOAD_LIST_STARTED:
-      return { ...state, isLoading: true };
-    case LOAD_LIST_SUCCEEDED:
-      return { ...state, content: action.content, isLoading: false };
-    case LOAD_LIST_FAILED:
-      return { ...state, error: action.error, isLoading: false };
-    default:
-      return state;
-  }
-}
+const list = handleActions(
+  {
+    [LOAD_LIST_STARTED]: state => ({ ...state, isLoading: true }),
 
-function show(state = initialState, action) {
-  switch (action.type) {
-    case LOAD_PRODUCT_STARTED:
-      return { ...state, isLoading: true };
-    case LOAD_PRODUCT_SUCCEEDED:
-      return { ...state, content: action.content, isLoading: false };
-    case LOAD_PRODUCT_FAILED:
-      return { ...state, error: action.error, isLoading: false };
-    default:
-      return state;
-  }
-}
+    [LOAD_LIST_SUCCEEDED]: (state, action) => ({
+      ...state,
+      content: action.content,
+      isLoading: false,
+    }),
+
+    [LOAD_LIST_FAILED]: (state, action) => ({ ...state, error: action.error, isLoading: false }),
+  },
+  initialState,
+);
+
+const show = handleActions(
+  {
+    [LOAD_PRODUCT_STARTED]: state => ({ ...state, isLoading: true }),
+
+    [LOAD_PRODUCT_SUCCEEDED]: (state, action) => ({
+      ...state,
+      content: action.content,
+      isLoading: false,
+    }),
+
+    [LOAD_PRODUCT_FAILED]: (state, action) => ({ ...state, error: action.error, isLoading: false }),
+  },
+  initialState,
+);
 
 const reducer = combineReducers({
   list,
