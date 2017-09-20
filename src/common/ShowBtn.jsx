@@ -29,6 +29,7 @@ const Btn = styled.button`
     background-size: contain;
     width: 0.75rem;
     height: 0.375rem;
+    transition: transform 0.2s ease-out;
     transform: ${props => (props.isOpened ? 'rotate(180deg)' : 'none')};
   }
   

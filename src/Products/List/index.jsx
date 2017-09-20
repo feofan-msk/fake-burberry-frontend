@@ -48,13 +48,14 @@ const LoadTitle = styled(CategoryTitle)`
   }
 `;
 const Overlay = styled.div`
+  transition: opacity 0.2s ease-out;
   position: absolute;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   background-color: #000000;
   height: 100%;
   width: 100%;
   top: 0;
-  opacity: 0.3;
+  opacity: ${props => (props.visible ? 0.3 : 0)};
 `;
 
 class List extends Component {
@@ -140,7 +141,7 @@ List.propTypes = {
 
 const mapStateToProps = state => ({
   list: state.products.list.content,
-  isLoading: state.isLoading,
+  isLoading: state.products.list.isLoading,
   error: state.error,
 });
 
