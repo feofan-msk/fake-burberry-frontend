@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import arrow from '../assets/arrow.svg';
+import arrow from '../../assets/arrow.svg';
 
 const Wrapper = styled.div`position: relative;`;
 const Btn = styled.button`
