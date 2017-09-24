@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Btn from './ShowBtn';
+import ShowBtn from './ShowBtn';
 
 const Background = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
@@ -103,7 +103,7 @@ class Description extends Component {
           <BtnContainer>
             <Wrapper>
               {['Category', 'Colour', 'Size'].map(filterName => (
-                <Btn
+                <ShowBtn
                   title={filterName}
                   onToggle={toggledOn => this.handleFilterToggle(filterName, toggledOn)}
                   isActive={
@@ -116,11 +116,11 @@ class Description extends Component {
                   content content content content content content content<br />
                   content content content content content content content<br />
                   content content content content content content content
-                </Btn>
+                </ShowBtn>
               ))}
             </Wrapper>
 
-            <Btn
+            <ShowBtn
               title="Sort by price"
               rightSideAlign
               onToggle={toggledOn => this.handleFilterToggle('Sort by price', toggledOn)}
@@ -132,7 +132,7 @@ class Description extends Component {
               low<br />
               it’s medium length of<br />
               content
-            </Btn>
+            </ShowBtn>
           </BtnContainer>
         </div>
       </Background>

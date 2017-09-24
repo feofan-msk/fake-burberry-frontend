@@ -37,6 +37,11 @@ const Btn = styled.button`
     margin-right: ${props => (props.rightSideAlign ? '0' : '3rem')};
   }
   }
+
+  &:hover {
+    color: ${props => !props.isOpened && !props.isActive && '#BABABA'};
+    transition: color 0.15s linear;
+  }
 `;
 const Content = styled.div`
   z-index: 9999;
