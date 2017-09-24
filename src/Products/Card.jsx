@@ -10,6 +10,8 @@ const Link = styled(RouteLink)`text-decoration: none;`;
 const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
+  opacity: ${props => (props.show ? '1' : '0')};
+  transition: opacity 0.3s linear;
 `;
 const Image = styled.img`
   display: block;
@@ -78,6 +80,8 @@ const LikeButton = styled.button`
 class ProductCard extends Component {
   constructor() {
     super();
+    this.state = { isImageLoaded: false };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
@@ -91,11 +95,15 @@ class ProductCard extends Component {
     }));
   };
 
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
+
   render() {
     return (
-      <Card>
+      <Card show={this.state.isImageLoaded}>
         <Link to={`${this.props.to}`}>
-          <Image src={this.props.image} alt={this.props.title} />
+          <Image src={this.props.image} alt={this.props.title} onLoad={this.handleImageLoaded} />
         </Link>
         <InfoWrapper>
           <Link to={`${this.props.to}`}>

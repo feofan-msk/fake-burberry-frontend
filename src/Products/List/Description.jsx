@@ -20,7 +20,7 @@ const Heading = styled.h1`
     padding-top: 4rem;
   }
 `;
-const Content = styled.p`
+const DescriptionText = styled.p`
   display: block;
   font-family: Raleway;
   font-size: 0.75rem;
@@ -91,12 +91,12 @@ class Description extends Component {
           <Heading>{this.props.title}</Heading>
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
-              <Content>
+              <DescriptionText>
                 {hideText(this.props.description)}{' '}
                 <ExpandButton onClick={this.handleExpandButtonClick}>
                   {this.state.expandButtonText}
                 </ExpandButton>
-              </Content>
+              </DescriptionText>
             </div>
           </div>
 

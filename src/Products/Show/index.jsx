@@ -49,7 +49,8 @@ const Shipping = styled.section`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeColourIndex: 0 };
+    this.state = { activeColourIndex: 0, isImageLoaded: false };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +74,10 @@ class Show extends Component {
   selectColour = (newColourIndex) => {
     this.setState({ activeColourIndex: newColourIndex });
   };
+
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
 
   render() {
     const { product, isLoading } = this.props;
@@ -99,6 +104,8 @@ class Show extends Component {
                     <Gallery
                       colours={product.colours}
                       activeColourIndex={this.state.activeColourIndex}
+                      imageLoaded={this.handleImageLoaded}
+                      isImageLoaded={this.state.isImageLoaded}
                     />
                   </div>
 
