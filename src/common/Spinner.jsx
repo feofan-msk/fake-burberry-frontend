@@ -1,43 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const StyledSpinner = styled.svg`
-  animation: rotate 2s linear infinite;
-  margin: -25px 0 0 -25px;
-  width: 50px;
-  height: 50px;
+const AppLoader = styled.div`
+  top: 0;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  z-index: 9999;
+`;
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
 
-  & .path {
-    stroke: #000;
-    stroke-linecap: round;
-    animation: dash 1.5s ease-in-out infinite;
-  }
-
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes dash {
-    0% {
-      stroke-dasharray: 1, 150;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -35;
-    }
-    100% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -124;
-    }
-  }
+const LoaderSpinner = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #171717;
+  border-radius: 50%;
+  animation: ${spin} 0.7s linear infinite;
 `;
 
 const Spinner = () => (
-  <StyledSpinner viewBox="0 0 50 50">
-    <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="4" />
-  </StyledSpinner>
+  <AppLoader>
+    <LoaderSpinner />
+  </AppLoader>
 );
 
 export default Spinner;

@@ -14,6 +14,7 @@ import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
 import loadProduct from '../actions/loadProduct';
 import loadList from '../actions/loadList';
+import Spinner from '../../common/Spinner';
 
 const Card = styled.div`
   background-color: transparent;
@@ -74,7 +75,7 @@ class Show extends Component {
   };
 
   render() {
-    const { product } = this.props;
+    const { product, isLoading } = this.props;
     const multiPrice = product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
     const recommendedProducts = this.props.list.items || [];
@@ -85,47 +86,56 @@ class Show extends Component {
           <title>{product.title}</title>
         </Helmet>
 
-        <Card>
-          <main className="container">
-            <Title>{product.title}</Title>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <section>
+            <Card>
+              <div className="container">
+                <Title>{product.title}</Title>
 
-            <div className="row">
-              <div className="col-xs-12 col-md-7 col-lg-6">
-                <Gallery
-                  colours={product.colours}
-                  activeColourIndex={this.state.activeColourIndex}
-                />
-              </div>
+                <div className="row">
+                  <div className="col-xs-12 col-md-7 col-lg-6">
+                    <Gallery
+                      colours={product.colours}
+                      activeColourIndex={this.state.activeColourIndex}
+                    />
+                  </div>
 
-              <div className="col-xs-12 col-md-5 col-lg-6">
-                <Info
-                  title={product.title}
-                  id={product.id}
-                  price={priceRub / 100}
-                  colours={product.colours}
-                  activeColourIndex={this.state.activeColourIndex}
-                  selectColour={this.selectColour}
-                  sizes={product.sizes}
-                />
+                  <div className="col-xs-12 col-md-5 col-lg-6">
+                    <Info
+                      title={product.title}
+                      id={product.id}
+                      price={priceRub / 100}
+                      colours={product.colours}
+                      activeColourIndex={this.state.activeColourIndex}
+                      selectColour={this.selectColour}
+                      sizes={product.sizes}
+                    />
+                  </div>
+                </div>
               </div>
+            </Card>
+
+            <div className="container">
+              <Description
+                content={product.description + product.details}
+                images={product.images}
+              />
+              <Photos images={product.images} />
+              <Shipping>
+                <SectionBtn>DELIVERY</SectionBtn>
+              </Shipping>
+              <Delivery />
+              <Recommendations
+                category={this.props.match.params.category}
+                section={this.props.match.params.section}
+                recommendedProducts={recommendedProducts.slice(-4)}
+              />
+              <SimilarOffers />
             </div>
-          </main>
-        </Card>
-
-        <div className="container">
-          <Description content={product.description + product.details} images={product.images} />
-          <Photos images={product.images} />
-          <Shipping>
-            <SectionBtn>DELIVERY</SectionBtn>
-          </Shipping>
-          <Delivery />
-          <Recommendations
-            category={this.props.match.params.category}
-            section={this.props.match.params.section}
-            recommendedProducts={recommendedProducts.slice(-4)}
-          />
-          <SimilarOffers />
-        </div>
+          </section>
+        )}
       </div>
     );
   }
@@ -137,13 +147,13 @@ Show.propTypes = {
   product: PropTypes.node.isRequired,
   loadList: PropTypes.func.isRequired,
   list: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   product: state.products.show.content,
   list: state.products.list.content,
   isLoading: state.products.show.isLoading,
-  error: state.error,
 });
 
 const mapDispatchToProps = dispatch => ({
