@@ -25,7 +25,7 @@ const CurrColor = styled.p`
   margin-bottom: 1rem;
 `;
 
-const Colour = (props, { selectColour = props.selectColour }) => (
+const Colour = props => (
   <div>
     {props.colours && (
       <CurrColor>
@@ -41,7 +41,6 @@ const Colour = (props, { selectColour = props.selectColour }) => (
             label={colour.value}
             value={colour.src}
             colourIndex={index}
-            onClick={selectColour}
             isActive={colour === props.colours[props.activeColourIndex]}
           />
         ))}
@@ -51,7 +50,6 @@ const Colour = (props, { selectColour = props.selectColour }) => (
 
 Colour.propTypes = {
   colours: PropTypes.node.isRequired,
-  selectColour: PropTypes.func.isRequired,
   activeColourIndex: PropTypes.number.isRequired,
 };
 

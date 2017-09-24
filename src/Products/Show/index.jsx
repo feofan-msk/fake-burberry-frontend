@@ -49,7 +49,7 @@ const Shipping = styled.section`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeColourIndex: 0, isImageLoaded: false };
+    this.state = { isImageLoaded: false };
     this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
@@ -70,10 +70,6 @@ class Show extends Component {
       );
     }
   }
-
-  selectColour = (newColourIndex) => {
-    this.setState({ activeColourIndex: newColourIndex });
-  };
 
   handleImageLoaded() {
     this.setState({ isImageLoaded: true });
@@ -103,7 +99,7 @@ class Show extends Component {
                   <div className="col-xs-12 col-md-7 col-lg-6">
                     <Gallery
                       colours={product.colours}
-                      activeColourIndex={this.state.activeColourIndex}
+                      activeColourIndex={this.props.colour}
                       imageLoaded={this.handleImageLoaded}
                       isImageLoaded={this.state.isImageLoaded}
                     />
@@ -115,8 +111,7 @@ class Show extends Component {
                       id={product.id}
                       price={priceRub / 100}
                       colours={product.colours}
-                      activeColourIndex={this.state.activeColourIndex}
-                      selectColour={this.selectColour}
+                      activeColourIndex={this.props.colour}
                       sizes={product.sizes}
                     />
                   </div>
@@ -155,12 +150,14 @@ Show.propTypes = {
   loadList: PropTypes.func.isRequired,
   list: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  colour: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   product: state.products.show.content,
   list: state.products.list.content,
   isLoading: state.products.show.isLoading,
+  colour: state.products.show.colour,
 });
 
 const mapDispatchToProps = dispatch => ({

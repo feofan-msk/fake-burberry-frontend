@@ -7,11 +7,13 @@ import {
   LOAD_PRODUCT_SUCCEEDED,
   LOAD_PRODUCT_FAILED,
 } from './actions/loadProduct';
+import { SELECT_COLOUR } from './actions/selectColour';
 
 const initialState = {
   isLoading: false,
   content: {},
   error: {},
+  colour: 0,
 };
 
 const list = handleActions(
@@ -40,6 +42,8 @@ const show = handleActions(
     }),
 
     [LOAD_PRODUCT_FAILED]: (state, action) => ({ ...state, error: action.error, isLoading: false }),
+
+    [SELECT_COLOUR]: (state, action) => ({ ...state, colour: action.colourIndex }),
   },
   initialState,
 );
