@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import selectColour from '../../../actions/selectColour';
 
 const Btn = styled.button`
-  margin-right: 1rem;
+  margin: 0 1rem 1rem 0;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;

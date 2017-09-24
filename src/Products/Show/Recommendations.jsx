@@ -25,7 +25,7 @@ const Recommendations = (props, { category = props.category, section = props.sec
               title={product.title}
               coloursAmount={product.colours.length}
               price={product.multiCurrencyPrices.RUB / 100}
-              image={`${product.images[0]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
+              images={product.images}
               id={parseInt(product.id, 10)}
             />
           </div>

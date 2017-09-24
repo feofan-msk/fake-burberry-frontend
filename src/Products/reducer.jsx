@@ -13,7 +13,6 @@ const initialState = {
   isLoading: false,
   content: {},
   error: {},
-  colour: 0,
 };
 
 const list = handleActions(
@@ -45,7 +44,12 @@ const show = handleActions(
 
     [SELECT_COLOUR]: (state, action) => ({ ...state, colour: action.colourIndex }),
   },
-  initialState,
+  {
+    isLoading: false,
+    content: {},
+    error: {},
+    colour: 0,
+  },
 );
 
 const reducer = combineReducers({

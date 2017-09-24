@@ -9,6 +9,7 @@ const BtnContainer = styled.div`
   padding-bottom: 2rem;
   border-bottom: solid 1px #c6c6c6;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
   @media screen and (min-width: 62rem) {
     margin-bottom: 0;
     border: none;
