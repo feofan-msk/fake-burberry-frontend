@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import Navigation from './Navigation';
-import LocationSelector from '../common/DropdownSelector';
-import selectLocation from '../actions/selectLocation';
-import { locations } from '../data';
+import LocationSelector from './Selector';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
@@ -41,47 +38,25 @@ const Logo = styled.img`
   }
 `;
 
-class Header extends Component {
-  handleSelect = (event) => {
-    this.props.selectLocation(locations[event.target.selectedIndex]);
-  };
-
-  render() {
-    return (
-      <div className="container">
-        <HeaderStyled className="row">
-          <div className="col-xs-2 col-md-4">
-            <HamburgerBtn onClick={this.props.handleSideNavClick} />
-            <LocationSelector
-              currentOption={this.props.currentLocation}
-              options={locations}
-              handleSelect={this.handleSelect}
-            />
-          </div>
-          <div className="col-xs-8 col-md-4">
-            <Link to="/">
-              <Logo src={logo} alt="Burberry-logo" />
-            </Link>
-          </div>
-        </HeaderStyled>
-        <Navigation />
+const Header = props => (
+  <div className="container">
+    <HeaderStyled className="row">
+      <div className="col-xs-2 col-md-4">
+        <HamburgerBtn onClick={props.handleSideNavClick} />
+        <LocationSelector />
       </div>
-    );
-  }
-}
+      <div className="col-xs-8 col-md-4">
+        <Link to="/">
+          <Logo src={logo} alt="Burberry-logo" />
+        </Link>
+      </div>
+    </HeaderStyled>
+    <Navigation />
+  </div>
+);
 
 Header.propTypes = {
   handleSideNavClick: PropTypes.func.isRequired,
-  currentLocation: PropTypes.string.isRequired,
-  selectLocation: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  currentLocation: state.uiParams.location,
-});
-
-const mapDispatchToProps = dispatch => ({
-  selectLocation: location => dispatch(selectLocation(location)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

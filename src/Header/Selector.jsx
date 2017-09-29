@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import arrow from '../assets/arrow.svg';
+import selectLocation from '../actions/selectLocation';
+import { locations } from '../data';
 
 const Wrapper = styled.div`
   display: none;
@@ -63,12 +66,16 @@ class Selector extends Component {
     this.setState(prevState => ({ isOpened: !prevState.isOpened }));
   }
 
+  handleSelect = (event) => {
+    this.props.selectLocation(locations[event.target.selectedIndex]);
+  };
+
   render() {
     return (
       <Wrapper>
-        <Button isOpened={this.state.isOpened}>Shopping in: {this.props.currentOption}</Button>
-        <Select onChange={this.props.handleSelect} onClick={this.handleClick}>
-          {this.props.options.map(option => <option>Shopping in: {option}</option>)}
+        <Button isOpened={this.state.isOpened}>Shopping in: {this.props.currentLocation}</Button>
+        <Select onChange={this.handleSelect} onClick={this.handleClick}>
+          {locations.map(location => <option>Shopping in: {location}</option>)}
         </Select>
       </Wrapper>
     );
@@ -76,9 +83,16 @@ class Selector extends Component {
 }
 
 Selector.propTypes = {
-  currentOption: PropTypes.string.isRequired,
-  handleSelect: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentLocation: PropTypes.string.isRequired,
+  selectLocation: PropTypes.func.isRequired,
 };
 
-export default Selector;
+const mapStateToProps = state => ({
+  currentLocation: state.uiParams.location,
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectLocation: location => dispatch(selectLocation(location)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Selector);
