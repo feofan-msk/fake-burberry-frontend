@@ -3,9 +3,11 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import products from './Products/reducer';
+import uiParams from './reducers/uiParams';
 
 const rootReducer = combineReducers({
   products,
+  uiParams,
 });
 
 export default function configureStore() {

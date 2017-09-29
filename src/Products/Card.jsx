@@ -11,13 +11,18 @@ const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
   opacity: ${props => (props.show ? '1' : '0')};
-  transition: opacity 0.3s linear;
+  transition: opacity 0.2s linear;
 `;
 const Image = styled.img`
   display: block;
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
+
+  &:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s linear;
+  }
 `;
 const InfoWrapper = styled.div`
   display: flex;
