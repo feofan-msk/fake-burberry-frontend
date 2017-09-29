@@ -82,14 +82,14 @@ class List extends Component {
     const { list, isLoading } = this.props;
     return (
       <div>
-        <Helmet>
-          <title>{`${list.title} | Burberry`}</title>
-          <meta name="description" content={list.description} />
-        </Helmet>
         {isLoading ? (
           <Spinner />
         ) : (
           <section>
+            <Helmet>
+              <title>{`${list.title} | Burberry`}</title>
+              <meta name="description" content={list.description} />
+            </Helmet>
             <Description
               title={list.title}
               description={list.description}

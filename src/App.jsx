@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
 import { Provider } from 'react-redux';
 
@@ -59,14 +58,6 @@ class App extends Component {
           <Router>
             <ScrollToTop>
               <PageWrapper>
-                <Helmet>
-                  <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
-                  <meta
-                    name="description"
-                    content="Discover trench coats, luxury clothing, leather bags and more."
-                  />
-                </Helmet>
-
                 <SideNav isOpened={this.state.isSideNavOpened} />
 
                 <Page isSideNavOpened={this.state.isSideNavOpened}>

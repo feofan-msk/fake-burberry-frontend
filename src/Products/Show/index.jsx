@@ -83,14 +83,13 @@ class Show extends Component {
 
     return (
       <div>
-        <Helmet>
-          <title>{product.title}</title>
-        </Helmet>
-
         {isLoading ? (
           <Spinner />
         ) : (
           <section>
+            <Helmet>
+              <title>{product.title}</title>
+            </Helmet>
             <Card>
               <div className="container">
                 <Title>{product.title}</Title>
