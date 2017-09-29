@@ -1,5 +1,22 @@
 export const languages = ['English', 'Russian', 'Chinese'];
-export const locations = ['Russian Federation (₽)', 'United Kingdom (£)', 'China (Ұ)'];
+export const locations = [
+  {
+    currency: 'GBP',
+    country: 'United Kingdom (£)',
+  },
+  {
+    currency: 'USD',
+    country: 'United States ($)',
+  },
+  {
+    currency: 'RUB',
+    country: 'Russian Federation (₽)',
+  },
+  {
+    currency: 'EUR',
+    country: 'European Union (€)',
+  },
+];
 export const sections = [
   {
     title: 'Men',

@@ -30,6 +30,7 @@ class Footer extends Component {
   };
 
   render() {
+    const countries = locations.map(location => location.country);
     return (
       <Wrapper>
         <div className="container">
@@ -37,7 +38,7 @@ class Footer extends Component {
 
           <Selector
             currentOption={this.props.currentLocation}
-            options={locations}
+            options={countries}
             handleSelect={this.handleSelectLocation}
             text="Shipping country: "
           />
@@ -63,7 +64,7 @@ Footer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  currentLocation: state.uiParams.location,
+  currentLocation: state.uiParams.location.country,
   currentLanguage: state.uiParams.language,
 });
 

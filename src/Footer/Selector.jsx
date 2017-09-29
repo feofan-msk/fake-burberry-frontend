@@ -19,10 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  position: absolute;
   z-index: 0;
-  top: 0;
-  left: 0;
   margin: 0;
   padding: 0;
   line-height: 1rem;
@@ -43,6 +40,15 @@ const Select = styled.select`
   cursor: pointer;
 `;
 
+const Dropdown = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+`;
+
+const Indent = Button.extend`visibility: hidden;`;
+
 class Selector extends Component {
   constructor(props) {
     super(props);
@@ -60,13 +66,13 @@ class Selector extends Component {
         <Button isOpened={this.state.isOpened}>
           {this.props.text} <DarkText>{this.props.currentOption}</DarkText>
         </Button>
-        <Select onChange={this.props.handleSelect} onClick={this.handleClick}>
-          {this.props.options.map(option => (
-            <option>
-              {this.props.text} {option}
-            </option>
-          ))}
-        </Select>
+
+        <Dropdown>
+          <Indent>{this.props.text}</Indent>
+          <Select onChange={this.props.handleSelect} onClick={this.handleClick}>
+            {this.props.options.map(option => <option>{option}</option>)}
+          </Select>
+        </Dropdown>
       </Wrapper>
     );
   }

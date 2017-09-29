@@ -109,7 +109,8 @@ class List extends Component {
                             .section}/${product.slug}`}
                           title={product.title}
                           coloursAmount={product.colours.length}
-                          price={product.multiCurrencyPrices.RUB / 100}
+                          price={product.multiCurrencyPrices[this.props.currency] / 100}
+                          currency={this.props.currency}
                           images={product.images}
                           id={parseInt(product.id, 10)}
                         />
@@ -141,11 +142,13 @@ List.propTypes = {
   load: PropTypes.func.isRequired,
   list: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   list: state.products.list.content,
   isLoading: state.products.list.isLoading,
+  currency: state.uiParams.location.currency,
 });
 
 const mapDispatchToProps = dispatch => ({

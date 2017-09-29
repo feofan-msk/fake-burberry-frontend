@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 
 import { SELECT_LOCATION } from '../actions/selectLocation';
 import { SELECT_LANGUAGE } from '../actions/selectLanguage';
+import { locations } from '../data';
 
 const uiParams = handleActions(
   {
@@ -10,7 +11,7 @@ const uiParams = handleActions(
     [SELECT_LANGUAGE]: (state, action) => ({ ...state, language: action.language }),
   },
   {
-    location: 'Russian Federation (₽)',
+    location: locations[0],
     language: 'Russian',
   },
 );

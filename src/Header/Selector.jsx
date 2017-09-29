@@ -17,10 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.div`
-  position: absolute;
   z-index: 0;
-  left: 0;
-  width: 100%;
 
   font-family: Raleway;
   font-size: 0.75rem;
@@ -41,11 +38,6 @@ const Button = styled.div`
     transition: transform 0.2s ease-out;
     transform: ${props => (props.isOpened ? 'rotate(180deg)' : 'none')};
   }
-
-  &:hover {
-    color: ${props => !props.isOpened && '#BABABA'};
-    transition: color 0.15s linear;
-  }
 `;
 
 const Select = styled.select`
@@ -53,6 +45,23 @@ const Select = styled.select`
   font-size: 0.75rem;
   opacity: 0;
   cursor: pointer;
+  border: none;
+`;
+
+const Dropdown = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+`;
+
+const Indent = styled.span`
+  visibility: hidden;
+  font-family: Raleway;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  color: #999;
 `;
 
 class Selector extends Component {
@@ -74,9 +83,13 @@ class Selector extends Component {
     return (
       <Wrapper>
         <Button isOpened={this.state.isOpened}>Shopping in: {this.props.currentLocation}</Button>
-        <Select onChange={this.handleSelect} onClick={this.handleClick}>
-          {locations.map(location => <option>Shopping in: {location}</option>)}
-        </Select>
+
+        <Dropdown>
+          <Indent>Shopping in: </Indent>
+          <Select onChange={this.handleSelect} onClick={this.handleClick}>
+            {locations.map(location => <option>{location.country}</option>)}
+          </Select>
+        </Dropdown>
       </Wrapper>
     );
   }
@@ -88,7 +101,7 @@ Selector.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  currentLocation: state.uiParams.location,
+  currentLocation: state.uiParams.location.country,
 });
 
 const mapDispatchToProps = dispatch => ({

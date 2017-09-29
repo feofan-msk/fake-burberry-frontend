@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import ButtonSelect from './ButtonSelect';
 import SubNavigation from './SubNavigation';
 import { sections, languages, locations } from '../data';
 import logo from '../assets/logo.svg';
 import arrow from '../assets/arrow.svg';
+import selectLocation from '../actions/selectLocation';
+import selectLanguage from '../actions/selectLanguage';
 
 const Menu = styled.section`
   position: fixed;
@@ -93,7 +96,16 @@ class SideMenu extends Component {
 
   closeSubNav = () => this.setState({ isSubNavOpened: false });
 
+  handleSelectLocation = (event) => {
+    this.props.selectLocation(locations[event.target.selectedIndex]);
+  };
+
+  handleSelectLanguage = (event) => {
+    this.props.selectLanguage(languages[event.target.selectedIndex]);
+  };
+
   render() {
+    const countries = locations.map(location => location.country);
     return (
       <Menu isOpened={this.props.isOpened}>
         <MainNavigation isShiftedLeft={this.state.isSubNavOpened}>
@@ -132,8 +144,16 @@ class SideMenu extends Component {
           </Block>
 
           <ButtonContainer>
-            <ButtonSelect options={locations} />
-            <ButtonSelect options={languages} />
+            <ButtonSelect
+              options={countries}
+              currentOption={this.props.currentLocation}
+              handleSelect={this.handleSelectLocation}
+            />
+            <ButtonSelect
+              options={languages}
+              currentOption={this.props.currentLanguage}
+              handleSelect={this.handleSelectLanguage}
+            />
           </ButtonContainer>
         </MainNavigation>
 
@@ -151,6 +171,20 @@ class SideMenu extends Component {
 SideMenu.propTypes = {
   isOpened: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
+  currentLocation: PropTypes.string.isRequired,
+  currentLanguage: PropTypes.string.isRequired,
+  selectLocation: PropTypes.func.isRequired,
+  selectLanguage: PropTypes.func.isRequired,
 };
 
-export default SideMenu;
+const mapStateToProps = state => ({
+  currentLocation: state.uiParams.location.country,
+  currentLanguage: state.uiParams.language,
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectLocation: location => dispatch(selectLocation(location)),
+  selectLanguage: language => dispatch(selectLanguage(language)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);

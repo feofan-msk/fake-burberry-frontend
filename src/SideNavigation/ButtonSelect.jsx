@@ -36,32 +36,22 @@ const Select = styled.select`
   height: 100%;
 `;
 
-class ButtonSelect extends Component {
-  state = {
-    selectedValue: 0,
-  };
-
-  handleChange = (event) => {
-    this.setState({ selectedValue: event.target.selectedIndex });
-  };
-
-  render() {
-    return (
-      <Button>
-        <Title>{this.props.options[this.state.selectedValue]}</Title>
-        <Select onChange={this.handleChange}>
-          {this.props.options.map(option => (
-            <option value={option} key={option}>
-              {option}
-            </option>
-          ))}
-        </Select>
-      </Button>
-    );
-  }
-}
+const ButtonSelect = props => (
+  <Button>
+    <Title>{props.currentOption}</Title>
+    <Select onChange={props.handleSelect}>
+      {props.options.map(option => (
+        <option value={option} key={option}>
+          {option}
+        </option>
+      ))}
+    </Select>
+  </Button>
+);
 
 ButtonSelect.propTypes = {
+  currentOption: PropTypes.string.isRequired,
+  handleSelect: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

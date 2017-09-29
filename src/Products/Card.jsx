@@ -146,7 +146,7 @@ class ProductCard extends Component {
               <FormattedNumber
                 value={this.props.price}
                 style="currency" // eslint-disable-line
-                currency="RUB"
+                currency={this.props.currency}
                 minimumFractionDigits="0"
               />
             </Price>
@@ -168,6 +168,7 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   label: PropTypes.string,
   coloursAmount: PropTypes.number,
+  currency: PropTypes.string.isRequired,
 };
 
 ProductCard.defaultProps = {
