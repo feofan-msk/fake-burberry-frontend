@@ -61,16 +61,26 @@ const Wrapper = styled.div`display: flex;`;
 const maxLength = 183;
 
 class Description extends Component {
-  state = {
-    activeFilter: undefined,
-    isDescriptionHidden: true,
-    expandButtonText: 'More',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFilterOpened: false,
+      isDescriptionHidden: true,
+      expandButtonText: 'More',
+    };
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
+  }
 
-  handleFilterToggle = (filterName, toggledOn) => {
-    this.setState(toggledOn ? { activeFilter: filterName } : { activeFilter: undefined });
-    this.props.onFilterClick(toggledOn);
-  };
+  handleFilterClick() {
+    this.setState(prevState => ({
+      isFilterOpened: !prevState.isFilterOpened,
+    }));
+  }
+
+  handleOutsideFilterClick() {
+    this.setState({ isFilterOpened: false });
+  }
 
   handleExpandButtonClick = () => {
     this.setState(prevState => ({ isDescriptionHidden: !prevState.isDescriptionHidden }));
@@ -89,6 +99,7 @@ class Description extends Component {
       <Background>
         <div className="container">
           <Heading>{this.props.title}</Heading>
+
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
               <DescriptionText>
@@ -102,13 +113,12 @@ class Description extends Component {
 
           <BtnContainer>
             <Wrapper>
-              {['Category', 'Colour', 'Size'].map(filterName => (
+              {['Category', 'Colour', 'Size'].map(filter => (
                 <ShowBtn
-                  title={filterName}
-                  onToggle={toggledOn => this.handleFilterToggle(filterName, toggledOn)}
-                  isActive={
-                    this.state.activeFilter !== undefined && this.state.activeFilter !== filterName
-                  }
+                  title={filter}
+                  handleFilterClick={this.handleFilterClick}
+                  isFilterOpened={this.state.isFilterOpened}
+                  handleOutsideFilterClick={this.handleOutsideFilterClick}
                 >
                   Content content content content content content content<br />
                   content content content content content content content<br />
@@ -123,10 +133,9 @@ class Description extends Component {
             <ShowBtn
               title="Sort by price"
               rightSideAlign
-              onToggle={toggledOn => this.handleFilterToggle('Sort by price', toggledOn)}
-              isActive={
-                this.state.activeFilter !== undefined && this.state.activeFilter !== 'Sort by price'
-              }
+              handleFilterClick={this.handleFilterClick}
+              isFilterOpened={this.state.isFilterOpened}
+              handleOutsideFilterClick={this.handleOutsideFilterClick}
             >
               high or<br />
               low<br />
@@ -141,7 +150,6 @@ class Description extends Component {
 }
 
 Description.propTypes = {
-  onFilterClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import onClickOutside from 'react-onclickoutside';
 
 import arrow from '../assets/arrow.svg';
 import selectLocation from '../actions/selectLocation';
@@ -75,6 +76,10 @@ class Selector extends Component {
     this.setState(prevState => ({ isOpened: !prevState.isOpened }));
   }
 
+  handleClickOutside() {
+    this.setState({ isOpened: false });
+  }
+
   handleSelect = (event) => {
     this.props.selectLocation(locations[event.target.selectedIndex]);
   };
@@ -108,4 +113,4 @@ const mapDispatchToProps = dispatch => ({
   selectLocation: location => dispatch(selectLocation(location)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Selector);
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(Selector));

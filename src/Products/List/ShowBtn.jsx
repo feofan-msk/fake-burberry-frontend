@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import onClickOutside from 'react-onclickoutside';
 
 import arrow from '../../assets/arrow.svg';
 
@@ -20,7 +21,7 @@ const Btn = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  opacity: ${props => (props.isActive ? '0.5' : '1')};
+  color: ${props => !props.isOpened && props.isFilterOpened && '#999999'};
 
   ::after {
     content: '';
@@ -39,7 +40,7 @@ const Btn = styled.button`
   }
 
   &:hover {
-    color: ${props => !props.isOpened && !props.isActive && '#BABABA'};
+    color: ${props => !props.isOpened && '#BABABA'};
     transition: color 0.15s linear;
   }
 `;
@@ -66,53 +67,44 @@ const Content = styled.div`
 `;
 
 class ShowBtn extends Component {
-  state = {
-    isOpened: false,
-  };
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClick, true);
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpened: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick, true);
+  handleClick() {
+    this.toggle();
+    this.props.handleFilterClick();
   }
 
-  handleOutsideClick = (e) => {
-    if (this.node && !this.node.contains(e.target)) {
-      this.toggle(false);
-    }
+  toggle = () => {
+    this.setState(prevState => ({
+      isOpened: !prevState.isOpened,
+    }));
   };
 
-  toggle = (on = true) => {
-    if (this.state.isOpened !== on || on) {
-      this.setState(
-        prevState => ({ isOpened: !prevState.isOpened }),
-        () => this.props.onToggle(this.state.isOpened),
-      );
-    }
-  };
+  handleClickOutside() {
+    this.setState({ isOpened: false });
+    this.props.handleOutsideFilterClick();
+  }
 
   render() {
     return (
       <Wrapper>
-        <div
-          ref={(node) => {
-            this.node = node;
-          }}
+        <Btn
+          rightSideAlign={this.props.rightSideAlign}
+          isOpened={this.state.isOpened}
+          onClick={this.handleClick}
+          isFilterOpened={this.props.isFilterOpened}
         >
-          <Btn
-            rightSideAlign={this.props.rightSideAlign}
-            isOpened={this.state.isOpened}
-            isActive={this.props.isActive}
-            onClick={this.toggle}
-          >
-            {this.props.title}
-          </Btn>
-          {this.state.isOpened && (
-            <Content rightSideAlign={this.props.rightSideAlign}>{this.props.children}</Content>
-          )}
-        </div>
+          {this.props.title}
+        </Btn>
+        {this.state.isOpened && (
+          <Content rightSideAlign={this.props.rightSideAlign}>{this.props.children}</Content>
+        )}
       </Wrapper>
     );
   }
@@ -121,14 +113,14 @@ class ShowBtn extends Component {
 ShowBtn.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
-  onToggle: PropTypes.func.isRequired,
-  isActive: PropTypes.bool,
   rightSideAlign: PropTypes.bool,
+  handleFilterClick: PropTypes.func.isRequired,
+  isFilterOpened: PropTypes.bool.isRequired,
+  handleOutsideFilterClick: PropTypes.func.isRequired,
 };
 
 ShowBtn.defaultProps = {
   rightSideAlign: false,
-  isActive: true,
 };
 
-export default ShowBtn;
+export default onClickOutside(ShowBtn);
