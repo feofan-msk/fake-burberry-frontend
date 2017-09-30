@@ -11,9 +11,9 @@ A fake Burberry website implementation, which was created as a part of [Evgeny R
 You can visit  it [here](https://dfeofan-burberry-fake-shop-for-study.now.sh)
 
 ### Screenshots
-![Product page desktop and mobile](desktop_mobile_product.jpg)
-![List page tablet](readme-screenshots/tablet_list.jpg)
-![Product page mobile](readme-screenshots/mobile_product.jpg)
+![desktop_mobile_product](https://user-images.githubusercontent.com/30575877/31047246-86df07e4-a60f-11e7-9cb7-1162372ce56a.jpg)
+![mobile_product](https://user-images.githubusercontent.com/30575877/31047245-86dbb288-a60f-11e7-993e-56188d84bd3f.jpg)
+![tablet_list](https://user-images.githubusercontent.com/30575877/31047247-86f6591c-a60f-11e7-98a1-2cf9f20c035e.jpg)
 
 ### Used technologies
 - [React](https://github.com/facebook/react) ⚛️
