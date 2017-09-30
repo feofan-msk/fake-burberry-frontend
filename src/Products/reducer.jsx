@@ -32,7 +32,7 @@ const list = handleActions(
 
 const show = handleActions(
   {
-    [LOAD_PRODUCT_STARTED]: state => ({ ...state, isLoading: true }),
+    [LOAD_PRODUCT_STARTED]: state => ({ ...state, isLoading: true, colour: 0 }),
 
     [LOAD_PRODUCT_SUCCEEDED]: (state, action) => ({
       ...state,
