@@ -15,16 +15,10 @@ deploy:
     script: now alias $(now ./build --public --token $NOW_TOKEN) $DEV_URL --token $NOW_TOKEN
     skip_cleanup: true
     on:
-      branch: develop
+      all_branches: true
       
   - provider: script
     script: now alias $(now ./build --public --token $NOW_TOKEN) $PROD_URL --token $NOW_TOKEN
     skip_cleanup: true
     on:
       branch: master
-
-  - provider: script
-    script: now alias $(now ./build --public --token $NOW_TOKEN) $STAGE_URL --token $NOW_TOKEN
-    skip_cleanup: true
-    on:
-      all_branches: true
