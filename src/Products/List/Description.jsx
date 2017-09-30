@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Btn from '../../common/ShowBtn';
+import ShowBtn from './ShowBtn';
 
 const Background = styled.section`background-color: #f3f3f3;`;
 const Heading = styled.h1`
@@ -20,7 +20,7 @@ const Heading = styled.h1`
     padding-top: 4rem;
   }
 `;
-const Content = styled.p`
+const DescriptionText = styled.p`
   display: block;
   font-family: Raleway;
   font-size: 0.75rem;
@@ -61,16 +61,26 @@ const Wrapper = styled.div`display: flex;`;
 const maxLength = 183;
 
 class Description extends Component {
-  state = {
-    activeFilter: undefined,
-    isDescriptionHidden: true,
-    expandButtonText: 'More',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFilterOpened: false,
+      isDescriptionHidden: true,
+      expandButtonText: 'More',
+    };
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
+  }
 
-  handleFilterToggle = (filterName, toggledOn) => {
-    this.setState(toggledOn ? { activeFilter: filterName } : { activeFilter: undefined });
-    this.props.onFilterClick(toggledOn);
-  };
+  handleFilterClick() {
+    this.setState(prevState => ({
+      isFilterOpened: !prevState.isFilterOpened,
+    }));
+  }
+
+  handleOutsideFilterClick() {
+    this.setState({ isFilterOpened: false });
+  }
 
   handleExpandButtonClick = () => {
     this.setState(prevState => ({ isDescriptionHidden: !prevState.isDescriptionHidden }));
@@ -89,26 +99,26 @@ class Description extends Component {
       <Background>
         <div className="container">
           <Heading>{this.props.title}</Heading>
+
           <div className="row">
             <div className="col-xs-12 col-md-9 col-lg-7">
-              <Content>
+              <DescriptionText>
                 {hideText(this.props.description)}{' '}
                 <ExpandButton onClick={this.handleExpandButtonClick}>
                   {this.state.expandButtonText}
                 </ExpandButton>
-              </Content>
+              </DescriptionText>
             </div>
           </div>
 
           <BtnContainer>
             <Wrapper>
-              {['Category', 'Colour', 'Size'].map(filterName => (
-                <Btn
-                  title={filterName}
-                  onToggle={toggledOn => this.handleFilterToggle(filterName, toggledOn)}
-                  isActive={
-                    this.state.activeFilter !== undefined && this.state.activeFilter !== filterName
-                  }
+              {['Category', 'Colour', 'Size'].map(filter => (
+                <ShowBtn
+                  title={filter}
+                  handleFilterClick={this.handleFilterClick}
+                  isFilterOpened={this.state.isFilterOpened}
+                  handleOutsideFilterClick={this.handleOutsideFilterClick}
                 >
                   Content content content content content content content<br />
                   content content content content content content content<br />
@@ -116,23 +126,22 @@ class Description extends Component {
                   content content content content content content content<br />
                   content content content content content content content<br />
                   content content content content content content content
-                </Btn>
+                </ShowBtn>
               ))}
             </Wrapper>
 
-            <Btn
+            <ShowBtn
               title="Sort by price"
               rightSideAlign
-              onToggle={toggledOn => this.handleFilterToggle('Sort by price', toggledOn)}
-              isActive={
-                this.state.activeFilter !== undefined && this.state.activeFilter !== 'Sort by price'
-              }
+              handleFilterClick={this.handleFilterClick}
+              isFilterOpened={this.state.isFilterOpened}
+              handleOutsideFilterClick={this.handleOutsideFilterClick}
             >
               high or<br />
               low<br />
               it’s medium length of<br />
               content
-            </Btn>
+            </ShowBtn>
           </BtnContainer>
         </div>
       </Background>
@@ -141,7 +150,6 @@ class Description extends Component {
 }
 
 Description.propTypes = {
-  onFilterClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };

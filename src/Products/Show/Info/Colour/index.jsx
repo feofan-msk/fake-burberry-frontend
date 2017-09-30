@@ -9,6 +9,7 @@ const BtnContainer = styled.div`
   padding-bottom: 2rem;
   border-bottom: solid 1px #c6c6c6;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
   @media screen and (min-width: 62rem) {
     margin-bottom: 0;
     border: none;
@@ -25,7 +26,7 @@ const CurrColor = styled.p`
   margin-bottom: 1rem;
 `;
 
-const Colour = (props, { selectColour = props.selectColour }) => (
+const Colour = props => (
   <div>
     {props.colours && (
       <CurrColor>
@@ -41,7 +42,6 @@ const Colour = (props, { selectColour = props.selectColour }) => (
             label={colour.value}
             value={colour.src}
             colourIndex={index}
-            onClick={selectColour}
             isActive={colour === props.colours[props.activeColourIndex]}
           />
         ))}
@@ -51,7 +51,6 @@ const Colour = (props, { selectColour = props.selectColour }) => (
 
 Colour.propTypes = {
   colours: PropTypes.node.isRequired,
-  selectColour: PropTypes.func.isRequired,
   activeColourIndex: PropTypes.number.isRequired,
 };
 

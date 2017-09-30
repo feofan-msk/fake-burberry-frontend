@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Gallery from './Gallery';
 import Info from './Info';
@@ -11,6 +12,9 @@ import SectionBtn from '../../common/SectionBtn';
 import Delivery from './Delivery';
 import Recommendations from './Recommendations';
 import SimilarOffers from './SimilarOffers';
+import loadProduct from '../actions/loadProduct';
+import loadList from '../actions/loadList';
+import Spinner from '../../common/Spinner';
 
 const Card = styled.div`
   background-color: transparent;
@@ -45,111 +49,94 @@ const Shipping = styled.section`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { product: [], activeColourIndex: 0 };
+    this.state = { isImageLoaded: false };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
   componentDidMount() {
-    const url = `https://erodionov-burberry-fake-api.now.sh/v1/products/${this.props.match.params
-      .category}/${this.props.match.params.section}`;
+    const url = `v1/products/${this.props.match.params.category}/${this.props.match.params
+      .section}`;
 
-    fetch(`${url}/${this.props.match.params.id}`)
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          product: json,
-        });
-      })
-      .catch((response) => {
-        const { status, body } = response;
-        const error = { status, body };
-        throw error;
-      });
+    this.props.load(`${url}/${this.props.match.params.id}`);
 
-    fetch(url)
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          recommendedProducts: json.items.slice(-4),
-        });
-      });
+    this.props.loadList(url);
   }
 
-  componentWillReceiveProps(newProps) {
-    fetch(
-      `https://erodionov-burberry-fake-api.now.sh/v1/products/${newProps.match.params
-        .category}/${newProps.match.params.section}/${newProps.match.params.id}`,
-    )
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          product: json,
-        });
-      })
-      .catch((response) => {
-        const { status, body } = response;
-        const error = { status, body };
-        throw error;
-      });
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.load(
+        `v1/products/${nextProps.match.params.category}/${nextProps.match.params
+          .section}/${nextProps.match.params.id}`,
+      );
+    }
   }
 
-  selectColour = (newColourIndex) => {
-    this.setState({ activeColourIndex: newColourIndex });
-  };
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
 
   render() {
-    const multiPrice = this.state.product.multiCurrencyPrices || {};
+    const { product, isLoading } = this.props;
+    const multiPrice = product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
+    const recommendedProducts = this.props.list.items || [];
 
     return (
       <div>
-        <Helmet>
-          <title>{this.state.product.title}</title>
-        </Helmet>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <section>
+            <Helmet>
+              <title>{product.title}</title>
+            </Helmet>
+            <Card>
+              <div className="container">
+                <Title>{product.title}</Title>
 
-        <Card>
-          <main className="container">
-            <Title>{this.state.product.title}</Title>
+                <div className="row">
+                  <div className="col-xs-12 col-md-7 col-lg-6">
+                    <Gallery
+                      colours={product.colours}
+                      activeColourIndex={this.props.colour}
+                      imageLoaded={this.handleImageLoaded}
+                      isImageLoaded={this.state.isImageLoaded}
+                    />
+                  </div>
 
-            <div className="row">
-              <div className="col-xs-12 col-md-7 col-lg-6">
-                <Gallery
-                  colours={this.state.product.colours}
-                  activeColourIndex={this.state.activeColourIndex}
-                />
+                  <div className="col-xs-12 col-md-5 col-lg-6">
+                    <Info
+                      title={product.title}
+                      id={product.id}
+                      price={priceRub / 100}
+                      colours={product.colours}
+                      activeColourIndex={this.props.colour}
+                      sizes={product.sizes}
+                    />
+                  </div>
+                </div>
               </div>
+            </Card>
 
-              <div className="col-xs-12 col-md-5 col-lg-6">
-                <Info
-                  title={this.state.product.title}
-                  id={this.state.product.id}
-                  price={priceRub / 100}
-                  colours={this.state.product.colours}
-                  activeColourIndex={this.state.activeColourIndex}
-                  selectColour={this.selectColour}
-                  sizes={this.state.product.sizes}
-                />
-              </div>
+            <div className="container">
+              <Description
+                content={product.description + product.details}
+                images={product.images}
+              />
+              <Photos images={product.images} />
+              <Shipping>
+                <SectionBtn>DELIVERY</SectionBtn>
+              </Shipping>
+              <Delivery />
+              <Recommendations
+                category={this.props.match.params.category}
+                section={this.props.match.params.section}
+                recommendedProducts={recommendedProducts.slice(-4)}
+              />
+              <SimilarOffers />
             </div>
-          </main>
-        </Card>
-
-        <div className="container">
-          <Description
-            content={this.state.product.description + this.state.product.details}
-            images={this.state.product.images}
-          />
-          <Photos images={this.state.product.images} />
-          <Shipping>
-            <SectionBtn>DELIVERY</SectionBtn>
-          </Shipping>
-          <Delivery />
-          <Recommendations
-            category={this.props.match.params.category}
-            section={this.props.match.params.section}
-            recommendedProducts={this.state.recommendedProducts}
-          />
-          <SimilarOffers />
-        </div>
+          </section>
+        )}
       </div>
     );
   }
@@ -157,6 +144,24 @@ class Show extends Component {
 
 Show.propTypes = {
   match: PropTypes.node.isRequired,
+  load: PropTypes.func.isRequired,
+  product: PropTypes.node.isRequired,
+  loadList: PropTypes.func.isRequired,
+  list: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  colour: PropTypes.string.isRequired,
 };
 
-export default Show;
+const mapStateToProps = state => ({
+  product: state.products.show.content,
+  list: state.products.list.content,
+  isLoading: state.products.show.isLoading,
+  colour: state.products.show.colour,
+});
+
+const mapDispatchToProps = dispatch => ({
+  load: path => dispatch(loadProduct(path)),
+  loadList: path => dispatch(loadList(path)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Show);

@@ -10,12 +10,19 @@ const Link = styled(RouteLink)`text-decoration: none;`;
 const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
+  opacity: ${props => (props.show ? '1' : '0')};
+  transition: opacity 0.2s linear;
 `;
 const Image = styled.img`
   display: block;
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
+
+  &:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s linear;
+  }
 `;
 const InfoWrapper = styled.div`
   display: flex;
@@ -78,12 +85,16 @@ const LikeButton = styled.button`
 class ProductCard extends Component {
   constructor() {
     super();
+    this.state = {
+      isImageLoaded: false,
+      isActive: false,
+      isHovering: false,
+    };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
   }
-
-  state = {
-    isActive: false,
-  };
 
   toggle = () => {
     this.setState(prevState => ({
@@ -91,11 +102,31 @@ class ProductCard extends Component {
     }));
   };
 
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
+
+  handleMouseOver() {
+    this.setState({ isHovering: true });
+  }
+
+  handleMouseOut() {
+    this.setState({ isHovering: false });
+  }
+
   render() {
+    const images = this.props.images || [];
+    const imageIndex = this.state.isHovering ? 1 : 0;
     return (
-      <Card>
+      <Card show={this.state.isImageLoaded}>
         <Link to={`${this.props.to}`}>
-          <Image src={this.props.image} alt={this.props.title} />
+          <Image
+            src={`${images[imageIndex]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
+            alt={this.props.title}
+            onLoad={this.handleImageLoaded}
+            onMouseOver={this.handleMouseOver}
+            onMouseOut={this.handleMouseOut}
+          />
         </Link>
         <InfoWrapper>
           <Link to={`${this.props.to}`}>
@@ -115,7 +146,7 @@ class ProductCard extends Component {
               <FormattedNumber
                 value={this.props.price}
                 style="currency" // eslint-disable-line
-                currency="RUB"
+                currency={this.props.currency}
                 minimumFractionDigits="0"
               />
             </Price>
@@ -132,11 +163,12 @@ class ProductCard extends Component {
 
 ProductCard.propTypes = {
   to: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  images: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   label: PropTypes.string,
   coloursAmount: PropTypes.number,
+  currency: PropTypes.string.isRequired,
 };
 
 ProductCard.defaultProps = {
