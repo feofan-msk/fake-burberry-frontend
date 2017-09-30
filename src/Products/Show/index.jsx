@@ -132,6 +132,7 @@ class Show extends Component {
                 category={this.props.match.params.category}
                 section={this.props.match.params.section}
                 recommendedProducts={recommendedProducts.slice(-4)}
+                currency={this.props.currency}
               />
               <SimilarOffers />
             </div>
@@ -150,6 +151,7 @@ Show.propTypes = {
   list: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
   colour: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -157,6 +159,7 @@ const mapStateToProps = state => ({
   list: state.products.list.content,
   isLoading: state.products.show.isLoading,
   colour: state.products.show.colour,
+  currency: state.uiParams.location.currency,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -12,7 +12,10 @@ const Wrapper = styled.section`
   }
 `;
 
-const Recommendations = (props, { category = props.category, section = props.section }) => (
+const Recommendations = (
+  props,
+  { category = props.category, section = props.section, currency = props.currency },
+) => (
   <Wrapper>
     <Subheading>WE RECOMMEND</Subheading>
 
@@ -24,7 +27,8 @@ const Recommendations = (props, { category = props.category, section = props.sec
               to={`/${category}/${section}/${product.slug}`}
               title={product.title}
               coloursAmount={product.colours.length}
-              price={product.multiCurrencyPrices.RUB / 100}
+              price={product.multiCurrencyPrices[currency] / 100}
+              currency={currency}
               images={product.images}
               id={parseInt(product.id, 10)}
             />
@@ -38,6 +42,7 @@ Recommendations.propTypes = {
   recommendedProducts: PropTypes.node.isRequired,
   section: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default Recommendations;
