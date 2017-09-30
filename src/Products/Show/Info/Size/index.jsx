@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Selector from './Selector';
-
-const availableSizes = ['S', 'M', 'L', 'XL'];
 
 const SizeWrapper = styled.div`
   display: none;
@@ -11,7 +10,10 @@ const SizeWrapper = styled.div`
     display: block;
   }
 `;
-const SelectPanel = styled.div`display: flex;`;
+const SelectPanel = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 const Header = styled.div`
   display: flex;
 
@@ -41,9 +43,10 @@ const TextBtn = styled.button`
 `;
 
 class Size extends Component {
-  state = {
-    selectedSizeIndex: 3,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { selectedSizeIndex: 0 };
+  }
 
   handleClick = (newSizeIndex) => {
     this.setState({ selectedSizeIndex: newSizeIndex });
@@ -53,27 +56,34 @@ class Size extends Component {
     return (
       <SizeWrapper>
         <Header>
-          <SizeCurrent>
-            Size:
-            <strong>{availableSizes[this.state.selectedSizeIndex]}</strong>
-          </SizeCurrent>
-
+          {this.props.sizes && (
+            <SizeCurrent>
+              Size: <strong>{this.props.sizes[this.state.selectedSizeIndex].title}</strong>
+            </SizeCurrent>
+          )}
           <TextBtn>NEED SIZE HELP?</TextBtn>
         </Header>
 
-        <SelectPanel>
-          {availableSizes.map((size, index) => (
-            <Selector
-              onClick={this.handleClick}
-              name={size}
-              index={index}
-              isActive={this.state.selectedSizeIndex === index}
-            />
-          ))}
-        </SelectPanel>
+        {this.props.sizes && (
+          <SelectPanel>
+            {this.props.sizes.map((size, index) => (
+              <Selector
+                key={size.id}
+                name={size.title}
+                onClick={this.handleClick}
+                index={index}
+                isActive={this.state.selectedSizeIndex === index}
+              />
+            ))}
+          </SelectPanel>
+        )}
       </SizeWrapper>
     );
   }
 }
+
+Size.propTypes = {
+  sizes: PropTypes.node.isRequired,
+};
 
 export default Size;

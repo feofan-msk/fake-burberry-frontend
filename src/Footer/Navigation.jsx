@@ -25,7 +25,7 @@ const Link = styled(RouteLink)`
     display: block;
     margin-bottom: 0.75rem;
     font-family: Raleway;
-    font-weight: 00;
+    font-weight: 600;
     font-size: 0.75rem;
     line-height: 1rem;
     color: #999999;
@@ -54,8 +54,8 @@ const UnderlinedLink = styled(Link)`
   }
 `;
 
-export default () =>
-  (<Navigation>
+export default () => (
+  <Navigation>
     <div className="row">
       <div className="col-md-3">
         <Title>customer service</Title>
@@ -94,10 +94,11 @@ export default () =>
       </div>
       <div className="col-md-3">
         <Image
-          src="http://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
+          src="//assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=474"
           alt="Store"
         />
         <UnderlinedLink to="/">Find a store</UnderlinedLink>
       </div>
     </div>
-  </Navigation>);
+  </Navigation>
+);

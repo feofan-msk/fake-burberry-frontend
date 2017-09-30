@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Navigation from './Navigation';
-import LocationSelector from './LocationSelector';
-import { locations } from '../data';
+import LocationSelector from './Selector';
 import logo from '../assets/logo.svg';
 import hamburger from '../assets/hamburger.svg';
 
@@ -44,7 +43,7 @@ const Header = props => (
     <HeaderStyled className="row">
       <div className="col-xs-2 col-md-4">
         <HamburgerBtn onClick={props.handleSideNavClick} />
-        <LocationSelector locations={locations} />
+        <LocationSelector />
       </div>
       <div className="col-xs-8 col-md-4">
         <Link to="/">

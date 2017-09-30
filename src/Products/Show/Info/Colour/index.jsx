@@ -1,26 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Button from './Btn';
-
-const colours = [
-  {
-    id: 1,
-    name: 'Black',
-    code: '#000',
-  },
-  {
-    id: 2,
-    name: 'Honey',
-    code: '#cfa880',
-  },
-];
 
 const BtnContainer = styled.div`
   display: flex;
   padding-bottom: 2rem;
   border-bottom: solid 1px #c6c6c6;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
   @media screen and (min-width: 62rem) {
     margin-bottom: 0;
     border: none;
@@ -37,37 +26,32 @@ const CurrColor = styled.p`
   margin-bottom: 1rem;
 `;
 
-class Colour extends Component {
-  state = {
-    activeColourIndex: 0,
-  };
+const Colour = props => (
+  <div>
+    {props.colours && (
+      <CurrColor>
+        Colour: <strong>{props.colours[props.activeColourIndex].value}</strong>
+      </CurrColor>
+    )}
 
-  selectColour = (newColourIndex) => {
-    this.setState({ activeColourIndex: newColourIndex });
-  };
+    <BtnContainer>
+      {props.colours &&
+        props.colours.map((colour, index) => (
+          <Button
+            key={colour.value}
+            label={colour.value}
+            value={colour.src}
+            colourIndex={index}
+            isActive={colour === props.colours[props.activeColourIndex]}
+          />
+        ))}
+    </BtnContainer>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <CurrColor>
-          Colour: <strong>{colours[this.state.activeColourIndex].name}</strong>
-        </CurrColor>
-
-        <BtnContainer>
-          {colours.map((colour, idx) => (
-            <Button
-              key={colour.name}
-              label={colour.name}
-              value={colour.code}
-              colourIndex={idx}
-              onClick={this.selectColour}
-              isActive={colour === colours[this.state.activeColourIndex]}
-            />
-          ))}
-        </BtnContainer>
-      </div>
-    );
-  }
-}
+Colour.propTypes = {
+  colours: PropTypes.node.isRequired,
+  activeColourIndex: PropTypes.number.isRequired,
+};
 
 export default Colour;

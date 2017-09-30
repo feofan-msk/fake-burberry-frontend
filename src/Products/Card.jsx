@@ -10,12 +10,19 @@ const Link = styled(RouteLink)`text-decoration: none;`;
 const Card = styled.div`
   display: block;
   margin-bottom: 2rem;
+  opacity: ${props => (props.show ? '1' : '0')};
+  transition: opacity 0.2s linear;
 `;
 const Image = styled.img`
   display: block;
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
+
+  &:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s linear;
+  }
 `;
 const InfoWrapper = styled.div`
   display: flex;
@@ -23,8 +30,6 @@ const InfoWrapper = styled.div`
   align-items: flex-start;
 `;
 const Label = styled.p`
-  margin: 0 0 0.5rem;
-
   font-family: Raleway;
   font-weight: 400;
   font-size: 0.75rem;
@@ -69,6 +74,7 @@ const Price = styled.h5`
 `;
 const Underline = styled.span`border-bottom: 1px solid #171717;`;
 const LikeButton = styled.button`
+  margin-left: 1rem;
   padding: 0;
   border: 0;
   outline: none;
@@ -79,12 +85,16 @@ const LikeButton = styled.button`
 class ProductCard extends Component {
   constructor() {
     super();
+    this.state = {
+      isImageLoaded: false,
+      isActive: false,
+      isHovering: false,
+    };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
   }
-
-  state = {
-    isActive: false,
-  };
 
   toggle = () => {
     this.setState(prevState => ({
@@ -92,15 +102,35 @@ class ProductCard extends Component {
     }));
   };
 
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
+
+  handleMouseOver() {
+    this.setState({ isHovering: true });
+  }
+
+  handleMouseOut() {
+    this.setState({ isHovering: false });
+  }
+
   render() {
+    const images = this.props.images || [];
+    const imageIndex = this.state.isHovering ? 1 : 0;
     return (
-      <Card>
-        <Link to={this.props.to}>
-          <Image src={this.props.src} alt={this.props.alt} />
+      <Card show={this.state.isImageLoaded}>
+        <Link to={`${this.props.to}`}>
+          <Image
+            src={`${images[imageIndex]}?$BBY_V2_ML_3X4$&hei=866&wid=650`}
+            alt={this.props.title}
+            onLoad={this.handleImageLoaded}
+            onMouseOver={this.handleMouseOver}
+            onMouseOut={this.handleMouseOut}
+          />
         </Link>
         <InfoWrapper>
-          <Link to={this.props.to}>
-            <Label>{this.props.label}</Label>
+          <Link to={`${this.props.to}`}>
+            {this.props.label && <Label>{this.props.label}</Label>}
 
             <Title>{this.props.title}</Title>
 
@@ -116,7 +146,7 @@ class ProductCard extends Component {
               <FormattedNumber
                 value={this.props.price}
                 style="currency" // eslint-disable-line
-                currency="RUB"
+                currency={this.props.currency}
                 minimumFractionDigits="0"
               />
             </Price>
@@ -133,12 +163,17 @@ class ProductCard extends Component {
 
 ProductCard.propTypes = {
   to: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  images: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  coloursAmount: PropTypes.number.isRequired,
+  label: PropTypes.string,
+  coloursAmount: PropTypes.number,
+  currency: PropTypes.string.isRequired,
+};
+
+ProductCard.defaultProps = {
+  label: null,
+  coloursAmount: 1,
 };
 
 export default ProductCard;
