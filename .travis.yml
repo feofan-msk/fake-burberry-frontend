@@ -22,3 +22,9 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+
+  - provider: script
+    script: now alias $(now ./build --public --token $NOW_TOKEN) $STAGE_URL --token $NOW_TOKEN
+    skip_cleanup: true
+    on:
+      all_branches: true

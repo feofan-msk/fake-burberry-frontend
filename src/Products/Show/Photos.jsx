@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: none;
@@ -19,30 +20,32 @@ const Photo = styled.img`
   @media screen and (min-width: 62rem) {
     display: block;
     height: 420px;
-    min-width: 100%;
+  }
+  @media screen and (min-width: 75em) {
+    height: 485px;
   }
 `;
 
-export default () =>
-  (<Wrapper>
-    <div className="row">
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-1@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
+const Photos = props => (
+  <Wrapper>
+    {props.images && (
+      <div className="row">
+        <div className="col-lg-4">
+          <Photo src={`${props.images[2]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
+        </div>
+        <div className="col-lg-4">
+          <Photo src={`${props.images[3]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
+        </div>
+        <div className="col-lg-4">
+          <Photo src={`${props.images[4]}?$BBY_V2_ML_3X4$&hei=1708&wid=1280`} alt="Product photo" />
+        </div>
       </div>
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-2@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
-      </div>
-      <div className="col-lg-4">
-        <Photo
-          src={`${process.env.PUBLIC_URL}/img/desktop-photo-3@2x.jpg`}
-          alt="Long Cotton Gabardine Car Coat"
-        />
-      </div>
-    </div>
-  </Wrapper>);
+    )}
+  </Wrapper>
+);
+
+Photos.propTypes = {
+  images: PropTypes.string.isRequired,
+};
+
+export default Photos;

@@ -10,8 +10,14 @@
     "react-dom": "^15.6.1",
     "react-helmet": "^5.1.3",
     "react-intl": "^2.3.0",
+    "react-onclickoutside": "^6.6.0",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
-    "react-scripts": "1.0.10",
+    "react-scripts": "^1.0.12",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^2.1.2"
   },
   "scripts": {
@@ -22,16 +28,18 @@
     "eject": "react-scripts eject",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "deploy": "yarn build && now ./build--public"
+    "deploy": "yarn build && now ./build --public"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "eslint": "4.3.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
     "husky": "^0.14.3",
-    "now": "^7.3.1"
+    "now": "^7.3.1",
+    "redux-devtools": "^3.4.0"
   }
 }

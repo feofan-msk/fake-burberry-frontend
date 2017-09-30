@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 import React from 'react';
-import ColourBtn from './ColourBtn';
-import SizeWrapper from './SizeWrapper';
+import PropTypes from 'prop-types';
+
+import ColourPanel from './Colour';
+import SizeWrapper from './Size';
 import ActionBtn from './ActionBtn';
 
 const Title = styled.h1`
@@ -18,7 +20,7 @@ const Title = styled.h1`
     margin: 10rem 0 0.5rem;
   }
 `;
-const Info = styled.section`
+const Wrapper = styled.section`
   box-sizing: border-box;
   margin: 1rem 0 2rem;
   border-bottom: 1px solid #c6c6c6;
@@ -63,33 +65,10 @@ const Id = styled.p`
     display: none;
   }
 `;
-const CurrColor = styled.p`
-  margin: 0;
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #171717;
-  margin-bottom: 1rem;
-`;
-const BtnContainer = styled.div`
-  display: flex;
-  padding-bottom: 2rem;
-  border-bottom: solid 1px #c6c6c6;
-  margin-bottom: 2rem;
-  @media screen and (min-width: 62rem) {
-    margin-bottom: 0;
-    border: none;
-  }
-  @media screen and (min-width: 62rem) {
-    padding-bottom: 1.5rem;
-  }
-`;
-
 const Actions = styled.section`
   padding: 0 0 3rem;
   @media screen and (min-width: 48rem) {
-    padding: 0;
+    padding: 1rem 0 0;
   }
 `;
 const PrimaryBtn = styled(ActionBtn)`
@@ -97,7 +76,7 @@ const PrimaryBtn = styled(ActionBtn)`
   background-color: #171717;
   @media screen and (min-width: 62rem) {
     display: none;
-  } 
+  }
 `;
 const SecondaryBtn = styled(ActionBtn)`
   color: #171717;
@@ -151,36 +130,29 @@ const Text = styled.div`
   color: #171717;
 `;
 
-export default () =>
-  (<Info>
-    <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
+const Info = props => (
+  <Wrapper>
+    <Title>{props.title}</Title>
 
     <InfoWrapper>
       <Price>
         <FormattedNumber
-          value={110000}
+          value={props.price}
           style="currency" // eslint-disable-line
           currency="RUB"
           minimumFractionDigits="0"
         />
       </Price>
-      <Id>Item 39428531</Id>
+      <Id>Item {props.id}</Id>
     </InfoWrapper>
 
     <div className="row">
       <div className="col-xs-12 col-md-12 col-lg-6">
-        <CurrColor>
-          Colour: <strong>Honey</strong>
-        </CurrColor>
-
-        <BtnContainer>
-          <ColourBtn label="black" value="#000" />
-          <ColourBtn label="honey" value="#cfa880" active />
-        </BtnContainer>
+        <ColourPanel colours={props.colours} activeColourIndex={props.activeColourIndex} />
       </div>
 
       <div className="col-xs-12 col-md-12 col-lg-6">
-        <SizeWrapper />
+        <SizeWrapper sizes={props.sizes} />
       </div>
     </div>
 
@@ -203,4 +175,16 @@ export default () =>
       <SubHeader>Free Next Day Delivery</SubHeader>
       <Text>Order before 7pm Monday to Thursday for delivery the next day</Text>
     </Details>
-  </Info>);
+  </Wrapper>
+);
+
+Info.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  colours: PropTypes.node.isRequired,
+  activeColourIndex: PropTypes.number.isRequired,
+  sizes: PropTypes.node.isRequired,
+};
+
+export default Info;

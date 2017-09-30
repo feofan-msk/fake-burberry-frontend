@@ -1,54 +1,76 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import Navigation from './Navigation';
 import Help from './Help';
+import Selector from './Selector';
+import { locations, languages } from '../data';
+import selectLocation from '../actions/selectLocation';
+import selectLanguage from '../actions/selectLanguage';
 
-const Footer = styled.footer`
-  padding: 2rem 0 2rem;
+const Wrapper = styled.footer`
+  padding: 2rem 0;
+  margin-top: 3rem;
   background-color: #f3f3f3;
-  @media screen and (min-width: 48rem) {
-    padding: 2rem 0;
-    margin-top: 2rem;
-  }
+
   @media screen and (min-width: 62rem) {
     padding-top: 4rem;
-    margin-top: 4rem;
   }
 `;
-const Btn = styled.button`
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #999;
 
-  display: block;
-  padding: 0;
-  margin-bottom: 1rem;
-  background: inherit;
-  border: none;
-  @media screen and (min-width: 48rem) {
-    display: inline;
-    margin: 1.25rem 1.5rem 0 0;
+class Footer extends Component {
+  handleSelectLocation = (event) => {
+    this.props.selectLocation(locations[event.target.selectedIndex]);
+  };
+
+  handleSelectLanguage = (event) => {
+    this.props.selectLanguage(languages[event.target.selectedIndex]);
+  };
+
+  render() {
+    const countries = locations.map(location => location.country);
+    return (
+      <Wrapper>
+        <div className="container">
+          <Navigation />
+
+          <Selector
+            currentOption={this.props.currentLocation}
+            options={countries}
+            handleSelect={this.handleSelectLocation}
+            text="Shipping country: "
+          />
+          <Selector
+            currentOption={this.props.currentLanguage}
+            options={languages}
+            handleSelect={this.handleSelectLanguage}
+            text="Language: "
+          />
+
+          <Help />
+        </div>
+      </Wrapper>
+    );
   }
-  @media screen and (min-width: 62rem) {
-    margin: 2.25rem 3rem 0 0;
-  }
-`;
-const BlackText = styled.span`color: #171717;`;
+}
 
-export default () =>
-  (<Footer>
-    <div className="container">
-      <Navigation />
+Footer.propTypes = {
+  currentLocation: PropTypes.string.isRequired,
+  currentLanguage: PropTypes.string.isRequired,
+  selectLocation: PropTypes.func.isRequired,
+  selectLanguage: PropTypes.func.isRequired,
+};
 
-      <Btn type="button">
-        Shipping country: <BlackText>Russian Federation</BlackText>
-      </Btn>
-      <Btn type="button">
-        Language: <BlackText>English</BlackText>
-      </Btn>
+const mapStateToProps = state => ({
+  currentLocation: state.uiParams.location.country,
+  currentLanguage: state.uiParams.language,
+});
 
-      <Help />
-    </div>
-  </Footer>);
+const mapDispatchToProps = dispatch => ({
+  selectLocation: location => dispatch(selectLocation(location)),
+  selectLanguage: language => dispatch(selectLanguage(language)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

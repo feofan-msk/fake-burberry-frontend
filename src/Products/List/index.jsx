@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import Descr from './Description';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import Description from './Description';
 import Card from '../Card';
 import LoadBtn from './LoadBtn';
+import loadList from '../actions/loadList';
+import Spinner from '../../common/Spinner';
 
 const CategoryTitle = styled.h2`
-  padding: 2rem 0 1rem;
+  padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
   margin: 0;
 
   font-family: Lora;
@@ -15,26 +20,24 @@ const CategoryTitle = styled.h2`
   color: #171717;
 
   @media screen and (min-width: 48rem) {
-    padding: 0;
-    margin: 4rem 0 2rem;
+    padding: ${props => (!props.children ? '1rem' : '4rem 0 2rem')};
     font-size: 1.25rem;
   }
 `;
-const HrLine = styled.hr`
-  margin: 2rem 0 1rem;
-  border: none;
-  border-bottom: 1px solid #c6c6c6;
+// const HrLine = styled.hr`
+//   margin: 2rem 0 1rem;
+//   border: none;
+//   border-bottom: 1px solid #c6c6c6;
 
-  @media screen and (min-width: 48rem) {
-    margin-top: 2rem;
-  }
-`;
+//   @media screen and (min-width: 48rem) {
+//     margin-top: 2rem;
+//   }
+// `;
 const Loader = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 5rem;
+  padding: 2rem 0 2rem;
   text-align: center;
   @media screen and (min-width: 48rem) {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 `;
 const LoadTitle = styled(CategoryTitle)`
@@ -44,220 +47,112 @@ const LoadTitle = styled(CategoryTitle)`
     padding-bottom: 2rem;
   }
 `;
+const Overlay = styled.div`
+  transition: opacity 0.2s ease-out;
+  position: absolute;
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: ${props => (props.visible ? 0.3 : 0)};
+`;
 
-export default () =>
-  (<div>
-    <Helmet>
-      <title>Men’s clothing | Burberry</title>
-      <meta
-        name="description"
-        content="Menswear collection for the season. Knitwear, sweatshirts, oversized cabans"
-      />
-    </Helmet>
-    <Descr />
-    <div className="container">
-      <CategoryTitle>Heritage Trench Coats</CategoryTitle>
-      <div className="row">
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOverlayVisible: false,
+    };
+  }
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+  componentDidMount() {
+    this.props.load(
+      `v1/products/${this.props.match.params.category}/${this.props.match.params.section}`,
+    );
+  }
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+  toggleOverlay = () => {
+    this.setState(prevState => ({
+      isOverlayVisible: !prevState.isOverlayVisible,
+    }));
+  };
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+  render() {
+    const { list, isLoading } = this.props;
+    return (
+      <div>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <section>
+            <Helmet>
+              <title>{`${list.title} | Burberry`}</title>
+              <meta name="description" content={list.description} />
+            </Helmet>
+            <Description
+              title={list.title}
+              description={list.description}
+              onFilterClick={this.toggleOverlay}
+            />
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+            <div style={{ position: 'relative' }}>
+              <div className="container">
+                <CategoryTitle />
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+                <div className="row">
+                  {list.items &&
+                    list.items.map(product => (
+                      <div className="col-xs-6 col-md-3" key={product.id}>
+                        <Card
+                          to={`/${this.props.match.params.category}/${this.props.match.params
+                            .section}/${product.slug}`}
+                          title={product.title}
+                          coloursAmount={product.colours.length}
+                          price={product.multiCurrencyPrices[this.props.currency] / 100}
+                          currency={this.props.currency}
+                          images={product.images}
+                          id={parseInt(product.id, 10)}
+                        />
+                      </div>
+                    ))}
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+                  {/* <HrLine /> */}
+                </div>
+              </div>
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+              {list.total > list.limit && (
+                <Loader>
+                  <LoadTitle>Showing 8 of 17</LoadTitle>
+                  <LoadBtn>View 9 more</LoadBtn>
+                </Loader>
+              )}
+
+              <Overlay visible={this.state.isOverlayVisible} />
+            </div>
+          </section>
+        )}
       </div>
+    );
+  }
+}
 
-      <HrLine />
+List.propTypes = {
+  match: PropTypes.node.isRequired,
+  load: PropTypes.func.isRequired,
+  list: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  currency: PropTypes.string.isRequired,
+};
 
-      <CategoryTitle>Single Breasted Trench Coats</CategoryTitle>
-      <div className="row">
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Online Exclusive"
-            coloursAmount={7}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="The Westminster – Long Heritage Trench Coat"
-          />
-        </div>
+const mapStateToProps = state => ({
+  list: state.products.list.content,
+  isLoading: state.products.list.isLoading,
+  currency: state.uiParams.location.currency,
+});
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
+const mapDispatchToProps = dispatch => ({
+  load: path => dispatch(loadList(path)),
+});
 
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={3}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-
-        <div className="col-xs-6 col-md-3">
-          <Card
-            to="/men/clothing/long-cotton-gabardine-id39428531"
-            title="The Westminster – Long Heritage Trench Coat"
-            label="Relaxed fit"
-            coloursAmount={1}
-            price={100000}
-            src="https://assets.burberry.com/is/image/Burberryltd/3f123eb975f37da85e355636079a3cbf29b02e8a.jpg?$BBY_V2_ML_3X4$&hei=866&wid=650"
-            alt="Long Heritage Trench Coat"
-          />
-        </div>
-      </div>
-    </div>
-    <Loader>
-      <LoadTitle>Showing 8 of 17</LoadTitle>
-      <LoadBtn>View 9 more</LoadBtn>
-    </Loader>
-  </div>);
+export default connect(mapStateToProps, mapDispatchToProps)(List);
