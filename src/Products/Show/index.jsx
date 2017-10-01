@@ -15,6 +15,7 @@ import SimilarOffers from './SimilarOffers';
 import loadProduct from '../actions/loadProduct';
 import loadList from '../actions/loadList';
 import Spinner from '../../common/Spinner';
+import NotFound from '../../NotFound';
 
 const Card = styled.div`
   background-color: transparent;
@@ -76,11 +77,12 @@ class Show extends Component {
   }
 
   render() {
+    if (this.props.error === 404) return <NotFound />;
+
     const { product, isLoading } = this.props;
     const multiPrice = product.multiCurrencyPrices || {};
     const priceRub = multiPrice.RUB || {};
     const recommendedProducts = this.props.list.items || [];
-
     return (
       <div>
         {isLoading ? (
@@ -152,6 +154,11 @@ Show.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   colour: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
+  error: PropTypes.number,
+};
+
+Show.defaultProps = {
+  error: null,
 };
 
 const mapStateToProps = state => ({
@@ -160,6 +167,7 @@ const mapStateToProps = state => ({
   isLoading: state.products.show.isLoading,
   colour: state.products.show.colour,
   currency: state.uiParams.location.currency,
+  error: state.products.show.error,
 });
 
 const mapDispatchToProps = dispatch => ({

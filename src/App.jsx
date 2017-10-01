@@ -12,6 +12,7 @@ import Header from './Header';
 import Product from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
+import NotFound from './NotFound';
 
 addLocaleData(ruLocaleData);
 
@@ -66,9 +67,9 @@ class App extends Component {
 
                   <Switch>
                     <Redirect exact from="/" to="/men/suits" />
-                    <Route exact path="/:category" component={List} />
                     <Route exact path="/:category/:section" component={List} />
                     <Route exact path="/:category/:section/:id" component={Product} />
+                    <Route path="*" component={NotFound} />
                   </Switch>
 
                   <Footer />
