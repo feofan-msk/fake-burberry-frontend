@@ -17,7 +17,7 @@ const initialState = {
 
 const list = handleActions(
   {
-    [LOAD_LIST_STARTED]: state => ({ ...state, isLoading: true }),
+    [LOAD_LIST_STARTED]: state => ({ ...state, isLoading: true, error: null }),
 
     [LOAD_LIST_SUCCEEDED]: (state, action) => ({
       ...state,
@@ -32,7 +32,7 @@ const list = handleActions(
 
 const show = handleActions(
   {
-    [LOAD_PRODUCT_STARTED]: state => ({ ...state, isLoading: true, colour: 0 }),
+    [LOAD_PRODUCT_STARTED]: state => ({ ...state, isLoading: true, colour: 0, error: null }),
 
     [LOAD_PRODUCT_SUCCEEDED]: (state, action) => ({
       ...state,

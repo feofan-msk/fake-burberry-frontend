@@ -9,6 +9,7 @@ import Card from '../Card';
 import LoadBtn from './LoadBtn';
 import loadList from '../actions/loadList';
 import Spinner from '../../common/Spinner';
+import NotFound from '../../NotFound';
 
 const CategoryTitle = styled.h2`
   padding: ${props => (!props.children ? '1rem' : '2rem 0 1rem')};
@@ -79,6 +80,8 @@ class List extends Component {
   };
 
   render() {
+    if (this.props.error === 404) return <NotFound />;
+
     const { list, isLoading } = this.props;
     return (
       <div>
@@ -143,12 +146,18 @@ List.propTypes = {
   list: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
   currency: PropTypes.string.isRequired,
+  error: PropTypes.number,
+};
+
+List.defaultProps = {
+  error: null,
 };
 
 const mapStateToProps = state => ({
   list: state.products.list.content,
   isLoading: state.products.list.isLoading,
   currency: state.uiParams.location.currency,
+  error: state.products.list.error,
 });
 
 const mapDispatchToProps = dispatch => ({
