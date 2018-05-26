@@ -18,7 +18,7 @@ function loadProductFailed(error) {
 
 export default function loadProduct(
   path,
-  URL = `https://erodionov-burberry-fake-api.now.sh/${path}`,
+  URL = `https://feofan-burberry-fake-api.now.sh/${path}`,
 ) {
   return (dispatch) => {
     dispatch({
