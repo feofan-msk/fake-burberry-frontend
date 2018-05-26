@@ -16,7 +16,10 @@ function loadListFailed(error) {
   };
 }
 
-export default function loadList(path, URL = `https://erodionov-burberry-fake-api.now.sh/${path}`) {
+export default function loadList(
+  path,
+  URL = `https://feofan-burberry-fake-api.now.sh/${path}`,
+) {
   return (dispatch) => {
     dispatch({
       type: LOAD_LIST_STARTED,
