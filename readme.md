@@ -1,34 +1,44 @@
-# Fake Burberry Store Frontend
+# Burberry Store
 
-[david-img]:    https://img.shields.io/david/feofan-msk/fake-burberry-frontend.svg?style=flat-square
-[david]:        https://david-dm.org/feofan-msk/fake-burberry-frontend
+A Burberry website implementation, which was created as a part of [Evgeny Rodionov's](https://github.com/evgenyrodionov) frontend course
 
-[![David Dependencies Status][david-img]][david]
+## Motivation
 
-A fake Burberry website implementation, which was created as a part of [Evgeny Rodionov's](https://github.com/evgenyrodionov) frontend [KURSKURSKURS](https://kurskurskurs.erodionov.ru/)
+Learn to copy real-world interface, using React, Redux and [API](https://github.com/feofan-msk/fake-burberry-api)
 
-### Deploy version
-You can visit  it [here](https://dfeofan-burberry-fake-shop-for-study.now.sh)
+## Screenshots
 
-### Screenshots
-![desktop_mobile_product](https://user-images.githubusercontent.com/30575877/31047246-86df07e4-a60f-11e7-9cb7-1162372ce56a.jpg)
-![mobile_product](https://user-images.githubusercontent.com/30575877/31047245-86dbb288-a60f-11e7-993e-56188d84bd3f.jpg)
-![tablet_list](https://user-images.githubusercontent.com/30575877/31047247-86f6591c-a60f-11e7-98a1-2cf9f20c035e.jpg)
+![desktop_mobile_product](https://user-images.githubusercontent.com/30575877/53789814-6cf09200-3f36-11e9-82b8-4c868452e539.jpg)
+![mobile_product](https://user-images.githubusercontent.com/30575877/53789815-6d892880-3f36-11e9-85af-f1b6a18b2575.jpg)
 
-### Used technologies
+## Features
+
+- Price is shown according to chosen country
+
+## Installation
+
+    git clone git@github.com:feofan-msk/hacker-news-search.git
+    cd hacker-news-search
+    npm install
+    npm start
+    visit http://localhost:3000
+
+## Built with
+
+### Prod:
+
 - [React](https://github.com/facebook/react) ⚛️
 - [React Router](https://github.com/ReactTraining/react-router) 🔱
-- [Styled Components](https://github.com/styled-components/styled-components) 💅
-- [React intl](https://github.com/yahoo/react-intl) 🌎
 - [Redux](https://github.com/reactjs/redux) 📦
+- [Styled Components](https://github.com/styled-components/styled-components) 💅
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### Dev:
 
-### Dev tools:
 - [eslint](https://eslint.org/) with [airbnb config](https://github.com/airbnb/javascript)
 - [husky](https://github.com/typicode/husky)
 - [travis-ci](https://travis-ci.org/)
 - [now](https://zeit.co/now)
 
-### Disclaimer
+## Disclaimer
+
 For educational use only. All images/logos/etc. used in this project belong to **Burberry Group plc**
