@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.button`
+  cursor: pointer;
   height: 3rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
