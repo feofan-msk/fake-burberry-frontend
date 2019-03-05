@@ -3784,10 +3784,10 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoek@^5.0.3:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.4.tgz#0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
-  integrity sha512-Alr4ZQgoMlnere5FZJsIyfIjORBqZll5POhDsF4q64dPuJR6rNxXdDxtHSQq8OXRurhmx+PWYEE8bXRROY8h0w==
+hoek@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.3.tgz#b71d40d943d0a95da01956b547f83c4a5b4a34ac"
+  integrity sha512-Bmr56pxML1c9kU+NS51SMFkiVQAb+9uFfXwyqR2tn4w2FPvmPt65eZ9aCcEfRXd9G74HkZnILC6p967pED4aiw==
 
 hoist-non-react-statics@^1.2.0:
   version "1.2.0"
@@ -5648,11 +5648,6 @@ normalize.css@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
   integrity sha1-q/sd2CRwZ04DIrU86xqvQSk45L8=
-
-now@^7.3.1:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/now/-/now-7.4.0.tgz#2da0d236fd6d6d9277e9c5cf4ba87ea455788627"
-  integrity sha512-+5/Kfcep2ajGi5cxMt3z6SGu3T3WOtA0oFoLpcfedIi1CC/ABWnoKOZI4vYOvcv27UKjDDiswoNeJdGISaAujw==
 
 npm-bundled@^1.0.1:
   version "1.0.6"
