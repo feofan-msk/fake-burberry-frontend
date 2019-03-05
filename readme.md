@@ -4,7 +4,7 @@ A Burberry website implementation, which was created as a part of [Evgeny Rodion
 
 ## Motivation
 
-Learn to copy real-world interface, using React, Redux and [API](https://github.com/feofan-msk/burberry-fake-api)
+Learn to copy real-world interface, using React, Redux and [API](https://github.com/feofan-msk/fake-burberry-api)
 
 ## Screenshots
 
